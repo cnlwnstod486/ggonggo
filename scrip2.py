@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 from datetime import datetime, timedelta, timezone
 from urllib.parse import urljoin
+import time
 import re
 import json
 import os
@@ -103,23 +104,18 @@ def normalize_alio_date(date_text):
 
 
 def fetch_alio_jobs(days_back=2, area_code="R8018"):
+    """
+    알리오 채용공고 수집
+
+    - R8018 지역 필터 유지
+    - 최근 days_back일 범위 검색
+    - 1페이지부터 자동으로 여러 페이지 수집
+    - 페이지별 최대 50개
+    - 네트워크 오류 시 페이지별 3회 재시도
+    """
 
     today = now_kst()
     start_date = today - timedelta(days=days_back)
-
-    params = {
-        "pageNo": "1",
-        "s_date": format_date(start_date),
-        "e_date": format_date(today),
-        "area": area_code,
-        "org_type": "",
-        "org_name": "",
-        "search_type": "",
-        "keyword": "",
-        "order": "REG_DATE",
-        "sort": "DESC",
-        "pageSet": "50",
-    }
 
     print("\n" + "=" * 80)
     print("📡 알리오(Alio) 크롤링 중...")
@@ -128,104 +124,257 @@ def fetch_alio_jobs(days_back=2, area_code="R8018"):
     session = requests.Session()
     session.headers.update(HEADERS)
 
-    # 최대 3회 재시도
-    for attempt in range(1, 4):
+    all_html = []
 
-        try:
+    page_no = 1
+    max_pages = 50
 
-            print(
-                f"🔄 알리오 요청 시도 "
-                f"{attempt}/3"
-            )
+    while page_no <= max_pages:
 
-            response = session.get(
-                ALIO_BASE_URL,
-                params=params,
-                timeout=(15, 60)
-            )
+        params = {
+            "pageNo": str(page_no),
 
-            print(
-                f"🌐 HTTP 상태: "
-                f"{response.status_code}"
-            )
+            "s_date": format_date(start_date),
+            "e_date": format_date(today),
 
-            response.raise_for_status()
+            # ⭐ 네가 설정한 지역코드 그대로 유지
+            "area": area_code,
 
-            response.encoding = "utf-8"
+            "org_type": "",
+            "org_name": "",
+            "search_type": "",
+            "keyword": "",
 
-            print("✅ 알리오 응답 성공")
+            "order": "REG_DATE",
+            "sort": "DESC",
 
-            return response.text
+            # 페이지당 50개
+            "pageSet": "50",
+        }
 
-        except requests.exceptions.Timeout as e:
+        page_html = None
 
-            print(
-                f"⏰ 알리오 요청 시간 초과 "
-                f"({attempt}/3)"
-            )
+        for attempt in range(1, 4):
 
-            print(f"   {e}")
+            try:
+
+                print(
+                    f"🔄 알리오 페이지 {page_no} "
+                    f"요청 ({attempt}/3)"
+                )
+
+                response = session.get(
+                    ALIO_BASE_URL,
+                    params=params,
+                    timeout=(15, 60)
+                )
+
+                print(
+                    f"   HTTP 상태: "
+                    f"{response.status_code}"
+                )
+
+                response.raise_for_status()
+
+                response.encoding = "utf-8"
+
+                page_html = response.text
+
+                # 빈 응답 방지
+                if not page_html.strip():
+
+                    raise ValueError(
+                        "응답 HTML이 비어있습니다."
+                    )
+
+                print(
+                    f"   ✅ 페이지 {page_no} 응답 성공"
+                )
+
+                break
+
+            except requests.exceptions.Timeout as e:
+
+                print(
+                    f"   ⏰ Timeout "
+                    f"({attempt}/3): {e}"
+                )
+
+            except requests.exceptions.ConnectionError as e:
+
+                print(
+                    f"   🌐 ConnectionError "
+                    f"({attempt}/3): {e}"
+                )
+
+            except requests.RequestException as e:
+
+                print(
+                    f"   ❌ Request 오류 "
+                    f"({attempt}/3): {e}"
+                )
+
+            except Exception as e:
+
+                print(
+                    f"   ❌ 예상치 못한 오류 "
+                    f"({attempt}/3): {e}"
+                )
 
             if attempt < 3:
-                print("   잠시 후 다시 시도합니다...")
 
-        except requests.exceptions.ConnectionError as e:
+                time.sleep(attempt * 2)
+
+        # --------------------------------------------------------
+        # 페이지 요청 최종 실패
+        # --------------------------------------------------------
+
+        if page_html is None:
 
             print(
-                f"🌐 알리오 연결 오류 "
-                f"({attempt}/3)"
+                f"❌ 알리오 페이지 {page_no} "
+                f"최종 요청 실패"
             )
 
-            print(f"   {e}")
+            # 한 페이지 실패했다고 전체를 버리지 않고
+            # 지금까지 가져온 페이지는 유지
+            break
 
-            if attempt < 3:
-                print("   잠시 후 다시 시도합니다...")
+        all_html.append(page_html)
 
-        except requests.RequestException as e:
+        # --------------------------------------------------------
+        # 현재 페이지에서 공고 개수 확인
+        # --------------------------------------------------------
+
+        soup = BeautifulSoup(
+            page_html,
+            "html.parser"
+        )
+
+        target_table = None
+
+        required_headers = [
+            "채용제목",
+            "기관명",
+            "근무지",
+            "고용형태",
+            "등록일",
+            "마감일",
+            "상태",
+        ]
+
+        for table in soup.find_all("table"):
+
+            headers = [
+                th.get_text(
+                    " ",
+                    strip=True
+                )
+                for th in table.find_all("th")
+            ]
+
+            if all(
+                header in headers
+                for header in required_headers
+            ):
+
+                target_table = table
+                break
+
+        if target_table is None:
 
             print(
-                f"❌ 알리오 요청 실패 "
-                f"({attempt}/3)"
-            )
-
-            print(f"   {e}")
-
-            if attempt < 3:
-                print("   잠시 후 다시 시도합니다...")
-
-        except Exception as e:
-
-            print(
-                f"❌ 알리오 예상치 못한 오류: {e}"
+                f"⚠️ 페이지 {page_no}에서 "
+                f"채용 테이블을 찾지 못했습니다."
             )
 
             break
 
-    print()
-    print("⚠️ 알리오 크롤링 실패")
-    print("   사람인/잡코리아 크롤링은 계속 진행합니다.")
+        rows = []
 
-    return None
+        for row in target_table.find_all("tr"):
+
+            if row.find("th"):
+                continue
+
+            tds = row.find_all("td")
+
+            if tds:
+                rows.append(row)
+
+        print(
+            f"   📄 페이지 {page_no}: "
+            f"{len(rows)}개 행"
+        )
+
+        # --------------------------------------------------------
+        # 더 이상 공고가 없으면 종료
+        #
+        # pageSet=50이므로 50개보다 적으면 마지막 페이지일
+        # 가능성이 매우 높음.
+        # --------------------------------------------------------
+
+        if len(rows) < 50:
+
+            print(
+                f"   🏁 마지막 페이지로 판단 "
+                f"(행 {len(rows)}개)"
+            )
+
+            break
+
+        page_no += 1
+
+        # 서버에 너무 빠르게 연속 요청하지 않음
+        time.sleep(0.5)
+
+    print()
+    print(
+        f"📦 알리오 총 {len(all_html)}페이지 수집"
+    )
+
+    if not all_html:
+
+        print(
+            "❌ 알리오 페이지를 하나도 가져오지 못했습니다."
+        )
+
+        return None
+
+    # 여러 페이지를 하나의 HTML로 합치기 위해
+    # 페이지 HTML 목록을 반환
+    return all_html
+
 
 
 def parse_alio_jobs(
-    html_content,
+    html_contents,
     filter_today_only=True
 ):
 
-    if not html_content:
+    if not html_contents:
         return []
 
-    soup = BeautifulSoup(
-        html_content,
-        "html.parser"
+    # 기존 코드와의 호환성을 위해
+    # 문자열 하나가 들어와도 처리
+    if isinstance(html_contents, str):
+
+        html_contents = [
+            html_contents
+        ]
+
+    today = now_kst().strftime(
+        "%Y.%m.%d"
     )
 
-    today = now_kst().strftime("%Y.%m.%d")
+    print("\n" + "=" * 80)
+    print("🔎 알리오 공고 파싱")
+    print("=" * 80)
 
-    tables = soup.find_all("table")
+    jobs = []
 
-    target_table = None
+    # 중복 방지
+    seen_links = set()
 
     required_headers = [
         "채용제목",
@@ -237,224 +386,357 @@ def parse_alio_jobs(
         "상태",
     ]
 
-    print(
-        f"📋 알리오 테이블 개수: {len(tables)}"
-    )
+    for page_index, html_content in enumerate(
+        html_contents,
+        start=1
+    ):
 
-    for table in tables:
+        print(
+            f"\n📄 페이지 {page_index} 파싱"
+        )
 
-        headers = [
-            th.get_text(" ", strip=True)
-            for th in table.find_all("th")
-        ]
+        soup = BeautifulSoup(
+            html_content,
+            "html.parser"
+        )
 
-        if all(
-            header in headers
-            for header in required_headers
-        ):
+        tables = soup.find_all("table")
 
-            target_table = table
+        target_table = None
+
+        for table in tables:
+
+            headers = [
+                th.get_text(
+                    " ",
+                    strip=True
+                )
+                for th in table.find_all("th")
+            ]
+
+            if all(
+                header in headers
+                for header in required_headers
+            ):
+
+                target_table = table
+
+                print(
+                    "   ✅ 채용공고 테이블 발견"
+                )
+
+                break
+
+        if target_table is None:
 
             print(
-                "✅ 알리오 채용공고 테이블 발견"
+                "   ⚠️ 채용공고 테이블 없음"
             )
 
-            break
-
-    if target_table is None:
-
-        print(
-            "⚠️ 알리오 채용공고 테이블을 찾지 못했습니다."
-        )
-
-        return []
-
-    header_row = target_table.find("tr")
-
-    headers = [
-        th.get_text(" ", strip=True)
-        for th in header_row.find_all("th")
-    ]
-
-    try:
-
-        title_idx = headers.index("채용제목")
-        agency_idx = headers.index("기관명")
-        location_idx = headers.index("근무지")
-        employment_idx = headers.index("고용형태")
-        reg_date_idx = headers.index("등록일")
-        deadline_idx = headers.index("마감일")
-        status_idx = headers.index("상태")
-
-    except ValueError as e:
-
-        print(
-            f"❌ 알리오 컬럼 확인 실패: {e}"
-        )
-
-        return []
-
-    rows = target_table.find_all("tr")
-
-    jobs = []
-
-    for row in rows:
-
-        if row.find("th"):
             continue
 
-        tds = row.find_all("td")
+        header_row = target_table.find("tr")
 
-        if not tds:
+        if not header_row:
             continue
 
-        max_idx = max(
-            title_idx,
-            agency_idx,
-            location_idx,
-            employment_idx,
-            reg_date_idx,
-            deadline_idx,
-            status_idx
-        )
-
-        if len(tds) <= max_idx:
-            continue
-
-        try:
-
-            title_td = tds[title_idx]
-
-            job_title = title_td.get_text(
+        headers = [
+            th.get_text(
                 " ",
                 strip=True
             )
+            for th in header_row.find_all("th")
+        ]
 
-            if not job_title:
-                continue
+        try:
 
-            title_link = title_td.find(
-                "a",
-                href=True
+            title_idx = headers.index(
+                "채용제목"
             )
 
-            job_link = ""
+            agency_idx = headers.index(
+                "기관명"
+            )
 
-            if title_link:
+            location_idx = headers.index(
+                "근무지"
+            )
 
-                job_link = title_link.get(
-                    "href",
-                    ""
+            employment_idx = headers.index(
+                "고용형태"
+            )
+
+            reg_date_idx = headers.index(
+                "등록일"
+            )
+
+            deadline_idx = headers.index(
+                "마감일"
+            )
+
+            status_idx = headers.index(
+                "상태"
+            )
+
+        except ValueError as e:
+
+            print(
+                f"   ❌ 컬럼 확인 실패: {e}"
+            )
+
+            continue
+
+        rows = target_table.find_all("tr")
+
+        page_job_count = 0
+
+        for row in rows:
+
+            if row.find("th"):
+                continue
+
+            tds = row.find_all("td")
+
+            if not tds:
+                continue
+
+            max_idx = max(
+                title_idx,
+                agency_idx,
+                location_idx,
+                employment_idx,
+                reg_date_idx,
+                deadline_idx,
+                status_idx
+            )
+
+            if len(tds) <= max_idx:
+                continue
+
+            try:
+
+                # ------------------------------------------------
+                # 제목
+                # ------------------------------------------------
+
+                title_td = tds[
+                    title_idx
+                ]
+
+                job_title = title_td.get_text(
+                    " ",
+                    strip=True
                 )
 
-            if not job_link:
+                if not job_title:
+                    continue
 
-                any_link = row.find(
+                # ------------------------------------------------
+                # 링크
+                # ------------------------------------------------
+
+                title_link = title_td.find(
                     "a",
                     href=True
                 )
 
-                if any_link:
+                job_link = ""
 
-                    job_link = any_link.get(
+                if title_link:
+
+                    job_link = title_link.get(
                         "href",
                         ""
                     )
 
-            agency = tds[agency_idx].get_text(
-                " ",
-                strip=True
-            )
+                if not job_link:
 
-            location = tds[location_idx].get_text(
-                " ",
-                strip=True
-            )
+                    any_link = row.find(
+                        "a",
+                        href=True
+                    )
 
-            employment_type = tds[
-                employment_idx
-            ].get_text(
-                " ",
-                strip=True
-            )
+                    if any_link:
 
-            reg_date_raw = tds[
-                reg_date_idx
-            ].get_text(
-                " ",
-                strip=True
-            )
+                        job_link = any_link.get(
+                            "href",
+                            ""
+                        )
 
-            reg_date = normalize_alio_date(
-                reg_date_raw
-            )
+                job_link = urljoin(
+                    ALIO_BASE_URL,
+                    job_link
+                )
 
-            if filter_today_only:
+                # ------------------------------------------------
+                # 링크 없는 공고도 제목 기준으로 중복 처리
+                # ------------------------------------------------
 
-                if reg_date != today:
+                unique_key = (
+                    job_link
+                    if job_link
+                    else job_title
+                )
+
+                if unique_key in seen_links:
                     continue
 
-            deadline_raw = tds[
-                deadline_idx
-            ].get_text(
-                " ",
-                strip=True
-            )
+                # ------------------------------------------------
+                # 기관
+                # ------------------------------------------------
 
-            deadline_match = re.search(
-                r"\d{2,4}[./-]\d{1,2}[./-]\d{1,2}",
-                deadline_raw
-            )
+                agency = tds[
+                    agency_idx
+                ].get_text(
+                    " ",
+                    strip=True
+                )
 
-            if deadline_match:
+                # ------------------------------------------------
+                # 근무지
+                # ------------------------------------------------
 
-                deadline = deadline_match.group(0)
+                location = tds[
+                    location_idx
+                ].get_text(
+                    " ",
+                    strip=True
+                )
 
-            else:
+                # ------------------------------------------------
+                # 고용형태
+                # ------------------------------------------------
 
-                deadline = deadline_raw
+                employment_type = tds[
+                    employment_idx
+                ].get_text(
+                    " ",
+                    strip=True
+                )
 
-            status = tds[
-                status_idx
-            ].get_text(
-                " ",
-                strip=True
-            )
+                # ------------------------------------------------
+                # 등록일
+                # ------------------------------------------------
 
-            job_link = urljoin(
-                "https://job.alio.go.kr",
-                job_link
-            )
+                reg_date_raw = tds[
+                    reg_date_idx
+                ].get_text(
+                    " ",
+                    strip=True
+                )
 
-            jobs.append({
+                reg_date = normalize_alio_date(
+                    reg_date_raw
+                )
 
-                "site": "alio",
-                "site_name": "알리오",
-                "company": agency,
-                "title": job_title,
-                "type": "공공기관 채용",
-                "location": location,
-                "career": "정보 없음",
-                "education": "정보 없음",
-                "employment": employment_type,
-                "deadline": deadline,
-                "reg_date": reg_date,
-                "status": status,
-                "link": job_link
+                # ------------------------------------------------
+                # 오늘 등록만
+                # ------------------------------------------------
 
-            })
+                if filter_today_only:
 
-        except Exception as e:
+                    if reg_date != today:
 
-            print(
-                f"⚠️ 알리오 파싱 오류: {e}"
-            )
+                        continue
 
+                # ------------------------------------------------
+                # 마감일
+                # ------------------------------------------------
+
+                deadline_raw = tds[
+                    deadline_idx
+                ].get_text(
+                    " ",
+                    strip=True
+                )
+
+                deadline_match = re.search(
+                    r"\d{2,4}[./-]\d{1,2}[./-]\d{1,2}",
+                    deadline_raw
+                )
+
+                if deadline_match:
+
+                    deadline = (
+                        deadline_match.group(0)
+                    )
+
+                else:
+
+                    deadline = deadline_raw
+
+                # ------------------------------------------------
+                # 상태
+                # ------------------------------------------------
+
+                status = tds[
+                    status_idx
+                ].get_text(
+                    " ",
+                    strip=True
+                )
+
+                # ------------------------------------------------
+                # 저장
+                # ------------------------------------------------
+
+                jobs.append({
+
+                    "site": "alio",
+
+                    "site_name": "알리오",
+
+                    "company": agency,
+
+                    "title": job_title,
+
+                    "type": "공공기관 채용",
+
+                    "location": location,
+
+                    "career": "정보 없음",
+
+                    "education": "정보 없음",
+
+                    "employment": employment_type,
+
+                    "deadline": deadline,
+
+                    "reg_date": reg_date,
+
+                    "status": status,
+
+                    "link": job_link
+
+                })
+
+                seen_links.add(
+                    unique_key
+                )
+
+                page_job_count += 1
+
+            except Exception as e:
+
+                print(
+                    f"   ⚠️ 알리오 파싱 오류: {e}"
+                )
+
+        print(
+            f"   🎯 페이지 {page_index}: "
+            f"{page_job_count}개"
+        )
+
+    print()
+    print("=" * 80)
     print(
-        f"🎯 알리오 결과: {len(jobs)}개"
+        f"🎯 알리오 최종 결과: "
+        f"{len(jobs)}개"
     )
+    print("=" * 80)
 
     return jobs
+
 
 
 # ============================================================================
