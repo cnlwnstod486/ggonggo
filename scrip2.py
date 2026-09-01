@@ -107,52 +107,62 @@ def fetch_alio_jobs(days_back=2, area_code="R8018"):
     """
     알리오 채용공고 수집
 
-    - R8018 지역 필터 유지
-    - 최근 days_back일 범위 검색
-    - 1페이지부터 자동으로 여러 페이지 수집
-    - 페이지별 최대 50개
-    - 네트워크 오류 시 페이지별 3회 재시도
+    - R8018 지역 조건 유지
+    - 날짜 자동 계산
+    - pageNo 자동 증가
+    - pageSet=10
+    - 마지막 페이지까지 수집
+    - 요청 실패 시 3회 재시도
     """
 
     today = now_kst()
     start_date = today - timedelta(days=days_back)
+
+    s_date = start_date.strftime("%Y.%m.%d")
+    e_date = today.strftime("%Y.%m.%d")
 
     print("\n" + "=" * 80)
     print("📡 알리오(Alio) 크롤링 중...")
     print("=" * 80)
 
     session = requests.Session()
-    session.headers.update(HEADERS)
+
+    session.headers.update({
+        "User-Agent": (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 "
+            "(KHTML, like Gecko) "
+            "Chrome/131.0.0.0 Safari/537.36"
+        ),
+        "Referer": "https://job.alio.go.kr/",
+    })
 
     all_html = []
 
     page_no = 1
-    max_pages = 50
+    page_set = 10
 
-    while page_no <= max_pages:
+    while True:
 
         params = {
-            "pageNo": str(page_no),
-
-            "s_date": format_date(start_date),
-            "e_date": format_date(today),
-
-            # ⭐ 네가 설정한 지역코드 그대로 유지
+            "pageNo": page_no,
+            "s_date": s_date,
+            "e_date": e_date,
             "area": area_code,
-
             "org_type": "",
             "org_name": "",
             "search_type": "",
             "keyword": "",
-
             "order": "REG_DATE",
             "sort": "DESC",
-
-            # 페이지당 50개
-            "pageSet": "50",
+            "pageSet": page_set,
         }
 
-        page_html = None
+        html_content = None
+
+        # --------------------------------------------------------
+        # 페이지 요청
+        # --------------------------------------------------------
 
         for attempt in range(1, 4):
 
@@ -164,104 +174,65 @@ def fetch_alio_jobs(days_back=2, area_code="R8018"):
                 )
 
                 response = session.get(
-                    ALIO_BASE_URL,
+                    "https://job.alio.go.kr/recruit.do",
                     params=params,
-                    timeout=(15, 60)
-                )
-
-                print(
-                    f"   HTTP 상태: "
-                    f"{response.status_code}"
+                    timeout=(30, 60)
                 )
 
                 response.raise_for_status()
 
                 response.encoding = "utf-8"
 
-                page_html = response.text
+                html_content = response.text
 
-                # 빈 응답 방지
-                if not page_html.strip():
+                if not html_content.strip():
 
-                    raise ValueError(
-                        "응답 HTML이 비어있습니다."
+                    raise RuntimeError(
+                        "응답 HTML이 비어있음"
                     )
 
                 print(
-                    f"   ✅ 페이지 {page_no} 응답 성공"
+                    f"   ✅ 페이지 {page_no} 수신 성공"
                 )
 
                 break
 
-            except requests.exceptions.Timeout as e:
-
-                print(
-                    f"   ⏰ Timeout "
-                    f"({attempt}/3): {e}"
-                )
-
-            except requests.exceptions.ConnectionError as e:
-
-                print(
-                    f"   🌐 ConnectionError "
-                    f"({attempt}/3): {e}"
-                )
-
-            except requests.RequestException as e:
-
-                print(
-                    f"   ❌ Request 오류 "
-                    f"({attempt}/3): {e}"
-                )
-
             except Exception as e:
 
                 print(
-                    f"   ❌ 예상치 못한 오류 "
-                    f"({attempt}/3): {e}"
+                    f"   ⚠️ 요청 실패: {e}"
                 )
 
-            if attempt < 3:
-
-                time.sleep(attempt * 2)
+                if attempt < 3:
+                    time.sleep(attempt * 2)
 
         # --------------------------------------------------------
-        # 페이지 요청 최종 실패
+        # 3회 모두 실패
         # --------------------------------------------------------
 
-        if page_html is None:
+        if html_content is None:
 
             print(
                 f"❌ 알리오 페이지 {page_no} "
-                f"최종 요청 실패"
+                f"최종 실패"
             )
 
-            # 한 페이지 실패했다고 전체를 버리지 않고
-            # 지금까지 가져온 페이지는 유지
+            # 지금까지 성공한 페이지가 있다면
+            # 그 페이지들은 그대로 사용
             break
 
-        all_html.append(page_html)
+        all_html.append(html_content)
 
         # --------------------------------------------------------
-        # 현재 페이지에서 공고 개수 확인
+        # 현재 페이지에 실제 공고가 몇 개인지 확인
         # --------------------------------------------------------
 
         soup = BeautifulSoup(
-            page_html,
+            html_content,
             "html.parser"
         )
 
-        target_table = None
-
-        required_headers = [
-            "채용제목",
-            "기관명",
-            "근무지",
-            "고용형태",
-            "등록일",
-            "마감일",
-            "상태",
-        ]
+        rows = []
 
         for table in soup.find_all("table"):
 
@@ -273,59 +244,41 @@ def fetch_alio_jobs(days_back=2, area_code="R8018"):
                 for th in table.find_all("th")
             ]
 
-            if all(
-                header in headers
-                for header in required_headers
-            ):
+            if "채용제목" in headers:
 
-                target_table = table
+                for tr in table.find_all("tr"):
+
+                    if tr.find("th"):
+                        continue
+
+                    tds = tr.find_all("td")
+
+                    if tds:
+                        rows.append(tr)
+
                 break
-
-        if target_table is None:
-
-            print(
-                f"⚠️ 페이지 {page_no}에서 "
-                f"채용 테이블을 찾지 못했습니다."
-            )
-
-            break
-
-        rows = []
-
-        for row in target_table.find_all("tr"):
-
-            if row.find("th"):
-                continue
-
-            tds = row.find_all("td")
-
-            if tds:
-                rows.append(row)
 
         print(
             f"   📄 페이지 {page_no}: "
-            f"{len(rows)}개 행"
+            f"{len(rows)}개 공고"
         )
 
         # --------------------------------------------------------
-        # 더 이상 공고가 없으면 종료
-        #
-        # pageSet=50이므로 50개보다 적으면 마지막 페이지일
-        # 가능성이 매우 높음.
+        # 10개보다 적으면 마지막 페이지
         # --------------------------------------------------------
 
-        if len(rows) < 50:
+        if len(rows) < page_set:
 
             print(
-                f"   🏁 마지막 페이지로 판단 "
-                f"(행 {len(rows)}개)"
+                f"🏁 마지막 페이지: "
+                f"{page_no}페이지"
             )
 
             break
 
         page_no += 1
 
-        # 서버에 너무 빠르게 연속 요청하지 않음
+        # 너무 빠르게 요청하지 않음
         time.sleep(0.5)
 
     print()
@@ -333,16 +286,6 @@ def fetch_alio_jobs(days_back=2, area_code="R8018"):
         f"📦 알리오 총 {len(all_html)}페이지 수집"
     )
 
-    if not all_html:
-
-        print(
-            "❌ 알리오 페이지를 하나도 가져오지 못했습니다."
-        )
-
-        return None
-
-    # 여러 페이지를 하나의 HTML로 합치기 위해
-    # 페이지 HTML 목록을 반환
     return all_html
 
 
