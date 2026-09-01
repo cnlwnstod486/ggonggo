@@ -1,14 +1,20 @@
+맞아. 한국시간(KST) 00:00부터 3시간 간격으로 돌리려면 UTC 기준으로 전날 15시부터 잡아야 해.
+
+아래 전체 소스로 그대로 .github/workflows/...yml에 넣으면 돼.
+
 name: Daily Recruitment Update
 
 on:
   schedule:
-    # 한국시간 오전 9시
-    - cron: "0 0 * * *"
-    # 한국시간 오후 2시
-    - cron: "0 5 * * *"
-    # 한국시간 오후 6시
-    - cron: "0 9 * * *"
+    # 한국시간(KST) 기준
+    # 00:00, 03:00, 06:00, 09:00,
+    # 12:00, 15:00, 18:00, 21:00
+    #
+    # GitHub Actions는 UTC 기준이므로
+    # KST - 9시간으로 설정
+    - cron: "0 15,18,21,0,3,6,9,12 * * *"
 
+  # 수동 실행도 가능
   workflow_dispatch:
 
 permissions:
@@ -19,26 +25,32 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # GitHub 저장소 가져오기
       - name: Checkout
         uses: actions/checkout@v4
 
+      # Python 설치
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
+      # 필요한 패키지 설치
       - name: Install dependencies
         run: |
           pip install requests beautifulsoup4 playwright
           playwright install chromium
           playwright install-deps chromium
 
+      # 캘린더 스크래퍼 실행
       - name: Run calendar scraper
         run: python scrip.py
 
+      # 채용 스크래퍼 실행
       - name: Run recruitment scraper
         run: python scrip2.py
 
+      # 변경된 데이터 GitHub에 반영
       - name: Update website data
         run: |
           git config user.name "github-actions[bot]"
