@@ -1999,33 +1999,14 @@ function showDetails(date) {{
 
                 '<div class="recruit-header">' +
 
-                   '<div class="company">' +
-
-                    '<a href="' +
-                        escapeAttribute(
-                            item.url
-                        ) +
-                        '" target="_blank" rel="noopener">' +
-                
-                        escapeHtml(
-                            item.company
-                        ) +
-                
-                    "</a>" +
-                
+                '<div class="company">' +
+                    '<a href="' + escapeAttribute(item.url) + '" target="_blank" rel="noopener">' +
+                        escapeHtml(item.company) +
+                    '</a>' +
                     '<span class="company-type">' +
-                
-                        escapeHtml(
-                            item.get(
-                                "company_type",
-                                "정보 없음"
-                            )
-                        ) +
-                
-                    "</span>" +
-                
-                "</div>" +
-
+                        escapeHtml(item.get("company_type", "정보 없음")) +
+                    '</span>' +
+                '</div>' +
 
                     '<div class="status ' +
                         statusClass +
