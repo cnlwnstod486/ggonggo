@@ -4,9 +4,10 @@ on:
   schedule:
     # 한국시간 오전 9시
     - cron: "0 0 * * *"
-
-    # 한국시간 오후 5시
-    - cron: "0 8 * * *"
+    # 한국시간 오후 2시
+    - cron: "0 5 * * *"
+    # 한국시간 오후 6시
+    - cron: "0 9 * * *"
 
   workflow_dispatch:
 
