@@ -81,68 +81,136 @@ def normalize_alio_date(date_text):
 
         return f"{year:04d}.{month:02d}.{day:02d}"
 
-    match = re.search(
-        r"(\d{2})[./-](\d{1,2})[./-](\d{1,2})",
-        text
-    )
-
-    if match:
-
-        year = int(match.group(1))
-
-        if year <= 69:
-            year += 2000
-        else:
-            year += 1900
-
-        month = int(match.group(2))
-        day = int(match.group(3))
-
-        return f"{year:04d}.{month:02d}.{day:02d}"
-
     return text
 
 
-def fetch_alio_jobs(days_back=2, area_code="R8018"):
+def get_alio_rows(soup):
+    """
+    알리오 실제 HTML에서 공고 행을 찾는다.
+
+    헤더 인덱스를 이용하지 않고
+    '등록일' 날짜가 들어있는 실제 데이터 행을 찾는다.
+    """
+
+    rows = []
+
+    for tr in soup.find_all("tr"):
+
+        tds = tr.find_all(
+            "td",
+            recursive=False
+        )
+
+        if len(tds) < 5:
+            continue
+
+        row_text = tr.get_text(
+            " ",
+            strip=True
+        )
+
+        # 실제 공고 행에는 등록일이 들어있음
+        if not re.search(
+            r"\d{4}\.\d{2}\.\d{2}",
+            row_text
+        ):
+            continue
+
+        # 채용제목 링크가 있는 행만
+        links = tr.find_all(
+            "a",
+            href=True
+        )
+
+        if not links:
+            continue
+
+        rows.append(tr)
+
+    return rows
+
+
+def fetch_alio_jobs(
+    area_code="R8018"
+):
     """
     알리오 채용공고 수집
 
-    - R8018 지역 조건 유지
-    - 날짜 자동 계산
-    - pageNo 자동 증가
-    - pageSet=10
-    - 마지막 페이지까지 수집
-    - 요청 실패 시 3회 재시도
+    한국시간 기준:
+    오늘 ~ 3일 전까지 검색
+
+    예:
+    현재 KST = 2026.09.02
+    s_date = 2026.08.30
+    e_date = 2026.09.02
     """
 
-    today = now_kst()
-    start_date = today - timedelta(days=days_back)
+    now = now_kst()
 
-    s_date = start_date.strftime("%Y.%m.%d")
-    e_date = today.strftime("%Y.%m.%d")
+    end_date = now.date()
 
-    print("\n" + "=" * 80)
+    start_date = end_date - timedelta(days=3)
+
+    s_date = start_date.strftime(
+        "%Y.%m.%d"
+    )
+
+    e_date = end_date.strftime(
+        "%Y.%m.%d"
+    )
+
+    print()
+    print("=" * 80)
     print("📡 알리오(Alio) 크롤링 중...")
     print("=" * 80)
+
+    print(
+        f"📅 검색기간: {s_date} ~ {e_date}"
+    )
+
+    print(
+        f"📍 지역코드: {area_code}"
+    )
 
     session = requests.Session()
 
     session.headers.update({
         "User-Agent": (
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "Mozilla/5.0 "
+            "(Windows NT 10.0; Win64; x64) "
             "AppleWebKit/537.36 "
             "(KHTML, like Gecko) "
-            "Chrome/131.0.0.0 Safari/537.36"
+            "Chrome/131.0.0.0 "
+            "Safari/537.36"
         ),
-        "Referer": "https://job.alio.go.kr/",
+
+        "Accept": (
+            "text/html,application/xhtml+xml,"
+            "application/xml;q=0.9,"
+            "image/avif,image/webp,"
+            "*/*;q=0.8"
+        ),
+
+        "Accept-Language":
+            "ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7",
+
+        "Referer":
+            "https://job.alio.go.kr/"
     })
+
+    base_url = (
+        "https://job.alio.go.kr/recruit.do"
+    )
 
     all_html = []
 
     page_no = 1
+
     page_set = 10
 
-    while True:
+    max_pages = 50
+
+    while page_no <= max_pages:
 
         params = {
             "pageNo": page_no,
@@ -160,10 +228,6 @@ def fetch_alio_jobs(days_back=2, area_code="R8018"):
 
         html_content = None
 
-        # --------------------------------------------------------
-        # 페이지 요청
-        # --------------------------------------------------------
-
         for attempt in range(1, 4):
 
             try:
@@ -174,7 +238,7 @@ def fetch_alio_jobs(days_back=2, area_code="R8018"):
                 )
 
                 response = session.get(
-                    "https://job.alio.go.kr/recruit.do",
+                    base_url,
                     params=params,
                     timeout=(30, 60)
                 )
@@ -186,13 +250,18 @@ def fetch_alio_jobs(days_back=2, area_code="R8018"):
                 html_content = response.text
 
                 if not html_content.strip():
-
                     raise RuntimeError(
-                        "응답 HTML이 비어있음"
+                        "HTML 응답이 비어있습니다."
                     )
 
                 print(
-                    f"   ✅ 페이지 {page_no} 수신 성공"
+                    f"   HTTP 상태: "
+                    f"{response.status_code}"
+                )
+
+                print(
+                    f"   ✅ 페이지 {page_no} "
+                    f"수신 성공"
                 )
 
                 break
@@ -200,73 +269,91 @@ def fetch_alio_jobs(days_back=2, area_code="R8018"):
             except Exception as e:
 
                 print(
-                    f"   ⚠️ 요청 실패: {e}"
+                    f"   ⚠️ 요청 실패 "
+                    f"({attempt}/3): {e}"
                 )
 
                 if attempt < 3:
-                    time.sleep(attempt * 2)
-
-        # --------------------------------------------------------
-        # 3회 모두 실패
-        # --------------------------------------------------------
+                    time.sleep(
+                        attempt * 2
+                    )
 
         if html_content is None:
 
             print(
                 f"❌ 알리오 페이지 {page_no} "
-                f"최종 실패"
+                f"최종 요청 실패"
             )
 
-            # 지금까지 성공한 페이지가 있다면
-            # 그 페이지들은 그대로 사용
             break
 
-        all_html.append(html_content)
+        # HTML 저장
+        all_html.append(
+            html_content
+        )
 
-        # --------------------------------------------------------
-        # 현재 페이지에 실제 공고가 몇 개인지 확인
-        # --------------------------------------------------------
-
+        # 다음 페이지 존재 여부 확인
         soup = BeautifulSoup(
             html_content,
             "html.parser"
         )
 
+        # 실제 공고 행 확인
         rows = []
 
-        for table in soup.find_all("table"):
+        for tr in soup.find_all("tr"):
 
-            headers = [
-                th.get_text(
+            tds = tr.find_all(
+                "td",
+                recursive=False
+            )
+
+            if len(tds) != 9:
+                continue
+
+            cells = [
+                td.get_text(
                     " ",
                     strip=True
                 )
-                for th in table.find_all("th")
+                for td in tds
             ]
 
-            if "채용제목" in headers:
+            # 1번 셀 = 번호
+            if not cells[1].isdigit():
+                continue
 
-                for tr in table.find_all("tr"):
+            # 2번 셀 = 채용제목
+            if not cells[2]:
+                continue
 
-                    if tr.find("th"):
-                        continue
+            # 제목 링크
+            if not tr.find(
+                "a",
+                href=True
+            ):
+                continue
 
-                    tds = tr.find_all("td")
-
-                    if tds:
-                        rows.append(tr)
-
-                break
+            rows.append(tr)
 
         print(
             f"   📄 페이지 {page_no}: "
             f"{len(rows)}개 공고"
         )
 
-        # --------------------------------------------------------
-        # 10개보다 적으면 마지막 페이지
-        # --------------------------------------------------------
+        # 공고가 없으면 종료
+        if len(rows) == 0:
 
+            all_html.pop()
+
+            print(
+                f"🏁 페이지 {page_no} "
+                f"공고 없음 → 종료"
+            )
+
+            break
+
+        # 10개보다 적으면 마지막 페이지
         if len(rows) < page_set:
 
             print(
@@ -278,12 +365,12 @@ def fetch_alio_jobs(days_back=2, area_code="R8018"):
 
         page_no += 1
 
-        # 너무 빠르게 요청하지 않음
         time.sleep(0.5)
 
     print()
     print(
-        f"📦 알리오 총 {len(all_html)}페이지 수집"
+        f"📦 알리오 총 "
+        f"{len(all_html)}페이지 수집"
     )
 
     return all_html
@@ -291,51 +378,37 @@ def fetch_alio_jobs(days_back=2, area_code="R8018"):
 
 
 def parse_alio_jobs(
-    html_contents,
-    filter_today_only=True
+    html_contents
 ):
 
     if not html_contents:
         return []
 
-    # 기존 코드와의 호환성을 위해
-    # 문자열 하나가 들어와도 처리
-    if isinstance(html_contents, str):
-
+    if isinstance(
+        html_contents,
+        str
+    ):
         html_contents = [
             html_contents
         ]
 
-    today = now_kst().strftime(
-        "%Y.%m.%d"
-    )
-
-    print("\n" + "=" * 80)
+    print()
+    print("=" * 80)
     print("🔎 알리오 공고 파싱")
     print("=" * 80)
 
     jobs = []
 
-    # 중복 방지
-    seen_links = set()
-
-    required_headers = [
-        "채용제목",
-        "기관명",
-        "근무지",
-        "고용형태",
-        "등록일",
-        "마감일",
-        "상태",
-    ]
+    seen = set()
 
     for page_index, html_content in enumerate(
         html_contents,
         start=1
     ):
 
+        print()
         print(
-            f"\n📄 페이지 {page_index} 파싱"
+            f"📄 페이지 {page_index} 파싱"
         )
 
         soup = BeautifulSoup(
@@ -343,331 +416,148 @@ def parse_alio_jobs(
             "html.parser"
         )
 
-        tables = soup.find_all("table")
+        rows = []
 
-        target_table = None
+        for tr in soup.find_all("tr"):
 
-        for table in tables:
+            tds = tr.find_all(
+                "td",
+                recursive=False
+            )
 
-            headers = [
-                th.get_text(
+            if len(tds) != 9:
+                continue
+
+            cells = [
+                td.get_text(
                     " ",
                     strip=True
                 )
-                for th in table.find_all("th")
+                for td in tds
             ]
 
-            if all(
-                header in headers
-                for header in required_headers
+            if not cells[1].isdigit():
+                continue
+
+            if not cells[2]:
+                continue
+
+            if not tr.find(
+                "a",
+                href=True
             ):
+                continue
 
-                target_table = table
+            rows.append(tr)
 
-                print(
-                    "   ✅ 채용공고 테이블 발견"
-                )
+        print(
+            f"   🔎 실제 공고 행: "
+            f"{len(rows)}개"
+        )
 
-                break
-
-        if target_table is None:
-
-            print(
-                "   ⚠️ 채용공고 테이블 없음"
-            )
-
-            continue
-
-        header_row = target_table.find("tr")
-
-        if not header_row:
-            continue
-
-        headers = [
-            th.get_text(
-                " ",
-                strip=True
-            )
-            for th in header_row.find_all("th")
-        ]
-
-        try:
-
-            title_idx = headers.index(
-                "채용제목"
-            )
-
-            agency_idx = headers.index(
-                "기관명"
-            )
-
-            location_idx = headers.index(
-                "근무지"
-            )
-
-            employment_idx = headers.index(
-                "고용형태"
-            )
-
-            reg_date_idx = headers.index(
-                "등록일"
-            )
-
-            deadline_idx = headers.index(
-                "마감일"
-            )
-
-            status_idx = headers.index(
-                "상태"
-            )
-
-        except ValueError as e:
-
-            print(
-                f"   ❌ 컬럼 확인 실패: {e}"
-            )
-
-            continue
-
-        rows = target_table.find_all("tr")
-
-        page_job_count = 0
+        page_count = 0
 
         for row in rows:
 
-            if row.find("th"):
-                continue
-
-            tds = row.find_all("td")
-
-            if not tds:
-                continue
-
-            max_idx = max(
-                title_idx,
-                agency_idx,
-                location_idx,
-                employment_idx,
-                reg_date_idx,
-                deadline_idx,
-                status_idx
-            )
-
-            if len(tds) <= max_idx:
-                continue
-
             try:
 
-                # ------------------------------------------------
-                # 제목
-                # ------------------------------------------------
-
-                title_td = tds[
-                    title_idx
-                ]
-
-                job_title = title_td.get_text(
-                    " ",
-                    strip=True
+                tds = row.find_all(
+                    "td",
+                    recursive=False
                 )
 
-                if not job_title:
-                    continue
+                cells = [
+                    td.get_text(
+                        " ",
+                        strip=True
+                    )
+                    for td in tds
+                ]
 
-                # ------------------------------------------------
+                # 알리오 실제 구조
+                number = cells[1]
+                title = cells[2]
+                company = cells[3]
+                location = cells[4]
+                employment = cells[5]
+                reg_date = cells[6]
+                deadline = cells[7]
+                status = cells[8]
+
                 # 링크
-                # ------------------------------------------------
-
-                title_link = title_td.find(
+                title_link = row.find(
                     "a",
                     href=True
                 )
 
-                job_link = ""
+                link = ""
 
                 if title_link:
 
-                    job_link = title_link.get(
+                    href = title_link.get(
                         "href",
                         ""
                     )
 
-                if not job_link:
+                    if href:
 
-                    any_link = row.find(
-                        "a",
-                        href=True
-                    )
-
-                    if any_link:
-
-                        job_link = any_link.get(
-                            "href",
-                            ""
+                        link = urljoin(
+                            "https://job.alio.go.kr",
+                            href
                         )
 
-                job_link = urljoin(
-                    ALIO_BASE_URL,
-                    job_link
-                )
-
-                # ------------------------------------------------
-                # 링크 없는 공고도 제목 기준으로 중복 처리
-                # ------------------------------------------------
-
+                # 중복 제거
                 unique_key = (
-                    job_link
-                    if job_link
-                    else job_title
+                    link
+                    if link
+                    else (
+                        company
+                        + "|"
+                        + title
+                        + "|"
+                        + reg_date
+                    )
                 )
 
-                if unique_key in seen_links:
+                if unique_key in seen:
                     continue
 
-                # ------------------------------------------------
-                # 기관
-                # ------------------------------------------------
-
-                agency = tds[
-                    agency_idx
-                ].get_text(
-                    " ",
-                    strip=True
-                )
-
-                # ------------------------------------------------
-                # 근무지
-                # ------------------------------------------------
-
-                location = tds[
-                    location_idx
-                ].get_text(
-                    " ",
-                    strip=True
-                )
-
-                # ------------------------------------------------
-                # 고용형태
-                # ------------------------------------------------
-
-                employment_type = tds[
-                    employment_idx
-                ].get_text(
-                    " ",
-                    strip=True
-                )
-
-                # ------------------------------------------------
-                # 등록일
-                # ------------------------------------------------
-
-                reg_date_raw = tds[
-                    reg_date_idx
-                ].get_text(
-                    " ",
-                    strip=True
-                )
-
-                reg_date = normalize_alio_date(
-                    reg_date_raw
-                )
-
-                # ------------------------------------------------
-                # 오늘 등록만
-                # ------------------------------------------------
-
-                if filter_today_only:
-
-                    if reg_date != today:
-
-                        continue
-
-                # ------------------------------------------------
-                # 마감일
-                # ------------------------------------------------
-
-                deadline_raw = tds[
-                    deadline_idx
-                ].get_text(
-                    " ",
-                    strip=True
-                )
-
-                deadline_match = re.search(
-                    r"\d{2,4}[./-]\d{1,2}[./-]\d{1,2}",
-                    deadline_raw
-                )
-
-                if deadline_match:
-
-                    deadline = (
-                        deadline_match.group(0)
-                    )
-
-                else:
-
-                    deadline = deadline_raw
-
-                # ------------------------------------------------
-                # 상태
-                # ------------------------------------------------
-
-                status = tds[
-                    status_idx
-                ].get_text(
-                    " ",
-                    strip=True
-                )
-
-                # ------------------------------------------------
-                # 저장
-                # ------------------------------------------------
-
-                jobs.append({
-
-                    "site": "alio",
-
-                    "site_name": "알리오",
-
-                    "company": agency,
-
-                    "title": job_title,
-
-                    "type": "공공기관 채용",
-
-                    "location": location,
-
-                    "career": "정보 없음",
-
-                    "education": "정보 없음",
-
-                    "employment": employment_type,
-
-                    "deadline": deadline,
-
-                    "reg_date": reg_date,
-
-                    "status": status,
-
-                    "link": job_link
-
-                })
-
-                seen_links.add(
+                seen.add(
                     unique_key
                 )
 
-                page_job_count += 1
+                jobs.append({
+                    "site": "alio",
+                    "site_name": "알리오",
+                    "company": company,
+                    "title": title,
+                    "type": "공공기관 채용",
+                    "location": location,
+                    "career": "정보 없음",
+                    "education": "정보 없음",
+                    "employment": employment,
+                    "deadline": deadline,
+                    "reg_date": reg_date,
+                    "status": status,
+                    "link": link,
+                })
+
+                page_count += 1
+
+                print(
+                    f"   ✅ {company} | {title}"
+                )
 
             except Exception as e:
 
                 print(
-                    f"   ⚠️ 알리오 파싱 오류: {e}"
+                    f"   ⚠️ 알리오 행 파싱 오류: "
+                    f"{type(e).__name__}: {e}"
                 )
 
         print(
             f"   🎯 페이지 {page_index}: "
-            f"{page_job_count}개"
+            f"{page_count}개"
         )
 
     print()
@@ -679,6 +569,10 @@ def parse_alio_jobs(
     print("=" * 80)
 
     return jobs
+
+
+
+
 
 
 
@@ -1465,17 +1359,11 @@ def main():
     # ========================================================================
 
     alio_html = fetch_alio_jobs(
-        days_back=2,
         area_code="R8018"
     )
 
-    alio_jobs = (
-        parse_alio_jobs(
-            alio_html,
-            filter_today_only=True
-        )
-        if alio_html
-        else []
+    alio_jobs = parse_alio_jobs(
+        alio_html
     )
 
 
