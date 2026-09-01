@@ -1,0 +1,1150 @@
+<!DOCTYPE html> <html lang="ko"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>채용공고 | 꽁고</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        margin: 0;
+        background: #f5f7fb;
+        color: #172033;
+        font-family:
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            "Noto Sans KR",
+            Arial,
+            sans-serif;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    button {
+        font-family: inherit;
+    }
+
+    /* =========================================================
+       상단
+    ========================================================= */
+
+    .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid #e7ebf2;
+    }
+
+    .topbar-inner {
+        width: min(1180px, calc(100% - 32px));
+        height: 72px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .logo {
+        font-size: 21px;
+        font-weight: 900;
+        letter-spacing: -0.8px;
+        white-space: nowrap;
+    }
+
+    .logo span {
+        color: #4f46e5;
+    }
+
+    .main-nav {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .nav-link {
+        padding: 10px 16px;
+        border-radius: 10px;
+        font-size: 14px;
+        font-weight: 700;
+        color: #687386;
+        transition: 0.2s;
+    }
+
+    .nav-link:hover {
+        background: #f1f3f8;
+        color: #20283a;
+    }
+
+    .nav-link.active {
+        background: #eef0ff;
+        color: #4f46e5;
+    }
+
+    /* =========================================================
+       메인
+    ========================================================= */
+
+    .container {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 42px 0 70px;
+    }
+
+    .page-title {
+        margin-bottom: 26px;
+    }
+
+    .page-title h1 {
+        margin: 0 0 8px;
+        font-size: 30px;
+        line-height: 1.25;
+        letter-spacing: -1.2px;
+    }
+
+    .page-title p {
+        margin: 0;
+        color: #7b8495;
+        font-size: 14px;
+    }
+
+    /* =========================================================
+       통계
+    ========================================================= */
+
+    .stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+        margin-bottom: 26px;
+    }
+
+    .stat-card {
+        background: #fff;
+        border: 1px solid #e8ecf3;
+        border-radius: 16px;
+        padding: 20px;
+        box-shadow: 0 4px 18px rgba(31, 41, 55, 0.035);
+    }
+
+    .stat-label {
+        font-size: 13px;
+        color: #7b8495;
+        font-weight: 700;
+        margin-bottom: 9px;
+    }
+
+    .stat-number {
+        font-size: 27px;
+        font-weight: 900;
+        letter-spacing: -0.7px;
+    }
+
+    .stat-card.total .stat-number {
+        color: #4f46e5;
+    }
+
+    .stat-card.alio .stat-number {
+        color: #2563eb;
+    }
+
+    .stat-card.saramin .stat-number {
+        color: #00a86b;
+    }
+
+    .stat-card.jobkorea .stat-number {
+        color: #f97316;
+    }
+
+    /* =========================================================
+       필터
+    ========================================================= */
+
+    .filter-box {
+        background: #fff;
+        border: 1px solid #e8ecf3;
+        border-radius: 16px;
+        padding: 8px;
+        display: flex;
+        gap: 6px;
+        margin-bottom: 18px;
+        box-shadow: 0 4px 18px rgba(31, 41, 55, 0.035);
+    }
+
+    .filter-btn {
+        flex: 1;
+        min-height: 48px;
+        border: 0;
+        border-radius: 11px;
+        background: transparent;
+        color: #7b8495;
+        font-size: 14px;
+        font-weight: 800;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    .filter-btn:hover {
+        background: #f5f7fb;
+    }
+
+    .filter-btn.active {
+        color: #fff;
+    }
+
+    .filter-btn[data-site="all"].active {
+        background: #4f46e5;
+    }
+
+    .filter-btn[data-site="alio"].active {
+        background: #2563eb;
+    }
+
+    .filter-btn[data-site="saramin"].active {
+        background: #00a86b;
+    }
+
+    .filter-btn[data-site="jobkorea"].active {
+        background: #f97316;
+    }
+
+    /* =========================================================
+       결과 헤더
+    ========================================================= */
+
+    .result-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+        margin: 22px 2px 12px;
+    }
+
+    .result-title {
+        font-size: 17px;
+        font-weight: 900;
+        letter-spacing: -0.4px;
+    }
+
+    .result-count {
+        color: #4f46e5;
+    }
+
+    .updated {
+        color: #8b94a5;
+        font-size: 12px;
+    }
+
+    /* =========================================================
+       공고 목록
+    ========================================================= */
+
+    .job-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .job-card {
+        display: block;
+        background: #fff;
+        border: 1px solid #e8ecf3;
+        border-radius: 16px;
+        padding: 20px 22px;
+        transition:
+            transform 0.2s,
+            box-shadow 0.2s,
+            border-color 0.2s;
+    }
+
+    .job-card:hover {
+        transform: translateY(-2px);
+        border-color: #d8ddea;
+        box-shadow: 0 9px 26px rgba(31, 41, 55, 0.07);
+    }
+
+    .job-top {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        margin-bottom: 11px;
+        flex-wrap: wrap;
+    }
+
+    .site-badge {
+        display: inline-flex;
+        align-items: center;
+        min-height: 25px;
+        padding: 4px 9px;
+        border-radius: 7px;
+        font-size: 11px;
+        font-weight: 900;
+    }
+
+    .site-badge.alio {
+        color: #2563eb;
+        background: #eff6ff;
+    }
+
+    .site-badge.saramin {
+        color: #00a86b;
+        background: #eafff5;
+    }
+
+    .site-badge.jobkorea {
+        color: #f97316;
+        background: #fff3e9;
+    }
+
+    .job-company {
+        color: #697386;
+        font-size: 13px;
+        font-weight: 700;
+    }
+
+    .job-title {
+        margin: 0 0 15px;
+        font-size: 17px;
+        line-height: 1.5;
+        letter-spacing: -0.4px;
+        font-weight: 850;
+        color: #172033;
+    }
+
+    .job-info {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px 18px;
+        color: #687386;
+        font-size: 13px;
+    }
+
+    .job-info-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .info-label {
+        color: #a0a8b7;
+    }
+
+    .job-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 15px;
+        margin-top: 17px;
+        padding-top: 13px;
+        border-top: 1px solid #f0f2f6;
+    }
+
+    .deadline {
+        color: #697386;
+        font-size: 12px;
+    }
+
+    .deadline strong {
+        color: #ef4444;
+    }
+
+    .go-link {
+        color: #4f46e5;
+        font-size: 12px;
+        font-weight: 900;
+    }
+
+    /* =========================================================
+       빈 상태 / 오류
+    ========================================================= */
+
+    .empty {
+        background: #fff;
+        border: 1px solid #e8ecf3;
+        border-radius: 16px;
+        padding: 70px 20px;
+        text-align: center;
+    }
+
+    .empty-icon {
+        font-size: 38px;
+        margin-bottom: 12px;
+    }
+
+    .empty-title {
+        margin-bottom: 7px;
+        font-size: 16px;
+        font-weight: 900;
+    }
+
+    .empty-text {
+        color: #8b94a5;
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .loading {
+        background: #fff;
+        border: 1px solid #e8ecf3;
+        border-radius: 16px;
+        padding: 60px 20px;
+        text-align: center;
+        color: #7b8495;
+        font-size: 14px;
+    }
+
+    /* =========================================================
+       푸터
+    ========================================================= */
+
+    footer {
+        padding: 28px 0 40px;
+        color: #9aa2b1;
+        text-align: center;
+        font-size: 12px;
+    }
+
+    /* =========================================================
+       모바일
+    ========================================================= */
+
+    @media (max-width: 760px) {
+
+        .topbar-inner {
+            height: auto;
+            min-height: 64px;
+            padding: 10px 0;
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .main-nav {
+            width: 100%;
+            overflow-x: auto;
+            padding-bottom: 2px;
+        }
+
+        .nav-link {
+            white-space: nowrap;
+            padding: 8px 12px;
+        }
+
+        .container {
+            padding-top: 28px;
+        }
+
+        .page-title h1 {
+            font-size: 25px;
+        }
+
+        .stats {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .filter-box {
+            overflow-x: auto;
+        }
+
+        .filter-btn {
+            min-width: 90px;
+        }
+
+        .result-header {
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .job-card {
+            padding: 17px;
+        }
+
+        .job-title {
+            font-size: 15px;
+        }
+
+        .job-bottom {
+            align-items: flex-start;
+            flex-direction: column;
+        }
+    }
+</style>
+
+</head> <body> <header class="topbar"> <div class="topbar-inner">
+    <a href="index.html" class="logo">
+        꽁고<span>·</span>
+    </a>
+
+    <nav class="main-nav">
+        <a href="index.html" class="nav-link">
+            📅 채용달력
+        </a>
+
+        <a href="index2.html" class="nav-link active">
+            📋 채용공고
+        </a>
+    </nav>
+
+</div>
+
+</header> <main class="container">
+<section class="page-title">
+    <h1>📋 오늘의 채용공고</h1>
+    <p id="updatedAt">
+        데이터를 불러오는 중...
+    </p>
+</section>
+
+<!-- =========================================================
+     통계
+========================================================== -->
+
+<section class="stats">
+
+    <div class="stat-card total">
+        <div class="stat-label">
+            전체 공고
+        </div>
+
+        <div class="stat-number" id="totalCount">
+            -
+        </div>
+    </div>
+
+    <div class="stat-card alio">
+        <div class="stat-label">
+            알리오
+        </div>
+
+        <div class="stat-number" id="alioCount">
+            -
+        </div>
+    </div>
+
+    <div class="stat-card saramin">
+        <div class="stat-label">
+            사람인
+        </div>
+
+        <div class="stat-number" id="saraminCount">
+            -
+        </div>
+    </div>
+
+    <div class="stat-card jobkorea">
+        <div class="stat-label">
+            잡코리아
+        </div>
+
+        <div class="stat-number" id="jobkoreaCount">
+            -
+        </div>
+    </div>
+
+</section>
+
+<!-- =========================================================
+     사이트 필터
+========================================================== -->
+
+<section class="filter-box">
+
+    <button
+        class="filter-btn active"
+        data-site="all"
+        type="button"
+    >
+        전체
+    </button>
+
+    <button
+        class="filter-btn"
+        data-site="alio"
+        type="button"
+    >
+        알리오
+    </button>
+
+    <button
+        class="filter-btn"
+        data-site="saramin"
+        type="button"
+    >
+        사람인
+    </button>
+
+    <button
+        class="filter-btn"
+        data-site="jobkorea"
+        type="button"
+    >
+        잡코리아
+    </button>
+
+</section>
+
+<!-- =========================================================
+     결과
+========================================================== -->
+
+<section>
+
+    <div class="result-header">
+
+        <div class="result-title">
+            <span id="resultName">전체</span>
+            공고
+            <span class="result-count">
+                <span id="resultCount">0</span>개
+            </span>
+        </div>
+
+    </div>
+
+    <div id="jobList" class="job-list">
+
+        <div class="loading">
+            채용공고를 불러오는 중입니다...
+        </div>
+
+    </div>
+
+</section>
+
+</main> <footer> 꽁고 채용정보 </footer> <script>
+/*
+ * ================================================================
+ * jobs.json 불러오기
+ * ================================================================
+ */
+
+let allJobs = [];
+let currentSite = "all";
+
+/*
+ * ================================================================
+ * HTML 특수문자 처리
+ * ================================================================
+ */
+
+function escapeHtml(value) {
+
+    if (value === null || value === undefined) {
+        return "";
+    }
+
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
+/*
+ * ================================================================
+ * 사이트 정보
+ * ================================================================
+ */
+
+function getSiteInfo(job) {
+
+    const site =
+        String(job.site || "")
+            .toLowerCase()
+            .trim();
+
+    if (
+        site === "alio" ||
+        site.includes("알리오")
+    ) {
+
+        return {
+            key: "alio",
+            name: "알리오"
+        };
+
+    }
+
+    if (
+        site === "saramin" ||
+        site.includes("사람인")
+    ) {
+
+        return {
+            key: "saramin",
+            name: "사람인"
+        };
+
+    }
+
+    if (
+        site === "jobkorea" ||
+        site.includes("잡코리아")
+    ) {
+
+        return {
+            key: "jobkorea",
+            name: "잡코리아"
+        };
+
+    }
+
+    return {
+        key: "unknown",
+        name: job.site_name || "기타"
+    };
+}
+
+/*
+ * ================================================================
+ * 숫자 표시
+ * ================================================================
+ */
+
+function setCount(id, value) {
+
+    document.getElementById(id).textContent =
+        Number(value || 0).toLocaleString("ko-KR");
+}
+
+/*
+ * ================================================================
+ * 업데이트 시간
+ * ================================================================
+ */
+
+function setUpdatedAt(data) {
+
+    const element =
+        document.getElementById("updatedAt");
+
+    if (data.updated_at) {
+
+        element.textContent =
+            "마지막 업데이트: " +
+            data.updated_at;
+
+    } else {
+
+        element.textContent =
+            "채용공고 데이터";
+    }
+}
+
+/*
+ * ================================================================
+ * 통계 계산
+ * ================================================================
+ */
+
+function updateStats(data) {
+
+    const counts = data.counts || {};
+
+    let alio =
+        Number(counts.alio || 0);
+
+    let saramin =
+        Number(counts.saramin || 0);
+
+    let jobkorea =
+        Number(counts.jobkorea || 0);
+
+    /*
+     * counts가 없거나 실제 jobs와 차이가 있을 경우
+     * jobs 배열 기준으로 다시 계산
+     */
+
+    if (
+        !alio &&
+        !saramin &&
+        !jobkorea &&
+        Array.isArray(data.jobs)
+    ) {
+
+        alio = data.jobs.filter(
+            job => getSiteInfo(job).key === "alio"
+        ).length;
+
+        saramin = data.jobs.filter(
+            job => getSiteInfo(job).key === "saramin"
+        ).length;
+
+        jobkorea = data.jobs.filter(
+            job => getSiteInfo(job).key === "jobkorea"
+        ).length;
+    }
+
+    const total =
+        Array.isArray(data.jobs)
+            ? data.jobs.length
+            : Number(data.total || 0);
+
+    setCount("totalCount", total);
+    setCount("alioCount", alio);
+    setCount("saraminCount", saramin);
+    setCount("jobkoreaCount", jobkorea);
+}
+
+/*
+ * ================================================================
+ * 공고 카드 생성
+ * ================================================================
+ */
+
+function createJobCard(job) {
+
+    const site =
+        getSiteInfo(job);
+
+    const company =
+        job.company ||
+        job.agency ||
+        "회사명 없음";
+
+    const title =
+        job.title ||
+        "제목 없음";
+
+    const type =
+        job.type ||
+        job.employment ||
+        job.employment_type ||
+        "정보 없음";
+
+    const location =
+        job.location ||
+        "정보 없음";
+
+    const career =
+        job.career ||
+        "정보 없음";
+
+    const education =
+        job.education ||
+        "정보 없음";
+
+    const deadline =
+        job.deadline ||
+        "정보 없음";
+
+    const regDate =
+        job.reg_date ||
+        "정보 없음";
+
+    const link =
+        job.link ||
+        "#";
+
+    return `
+        <a
+            class="job-card"
+            href="${escapeHtml(link)}"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+
+            <div class="job-top">
+
+                <span class="site-badge ${site.key}">
+                    ${escapeHtml(site.name)}
+                </span>
+
+                <span class="job-company">
+                    ${escapeHtml(company)}
+                </span>
+
+            </div>
+
+            <h2 class="job-title">
+                ${escapeHtml(title)}
+            </h2>
+
+            <div class="job-info">
+
+                <span class="job-info-item">
+                    <span class="info-label">직종</span>
+                    ${escapeHtml(type)}
+                </span>
+
+                <span class="job-info-item">
+                    <span class="info-label">지역</span>
+                    ${escapeHtml(location)}
+                </span>
+
+                <span class="job-info-item">
+                    <span class="info-label">경력</span>
+                    ${escapeHtml(career)}
+                </span>
+
+                <span class="job-info-item">
+                    <span class="info-label">학력</span>
+                    ${escapeHtml(education)}
+                </span>
+
+            </div>
+
+            <div class="job-bottom">
+
+                <div class="deadline">
+
+                    마감
+                    <strong>
+                        ${escapeHtml(deadline)}
+                    </strong>
+
+                    <span style="margin-left:10px;">
+                        등록 ${escapeHtml(regDate)}
+                    </span>
+
+                </div>
+
+                <div class="go-link">
+                    공고 보기 →
+                </div>
+
+            </div>
+
+        </a>
+    `;
+}
+
+/*
+ * ================================================================
+ * 공고 표시
+ * ================================================================
+ */
+
+function renderJobs() {
+
+    const list =
+        document.getElementById("jobList");
+
+    let filteredJobs;
+
+    if (currentSite === "all") {
+
+        filteredJobs = allJobs;
+
+    } else {
+
+        filteredJobs =
+            allJobs.filter(
+                job =>
+                    getSiteInfo(job).key === currentSite
+            );
+    }
+
+    document.getElementById("resultCount")
+        .textContent =
+        filteredJobs.length.toLocaleString("ko-KR");
+
+    const names = {
+
+        all: "전체",
+
+        alio: "알리오",
+
+        saramin: "사람인",
+
+        jobkorea: "잡코리아"
+
+    };
+
+    document.getElementById("resultName")
+        .textContent =
+        names[currentSite] || "전체";
+
+    if (!filteredJobs.length) {
+
+        let message =
+            "해당 사이트에 오늘 등록된 공고가 없습니다.";
+
+        if (currentSite === "all") {
+
+            message =
+                "오늘 등록된 채용공고가 없습니다.";
+        }
+
+        list.innerHTML = `
+
+            <div class="empty">
+
+                <div class="empty-icon">
+                    📭
+                </div>
+
+                <div class="empty-title">
+                    공고가 없습니다
+                </div>
+
+                <div class="empty-text">
+                    ${escapeHtml(message)}
+                </div>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+    list.innerHTML =
+        filteredJobs
+            .map(createJobCard)
+            .join("");
+}
+
+/*
+ * ================================================================
+ * 필터 버튼
+ * ================================================================
+ */
+
+function setupFilters() {
+
+    const buttons =
+        document.querySelectorAll(".filter-btn");
+
+    buttons.forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                buttons.forEach(btn => {
+
+                    btn.classList.remove(
+                        "active"
+                    );
+
+                });
+
+                button.classList.add(
+                    "active"
+                );
+
+                currentSite =
+                    button.dataset.site;
+
+                renderJobs();
+
+            }
+        );
+
+    });
+}
+
+/*
+ * ================================================================
+ * jobs.json 로딩
+ * ================================================================
+ */
+
+async function loadJobs() {
+
+    const list =
+        document.getElementById("jobList");
+
+    try {
+
+        /*
+         * 캐시 방지
+         */
+
+        const response =
+            await fetch(
+                "jobs.json?ts=" +
+                Date.now()
+            );
+
+        if (!response.ok) {
+
+            throw new Error(
+                "jobs.json HTTP " +
+                response.status
+            );
+        }
+
+        const data =
+            await response.json();
+
+        if (!Array.isArray(data.jobs)) {
+
+            throw new Error(
+                "jobs.json의 jobs 데이터가 없습니다."
+            );
+        }
+
+        allJobs =
+            data.jobs;
+
+        setUpdatedAt(data);
+
+        updateStats(data);
+
+        renderJobs();
+
+    } catch (error) {
+
+        console.error(
+            "jobs.json 로딩 실패:",
+            error
+        );
+
+        document.getElementById(
+            "updatedAt"
+        ).textContent =
+            "채용공고 데이터를 불러오지 못했습니다.";
+
+        list.innerHTML = `
+
+            <div class="empty">
+
+                <div class="empty-icon">
+                    ⚠️
+                </div>
+
+                <div class="empty-title">
+                    데이터를 불러오지 못했습니다
+                </div>
+
+                <div class="empty-text">
+                    jobs.json 파일이 있는지 확인해주세요.
+                </div>
+
+            </div>
+
+        `;
+    }
+}
+
+/*
+ * ================================================================
+ * 시작
+ * ================================================================
+ */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        setupFilters();
+
+        loadJobs();
+
+    }
+);
+</script> </body> </html>

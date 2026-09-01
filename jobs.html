@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>오늘의 채용공고</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f4f6f9;
+    color: #202124;
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "Noto Sans KR",
+        sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px 60px;
+}
+
+.header {
+    margin-bottom: 25px;
+}
+
+.title {
+    font-size: 30px;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.updated {
+    color: #777;
+    font-size: 13px;
+}
+
+.tabs {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 22px;
+}
+
+.tab {
+    border: 0;
+    padding: 11px 18px;
+    border-radius: 10px;
+    background: white;
+    color: #555;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.tab:hover {
+    transform: translateY(-1px);
+}
+
+.tab.active {
+    color: white;
+}
+
+.tab-all.active {
+    background: #374151;
+}
+
+.tab-alio.active {
+    background: #16a34a;
+}
+
+.tab-saramin.active {
+    background: #2563eb;
+}
+
+.tab-jobkorea.active {
+    background: #f97316;
+}
+
+.summary {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.summary-card {
+    background: white;
+    padding: 15px 18px;
+    border-radius: 12px;
+    min-width: 130px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.summary-label {
+    color: #777;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.summary-number {
+    font-size: 23px;
+    font-weight: 800;
+}
+
+.jobs {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.job {
+    background: white;
+    border-radius: 14px;
+    padding: 18px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-left: 5px solid #ddd;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.job:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 18px rgba(0,0,0,0.09);
+}
+
+.job.alio {
+    border-left-color: #16a34a;
+}
+
+.job.saramin {
+    border-left-color: #2563eb;
+}
+
+.job.jobkorea {
+    border-left-color: #f97316;
+}
+
+.job-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.site-badge {
+    display: inline-block;
+    padding: 4px 9px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 7px;
+}
+
+.site-alio {
+    background: #16a34a;
+}
+
+.site-saramin {
+    background: #2563eb;
+}
+
+.site-jobkorea {
+    background: #f97316;
+}
+
+.company {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 4px;
+}
+
+.job-title {
+    font-size: 17px;
+    font-weight: 800;
+    line-height: 1.45;
+}
+
+.deadline {
+    white-space: nowrap;
+    color: #dc2626;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 13px;
+}
+
+.info-item {
+    background: #f5f6f8;
+    color: #555;
+    padding: 5px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+}
+
+.job-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.reg-date {
+    color: #999;
+    font-size: 12px;
+}
+
+.go-link {
+    color: #1967d2;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.go-link:hover {
+    text-decoration: underline;
+}
+
+.no-data {
+    background: white;
+    border-radius: 14px;
+    padding: 50px 20px;
+    text-align: center;
+    color: #999;
+}
+
+@media (max-width: 700px) {
+
+    .container {
+        padding: 18px 10px 40px;
+    }
+
+    .title {
+        font-size: 23px;
+    }
+
+    .tab {
+        padding: 9px 13px;
+    }
+
+    .job {
+        padding: 15px;
+    }
+
+    .job-top {
+        display: block;
+    }
+
+    .deadline {
+        display: block;
+        margin-top: 8px;
+    }
+
+    .job-title {
+        font-size: 15px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+
+        <div class="title">
+            📋 오늘의 채용공고
+        </div>
+
+        <div class="updated">
+            마지막 업데이트: 2026-09-01 10:28:03
+        </div>
+
+    </div>
+
+
+    <div class="tabs">
+
+        <button
+            class="tab tab-all active"
+            onclick="filterJobs('전체', this)"
+        >
+            전체
+        </button>
+
+        <button
+            class="tab tab-alio"
+            onclick="filterJobs('알리오', this)"
+        >
+            알리오
+        </button>
+
+        <button
+            class="tab tab-saramin"
+            onclick="filterJobs('사람인', this)"
+        >
+            사람인
+        </button>
+
+        <button
+            class="tab tab-jobkorea"
+            onclick="filterJobs('잡코리아', this)"
+        >
+            잡코리아
+        </button>
+
+    </div>
+
+
+    <div class="summary">
+
+        <div class="summary-card">
+
+            <div class="summary-label">
+                전체 공고
+            </div>
+
+            <div class="summary-number">
+                15
+            </div>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="summary-label">
+                알리오
+            </div>
+
+            <div
+                class="summary-number"
+                style="color:#16a34a"
+            >
+                1
+            </div>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="summary-label">
+                사람인
+            </div>
+
+            <div
+                class="summary-number"
+                style="color:#2563eb"
+            >
+                14
+            </div>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="summary-label">
+                잡코리아
+            </div>
+
+            <div
+                class="summary-number"
+                style="color:#f97316"
+            >
+                0
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="jobs"
+        id="jobs"
+    ></div>
+
+</div>
+
+
+<script>
+
+const jobs = [{"site": "알리오", "number": "35", "title": "", "company": "한국의료기기안전정보원", "location": "서울", "employment_type": "비정규직", "reg_date": "2026.09.01", "deadline": "26.09.16", "dday": "D-14", "status": "진행중", "link": "https://job.alio.go.kr/recruitview.do?idx=304387"}, {"site": "사람인", "company": "(주)인투알", "title": "2026년 ㈜인투알 각 부문별 수시채용", "type": "데이터분석가, 데이터엔지니어, 백엔드/서버개발 외", "location": "경기 김포시 외", "career": "경력무관 · 정규직", "education": "학력무관", "recruit_count": "", "deadline": "~09.30(수)", "reg_date": "1시간 전 등록", "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54906574"}, {"site": "사람인", "company": "(주)와이티에스", "title": "B2B 영업(의료팀 납품설치 및 유지보수) 신입/경력직 모집", "type": "유지보수, 영업관리, 기계판매 외", "location": "서울 마포구", "career": "경력무관 · 정규직", "education": "학력무관", "recruit_count": "", "deadline": "~09.30(수)", "reg_date": "18시간 전 등록", "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54899854"}, {"site": "사람인", "company": "한화에어로스페이스(주)", "title": "대규모 신입사원 채용 (LS사업부 R&D_SW/컴퓨터공학)", "type": "미들웨어, 아키텍쳐, 인터페이스 외", "location": "경기 성남시 분당구", "career": "신입 · 인턴직", "education": "대학교(4년)↑", "recruit_count": "", "deadline": "~09.20(일)", "reg_date": "18시간 전 등록", "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54899610"}, {"site": "사람인", "company": "(주)위즈코리아", "title": "㈜위즈코리아 '26년 하반기 정기 채용 신입/경력 사원 모집", "type": "백엔드/서버개발, 보안컨설팅, 웹개발 외", "location": "서울전체 외", "career": "신입 · 경력 · 정규직", "education": "학력무관", "recruit_count": "", "deadline": "~10.31(토)", "reg_date": "19시간 전 등록", "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54898973"}, {"site": "사람인", "company": "(의)하나로의료재단", "title": "하나로의료재단 의료정보시스템 개발 및 유지보수 담당자 채용", "type": "기술지원, 앱개발, 웹개발 외", "location": "서울 종로구", "career": "경력무관 · 계약직", "education": "학력무관", "recruit_count": "", "deadline": "~09.14(월)", "reg_date": "19시간 전 등록", "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54898491"}, {"site": "사람인", "company": "템프인(주)", "title": "[인천/~3,460만+중식/신입O/소속전환]유명기업 전산관리", "type": "기술지원, 유지보수, 정보보안 외", "location": "인천 미추홀구", "career": "경력무관 · 파견직", "education": "대학(2,3년)↑", "recruit_count": "", "deadline": "~09.30(수)", "reg_date": "20시간 전 등록", "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54898447"}, {"site": "사람인", "company": "(주)한빛소프트", "title": "[정보자산팀] 인프라 관리직 신입/경력직 모집", "type": "네트워크, 인프라", "location": "서울 금천구", "career": "신입 · 경력 · 정규직", "education": "학력무관", "recruit_count": "", "deadline": "~10.30(금)", "reg_date": "20시간 전 등록", "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54898388"}, {"site": "사람인", "company": "현대디지텍코어(주)", "title": "여의도 OA 유지보수 직원 채용", "type": "기술지원, 유지보수, H/W 외", "location": "서울 영등포구", "career": "신입 · 경력 · 계약직", "education": "고졸↑", "recruit_count": "", "deadline": "~09.30(수)", "reg_date": "21시간 전 등록", "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54897315"}, {"site": "사람인", "company": "한테크서비스(주)관심기업 등록", "title": "IT기술지원 엔지니어 (신입(인턴)/경력) 모집", "type": "기술지원, 유지보수, IT컨설팅", "location": "서울 강남구", "career": "신입 · 경력 · 정규직 외", "education": "대학(2,3년)↑", "recruit_count": "", "deadline": "채용시", "reg_date": "21시간 전 등록", "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54897114"}, {"site": "사람인", "company": "엘티씨(주)", "title": "엘티씨(주) 경영관리팀(총무,전산,보안) 채용", "type": "정보보안, 전산총무, 인사", "location": "경기 화성시 만세구", "career": "신입 · 경력 · 정규직", "education": "대학교(4년)↑", "recruit_count": "", "deadline": "~09.30(수)", "reg_date": "21시간 전 등록", "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54896886"}, {"site": "사람인", "company": "(주)하이퍼시스템즈", "title": "HW(하드웨어) / 유지보수(AS) 정규직 채용합니다 (경력무관)", "type": "기술지원, 유지보수", "location": "서울 마포구", "career": "경력무관 · 정규직", "education": "고졸↑", "recruit_count": "", "deadline": "~09.30(수)", "reg_date": "22시간 전 등록", "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54895875"}, {"site": "사람인", "company": "한국인프라관리(주)", "title": "[대우건설 자회사] 2026년 신입/경력 정규직 채용", "type": "유지보수, 네트워크, 인프라 외", "location": "서울전체 외", "career": "신입 · 경력 · 정규직", "education": "대학교(4년)↑", "recruit_count": "", "deadline": "~09.11(금)", "reg_date": "23시간 전 등록", "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54895408"}, {"site": "사람인", "company": "(주)비트컴퓨터", "title": "병원EMR 유지보수 및 납품/설치 담당자 모집", "type": "기술지원, 유지보수, Delphi 외", "location": "서울 서초구", "career": "경력무관 · 정규직", "education": "대학(2,3년)↑", "recruit_count": "", "deadline": "~09.30(수)", "reg_date": "23시간 전 등록", "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54894960"}, {"site": "사람인", "company": "엔셀 주식회사", "title": "반도체 전산시스템 운영 (평택. 화성. 천안)", "type": "백엔드/서버개발, DBA, SE(시스템엔지니어) 외", "location": "경기 평택시 외", "career": "신입 · 경력 · 정규직", "education": "대학교(4년)↑", "recruit_count": "", "deadline": "~09.30(수)", "reg_date": "23시간 전 등록", "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54894946"}];
+
+const jobsElement =
+    document.getElementById("jobs");
+
+
+function siteClass(site) {
+
+    if (site === "알리오") {
+        return "alio";
+    }
+
+    if (site === "사람인") {
+        return "saramin";
+    }
+
+    if (site === "잡코리아") {
+        return "jobkorea";
+    }
+
+    return "";
+}
+
+
+function siteBadgeClass(site) {
+
+    if (site === "알리오") {
+        return "site-alio";
+    }
+
+    if (site === "사람인") {
+        return "site-saramin";
+    }
+
+    if (site === "잡코리아") {
+        return "site-jobkorea";
+    }
+
+    return "";
+}
+
+
+function escapeHtml(value) {
+
+    return String(value ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+
+}
+
+
+function renderJobs(list) {
+
+    if (!list.length) {
+
+        jobsElement.innerHTML = `
+            <div class="no-data">
+                해당 사이트에 오늘 등록된 공고가 없습니다.
+            </div>
+        `;
+
+        return;
+    }
+
+
+    jobsElement.innerHTML =
+        list.map(job => {
+
+            const cls =
+                siteClass(job.site);
+
+            const badge =
+                siteBadgeClass(job.site);
+
+            return `
+                <div class="job ${cls}">
+
+                    <div class="job-top">
+
+                        <div>
+
+                            <div>
+                                <span
+                                    class="site-badge ${badge}"
+                                >
+                                    ${escapeHtml(job.site)}
+                                </span>
+                            </div>
+
+                            <div class="company">
+                                ${escapeHtml(job.company)}
+                            </div>
+
+                            <div class="job-title">
+                                ${escapeHtml(job.title)}
+                            </div>
+
+                        </div>
+
+                        <div class="deadline">
+                            ${escapeHtml(job.deadline)}
+                        </div>
+
+                    </div>
+
+
+                    <div class="info">
+
+                        <span class="info-item">
+                            📍 ${escapeHtml(job.location)}
+                        </span>
+
+                        <span class="info-item">
+                            💼 ${escapeHtml(job.career)}
+                        </span>
+
+                        <span class="info-item">
+                            🎓 ${escapeHtml(job.education)}
+                        </span>
+
+                        ${job.recruit_count
+                            ? `<span class="info-item">
+                                👥 ${escapeHtml(job.recruit_count)}
+                               </span>`
+                            : ""
+                        }
+
+                    </div>
+
+
+                    <div class="job-bottom">
+
+                        <div class="reg-date">
+                            등록: ${escapeHtml(job.reg_date)}
+                        </div>
+
+                        <a
+                            class="go-link"
+                            href="${escapeHtml(job.link)}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            공고 보기 →
+                        </a>
+
+                    </div>
+
+                </div>
+            `;
+
+        }).join("");
+
+}
+
+
+function filterJobs(site, button) {
+
+    document
+        .querySelectorAll(".tab")
+        .forEach(tab => {
+            tab.classList.remove("active");
+        });
+
+    button.classList.add("active");
+
+
+    if (site === "전체") {
+
+        renderJobs(jobs);
+
+    } else {
+
+        renderJobs(
+            jobs.filter(
+                job => job.site === site
+            )
+        );
+
+    }
+
+}
+
+
+renderJobs(jobs);
+
+</script>
+
+</body>
+
+</html>
