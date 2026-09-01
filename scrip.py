@@ -18,17 +18,18 @@ CALENDAR_WAIT_TIMEOUT = 30000
 
 
 
-# ================================================================
-# 상세 채용공고 수집
-# ================================================================
-
 def collect_detail(page, url):
     """
-    상세 채용공고 페이지에서 모집 직무 정보를 수집한다.
+    상세 채용공고 페이지에서
+    - 모집 직무
+    - 기업 형태
+    를 수집한다.
 
-    - 최대 3회 재시도
-    - domcontentloaded 이후 모집 직무 section이 실제로 나타날 때까지 대기
-    - 실패 시 마지막 에러를 로그에 남김
+    반환:
+    {
+        "jobs": [...],
+        "company_type": "대기업"
+    }
     """
 
     last_error = None
@@ -36,6 +37,7 @@ def collect_detail(page, url):
     for attempt in range(1, MAX_RETRIES + 1):
 
         try:
+
             print(
                 f"      상세 페이지 접속 "
                 f"({attempt}/{MAX_RETRIES})"
@@ -47,26 +49,33 @@ def collect_detail(page, url):
                 timeout=30000
             )
 
-            # "모집 직무" 섹션이 실제로 나타날 때까지 기다린다.
+            # 모집 직무 또는 기업 정보가 나타날 때까지 대기
             page.wait_for_function(
                 """
                 () => {
-                    return [...document.querySelectorAll("section h2")]
-                        .some(
-                            h2 =>
-                                h2.innerText.trim() === "모집 직무"
-                        );
+
+                    const text =
+                        document.body?.innerText || "";
+
+                    return (
+                        text.includes("모집 직무") ||
+                        text.includes("기업 정보")
+                    );
+
                 }
                 """,
                 timeout=15000
             )
 
-            # 페이지 내부 JS가 조금 더 안정화될 시간
-            page.wait_for_timeout(300)
+            page.wait_for_timeout(500)
 
             result = page.evaluate(
                 """
                 () => {
+
+                    // ====================================================
+                    // 모집 직무
+                    // ====================================================
 
                     const section = [
                         ...document.querySelectorAll("section")
@@ -82,11 +91,7 @@ def collect_detail(page, url):
 
                     });
 
-                    if (!section) {
-                        return [];
-                    }
-
-                    const result = [];
+                    const jobsResult = [];
 
                     const types = [
                         "신입",
@@ -98,163 +103,277 @@ def collect_detail(page, url):
                         "정규직"
                     ];
 
-                    section
-                        .querySelectorAll("li")
-                        .forEach(item => {
+                    if (section) {
 
-                            const elements = [
-                                ...item.querySelectorAll(
-                                    "span, div"
-                                )
-                            ]
-                                .map(
-                                    el =>
-                                        el.innerText
-                                            .trim()
-                                )
-                                .filter(Boolean);
+                        section
+                            .querySelectorAll("li")
+                            .forEach(item => {
 
-                            let employmentType = "";
-                            let applicants = null;
-                            let job = "";
+                                const elements = [
+                                    ...item.querySelectorAll(
+                                        "span, div"
+                                    )
+                                ]
+                                    .map(
+                                        el =>
+                                            el.innerText
+                                                .trim()
+                                    )
+                                    .filter(Boolean);
 
-                            // ------------------------------------------------
-                            // 고용형태 / 작성자 수
-                            // ------------------------------------------------
+                                let employmentType = "";
+                                let applicants = null;
+                                let job = "";
 
-                            for (const text of elements) {
+                                // -------------------------------
+                                // 고용형태 / 작성자 수
+                                // -------------------------------
 
-                                if (
-                                    types.includes(text)
-                                ) {
-                                    employmentType = text;
-                                }
+                                for (const text of elements) {
 
-                                const match =
-                                    text.match(
-                                        /^([\\d,]+)\\s*명\\s*작성$/
-                                    );
+                                    if (
+                                        types.includes(text)
+                                    ) {
+                                        employmentType = text;
+                                    }
 
-                                if (match) {
-
-                                    applicants =
-                                        parseInt(
-                                            match[1]
-                                                .replace(
-                                                    /,/g,
-                                                    ""
-                                                ),
-                                            10
+                                    const match =
+                                        text.match(
+                                            /^([\\d,]+)\\s*명\\s*작성$/
                                         );
-                                }
-                            }
 
-                            // ------------------------------------------------
-                            // 직무명
-                            // ------------------------------------------------
+                                    if (match) {
 
-                            for (const text of elements) {
+                                        applicants =
+                                            parseInt(
+                                                match[1]
+                                                    .replace(
+                                                        /,/g,
+                                                        ""
+                                                    ),
+                                                10
+                                            );
 
-                                if (
-                                    types.includes(text)
-                                ) {
-                                    continue;
-                                }
+                                    }
 
-                                if (
-                                    /^[\\d,]+\\s*명\\s*작성$/
-                                        .test(text)
-                                ) {
-                                    continue;
                                 }
 
-                                if (
-                                    text ===
-                                    "자소서 문항 보기"
-                                ) {
-                                    continue;
+                                // -------------------------------
+                                // 직무명
+                                // -------------------------------
+
+                                for (const text of elements) {
+
+                                    if (
+                                        types.includes(text)
+                                    ) {
+                                        continue;
+                                    }
+
+                                    if (
+                                        /^[\\d,]+\\s*명\\s*작성$/
+                                            .test(text)
+                                    ) {
+                                        continue;
+                                    }
+
+                                    if (
+                                        text ===
+                                        "자소서 문항 보기"
+                                    ) {
+                                        continue;
+                                    }
+
+                                    if (
+                                        text.length >= 2 &&
+                                        text.length <= 150 &&
+                                        !text.includes("\\n")
+                                    ) {
+
+                                        job = text;
+
+                                        break;
+                                    }
+
                                 }
 
-                                if (
-                                    text.length >= 2 &&
-                                    text.length <= 150 &&
-                                    !text.includes("\\n")
-                                ) {
-                                    job = text;
-                                    break;
+                                if (job) {
+
+                                    jobsResult.push({
+
+                                        employment_type:
+                                            employmentType,
+
+                                        job:
+                                            job,
+
+                                        applicants:
+                                            applicants
+
+                                    });
+
                                 }
-                            }
 
-                            if (job) {
+                            });
 
-                                result.push({
-                                    employment_type:
-                                        employmentType,
+                    }
 
-                                    job:
-                                        job,
+                    // ====================================================
+                    // 직무 중복 제거
+                    // ====================================================
 
-                                    applicants:
-                                        applicants
-                                });
+                    const uniqueJobs = [];
 
-                            }
+                    const seenJobs = new Set();
 
-                        });
-
-                    // ------------------------------------------------
-                    // 중복 제거
-                    // ------------------------------------------------
-
-                    const unique = [];
-                    const seen = new Set();
-
-                    for (const item of result) {
+                    for (const item of jobsResult) {
 
                         const key =
                             item.employment_type +
                             "|" +
                             item.job;
 
-                        if (!seen.has(key)) {
+                        if (!seenJobs.has(key)) {
 
-                            seen.add(key);
-                            unique.push(item);
+                            seenJobs.add(key);
+
+                            uniqueJobs.push(item);
 
                         }
 
                     }
 
-                    return unique;
+                    // ====================================================
+                    // 기업 형태
+                    // ====================================================
+
+                    let companyType = "";
+
+                    const headings =
+                        [
+                            ...document.querySelectorAll(
+                                "h3"
+                            )
+                        ];
+
+                    const companyInfoHeading =
+                        headings.find(
+                            h3 =>
+                                h3.innerText.trim() ===
+                                "기업 정보"
+                        );
+
+                    if (companyInfoHeading) {
+
+                        // 기업 정보 h3의 가장 가까운
+                        // 정보 박스 영역을 찾는다.
+                        let container =
+                            companyInfoHeading.parentElement;
+
+                        if (container) {
+
+                            // "기업 형태" 텍스트를 가진 요소 찾기
+                            const allElements =
+                                [
+                                    ...container.querySelectorAll(
+                                        "*"
+                                    )
+                                ];
+
+                            const typeLabel =
+                                allElements.find(
+                                    el =>
+                                        el.children.length === 0 &&
+                                        el.innerText.trim() ===
+                                        "기업 형태"
+                                );
+
+                            if (typeLabel) {
+
+                                // label의 부모:
+                                // <div>
+                                //   <div>기업 형태</div>
+                                //   <div>대기업</div>
+                                // </div>
+                                const parent =
+                                    typeLabel.parentElement;
+
+                                if (parent) {
+
+                                    const children =
+                                        [
+                                            ...parent.children
+                                        ];
+
+                                    const labelIndex =
+                                        children.indexOf(
+                                            typeLabel
+                                        );
+
+                                    if (
+                                        labelIndex >= 0 &&
+                                        children[
+                                            labelIndex + 1
+                                        ]
+                                    ) {
+
+                                        companyType =
+                                            children[
+                                                labelIndex + 1
+                                            ]
+                                                .innerText
+                                                .trim();
+
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    return {
+
+                        jobs:
+                            uniqueJobs,
+
+                        company_type:
+                            companyType
+
+                    };
+
                 }
                 """
             )
 
-            # 성공
-            return result
+            // 결과 반환
+            return result;
 
-        except PlaywrightTimeoutError as e:
+        } catch (PlaywrightTimeoutError as e) {
 
-            last_error = e
+            last_error = e;
 
             print(
                 f"      상세 페이지 대기시간 초과 "
                 f"({attempt}/{MAX_RETRIES})"
-            )
+            );
 
-        except Exception as e:
+        } catch (Exception as e) {
 
-            last_error = e
+            last_error = e;
 
             print(
                 f"      상세 페이지 오류 "
                 f"({attempt}/{MAX_RETRIES}): {e}"
-            )
+            );
 
-        # 재시도 전 대기
+        }
+
         if attempt < MAX_RETRIES:
 
-            wait_seconds = attempt * 2
+            wait_seconds = attempt * 2;
 
             print(
                 f"      {wait_seconds}초 후 재시도..."
@@ -272,7 +391,10 @@ def collect_detail(page, url):
         f"      마지막 오류: {last_error}"
     )
 
-    return []
+    return {
+        "jobs": [],
+        "company_type": ""
+    }
 
 
 
@@ -760,6 +882,34 @@ button {{
 
     white-space: nowrap;
 }}
+.company {{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}}
+
+.company a {{
+    color: #111827;
+    text-decoration: none;
+    cursor: pointer;
+}}
+
+.company a:hover {{
+    text-decoration: underline;
+}}
+
+.company-type {{
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 8px;
+    border-radius: 4px;
+    background: #f3f4f6;
+    color: #4b5563;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+}}
+
 
 
 /* =========================================================
@@ -1849,13 +1999,33 @@ function showDetails(date) {{
 
                 '<div class="recruit-header">' +
 
-                    '<div class="company">' +
+                   '<div class="company">' +
 
+                    '<a href="' +
+                        escapeAttribute(
+                            item.url
+                        ) +
+                        '" target="_blank" rel="noopener">' +
+                
                         escapeHtml(
                             item.company
                         ) +
+                
+                    "</a>" +
+                
+                    '<span class="company-type">' +
+                
+                        escapeHtml(
+                            item.get(
+                                "company_type",
+                                "정보 없음"
+                            )
+                        ) +
+                
+                    "</span>" +
+                
+                "</div>" +
 
-                    "</div>" +
 
                     '<div class="status ' +
                         statusClass +
@@ -1876,11 +2046,6 @@ function showDetails(date) {{
 
                 "</div>" +
 
-                '<a class="link" href="' +
-
-                    escapeAttribute(
-                        item.url
-                    ) +
 
                     '" target="_blank" rel="noopener">' +
 
@@ -2080,14 +2245,25 @@ def main():
                     f"({item['status']})"
                 )
 
-                jobs = collect_detail(
-                    detail_page,
-                    item["url"]
+                detail_result = collect_detail(
+                detail_page,
+                item["url"]
                 )
 
+                jobs = detail_result.get(
+                    "jobs",
+                    []
+                )
+                
                 item["jobs"] = jobs
+                
+                item["company_type"] = detail_result.get(
+                    "company_type",
+                    ""
+                )
 
                 if jobs:
+
 
                     success_count += 1
 
