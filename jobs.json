@@ -1,9 +1,9 @@
 {
-    "updated_at": "2026-09-01 11:31:51",
-    "total": 14,
+    "updated_at": "2026-09-01 02:54:33",
+    "total": 16,
     "counts": {
         "alio": 1,
-        "saramin": 13,
+        "saramin": 15,
         "jobkorea": 0
     },
     "jobs": [
@@ -25,6 +25,21 @@
         {
             "site": "saramin",
             "site_name": "사람인",
+            "company": "(사)한국건설자원협회",
+            "title": "한국건설자원협회 정보관리센터 신규 직원 채용",
+            "type": "백엔드/서버개발, 유지보수, Java 외",
+            "location": "서울 송파구",
+            "career": "신입 · 경력 · 정규직",
+            "education": "대학교(4년)↑",
+            "employment": "정보 없음",
+            "deadline": "~09.10(목)",
+            "reg_date": "1시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54908294"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
             "company": "한신기계공업(주)",
             "title": "각 부문별 신입/경력 채용",
             "type": "데이터엔지니어, 백엔드/서버개발, 웹개발 외",
@@ -40,6 +55,21 @@
         {
             "site": "saramin",
             "site_name": "사람인",
+            "company": "(주)두원전자",
+            "title": "각 부문별 신입 및 경력모집",
+            "type": "기술지원, 보안컨설팅, 유지보수 외",
+            "location": "충남 아산시 외",
+            "career": "신입 · 경력 · 정규직",
+            "education": "대학(2,3년)↑",
+            "employment": "정보 없음",
+            "deadline": "~11.30(월)",
+            "reg_date": "1시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54907548"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
             "company": "(주)디알텍",
             "title": "2026년 신입 및 경력 채용",
             "type": "유지보수, 퍼블리셔, SE(시스템엔지니어) 외",
@@ -48,7 +78,7 @@
             "education": "고졸↑",
             "employment": "정보 없음",
             "deadline": "~09.30(수)",
-            "reg_date": "1시간 전 등록",
+            "reg_date": "2시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54907343"
         },
@@ -63,7 +93,7 @@
             "education": "고졸↑",
             "employment": "정보 없음",
             "deadline": "~09.16(수)",
-            "reg_date": "1시간 전 등록",
+            "reg_date": "2시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54907324"
         },
@@ -93,7 +123,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~09.30(수)",
-            "reg_date": "19시간 전 등록",
+            "reg_date": "20시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54899854"
         },
@@ -108,7 +138,7 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "~09.20(일)",
-            "reg_date": "19시간 전 등록",
+            "reg_date": "20시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54899610"
         },
@@ -123,7 +153,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~10.31(토)",
-            "reg_date": "20시간 전 등록",
+            "reg_date": "21시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54898973"
         },
@@ -213,7 +243,7 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "~09.30(수)",
-            "reg_date": "22시간 전 등록",
+            "reg_date": "23시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54896886"
         }
