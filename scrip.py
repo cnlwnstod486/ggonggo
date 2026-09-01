@@ -902,13 +902,13 @@ def main():
                     f"    직무 {len(item['jobs'])}개"
                 )
 
-        data = {{
+        data = {
             "updated_at": datetime.now().strftime(
                 "%Y-%m-%d %H:%M:%S"
             ),
             "recruit_count": total,
             "calendar": calendar_data
-        }}
+        }
 
         print("HTML 생성 중...")
 
