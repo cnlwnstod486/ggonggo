@@ -2,8 +2,12 @@ name: Daily Recruitment Update
 
 on:
   schedule:
+    # 한국시간 오전 9시
     - cron: "0 0 * * *"
+
+    # 한국시간 오후 5시
     - cron: "0 8 * * *"
+
   workflow_dispatch:
 
 permissions:
@@ -24,16 +28,21 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install playwright
-          playwright install chromium
-          playwright install-deps chromium
+          pip install requests beautifulsoup4
 
-      - name: Run scraper
+      - name: Run calendar scraper
         run: python scrip.py
 
-      - name: Update website
+      - name: Run recruitment scraper
+        run: python scrip2.py
+
+      - name: Update website data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html
-          git diff --cached --quiet || git commit -m "Daily recruitment update"
+
+          git add index.html jobs.json
+
+          git diff --cached --quiet || git commit -m "Update recruitment data"
+
+          git push
