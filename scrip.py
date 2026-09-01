@@ -1,5 +1,6 @@
 from playwright.sync_api import sync_playwright
 from datetime import datetime
+import json
 import html
 
 BASE_URL = "https://jasoseol.com"
@@ -12,109 +13,88 @@ def collect_detail(page, url):
         page.wait_for_timeout(500)
 
         return page.evaluate("""
-            () => {
-                const section = [...document.querySelectorAll("section")]
-                    .find(s => {
-                        const h2 = s.querySelector("h2");
-                        return h2 && h2.innerText.trim() === "모집 직무";
-                    });
-
-                if (!section) return [];
-
-                const result = [];
-
-                section.querySelectorAll("li").forEach(item => {
-                    const elements = item.querySelectorAll("span, div");
-
-                    let employmentType = "";
-                    let job = "";
-                    let applicants = null;
-
-                    for (const el of elements) {
-                        const text = el.innerText.trim();
-
-                        if (
-                            text === "신입" ||
-                            text === "경력" ||
-                            text === "인턴" ||
-                            text === "신입/경력" ||
-                            text === "경력무관" ||
-                            text === "계약직" ||
-                            text === "정규직"
-                        ) {
-                            employmentType = text;
-                        }
-
-                        const applicantMatch =
-                            text.match(/^([\\d,]+)\\s*명\\s*작성$/);
-
-                        if (applicantMatch) {
-                            applicants = parseInt(
-                                applicantMatch[1].replace(/,/g, ""),
-                                10
-                            );
-                        }
-                    }
-
-                    const textElements = [...elements]
-                        .map(el => el.innerText.trim())
-                        .filter(Boolean);
-
-                    for (const text of textElements) {
-                        if (
-                            text === "신입" ||
-                            text === "경력" ||
-                            text === "인턴" ||
-                            text === "신입/경력" ||
-                            text === "경력무관" ||
-                            text === "계약직" ||
-                            text === "정규직"
-                        ) {
-                            continue;
-                        }
-
-                        if (/^[\\d,]+\\s*명\\s*작성$/.test(text)) {
-                            continue;
-                        }
-
-                        if (text === "자소서 문항 보기") {
-                            continue;
-                        }
-
-                        if (
-                            text.length >= 2 &&
-                            text.length <= 100 &&
-                            !text.includes("\\n")
-                        ) {
-                            job = text;
-                            break;
-                        }
-                    }
-
-                    if (job) {
-                        result.push({
-                            employment_type: employmentType,
-                            job: job,
-                            applicants: applicants
-                        });
-                    }
+        () => {
+            const section = [...document.querySelectorAll("section")]
+                .find(s => {
+                    const h2 = s.querySelector("h2");
+                    return h2 && h2.innerText.trim() === "모집 직무";
                 });
 
-                const unique = [];
+            if (!section) return [];
 
-                for (const item of result) {
-                    const key =
-                        item.employment_type + "|" + item.job;
+            const result = [];
+            const types = [
+                "신입",
+                "경력",
+                "인턴",
+                "신입/경력",
+                "경력무관",
+                "계약직",
+                "정규직"
+            ];
 
-                    if (!unique.some(x =>
-                        x.employment_type + "|" + x.job === key
-                    )) {
-                        unique.push(item);
+            section.querySelectorAll("li").forEach(item => {
+                const elements = [...item.querySelectorAll("span, div")]
+                    .map(el => el.innerText.trim())
+                    .filter(Boolean);
+
+                let employmentType = "";
+                let applicants = null;
+                let job = "";
+
+                for (const text of elements) {
+                    if (types.includes(text)) {
+                        employmentType = text;
+                    }
+
+                    const match = text.match(/^([\\d,]+)\\s*명\\s*작성$/);
+
+                    if (match) {
+                        applicants = parseInt(
+                            match[1].replace(/,/g, ""),
+                            10
+                        );
                     }
                 }
 
-                return unique;
+                for (const text of elements) {
+                    if (types.includes(text)) continue;
+                    if (/^[\\d,]+\\s*명\\s*작성$/.test(text)) continue;
+                    if (text === "자소서 문항 보기") continue;
+
+                    if (
+                        text.length >= 2 &&
+                        text.length <= 150 &&
+                        !text.includes("\\n")
+                    ) {
+                        job = text;
+                        break;
+                    }
+                }
+
+                if (job) {
+                    result.push({
+                        employment_type: employmentType,
+                        job: job,
+                        applicants: applicants
+                    });
+                }
+            });
+
+            const unique = [];
+            const seen = new Set();
+
+            for (const item of result) {
+                const key = item.employment_type + "|" + item.job;
+
+                if (!seen.has(key)) {
+                    seen.add(key);
+                    unique.push(item);
+                }
             }
+
+            return unique;
+        }
         """)
 
     except Exception as e:
@@ -136,123 +116,100 @@ def collect_calendar(page):
     )
 
     return page.evaluate("""
-        () => {
-            const result = {};
+    () => {
+        const result = {};
 
-            const cells = document.querySelectorAll(
-                '[data-testid="week-row"] > div[class*="CalendarCell_cell"]'
-            );
+        const cells = document.querySelectorAll(
+            '[data-testid="week-row"] > div[class*="CalendarCell_cell"]'
+        );
 
-            cells.forEach(cell => {
-                const time = cell.querySelector("time[datetime]");
+        cells.forEach(cell => {
+            const time = cell.querySelector("time[datetime]");
 
-                if (!time) return;
+            if (!time) return;
 
-                const date = time.getAttribute("datetime");
+            const date = time.getAttribute("datetime");
 
-                cell.querySelectorAll(
-                    '[data-testid="employment-item"]'
-                ).forEach(item => {
+            cell.querySelectorAll(
+                '[data-testid="employment-item"]'
+            ).forEach(item => {
+                const link = item.querySelector(
+                    'a[href*="/recruit/"]'
+                );
 
-                    const link = item.querySelector(
-                        'a[href*="/recruit/"]'
-                    );
+                if (!link) return;
 
-                    if (!link) return;
+                const href = link.getAttribute("href");
 
-                    const href = link.getAttribute("href");
+                const companyElement = item.querySelector(
+                    ".company-name"
+                );
 
-                    const companyElement = item.querySelector(
-                        ".company-name"
-                    );
+                if (!companyElement) return;
 
-                    if (!companyElement) return;
+                const company = companyElement.innerText.trim();
 
-                    const company =
-                        companyElement.innerText.trim();
+                const statusElement = item.querySelector(
+                    ".EmploymentHeader_label__uIxZW"
+                );
 
-                    const statusElement = item.querySelector(
-                        ".EmploymentHeader_label__uIxZW"
-                    );
+                let status = "";
 
-                    let status = "";
+                if (statusElement) {
+                    const aria = statusElement.getAttribute("aria-label");
+                    const text = statusElement.innerText.trim();
 
-                    if (statusElement) {
-                        const aria =
-                            statusElement.getAttribute("aria-label");
-
-                        const text =
-                            statusElement.innerText.trim();
-
-                        if (
-                            aria === "시작" ||
-                            text === "시작"
-                        ) {
-                            status = "시작";
-                        } else if (
-                            aria === "마감" ||
-                            text === "마감"
-                        ) {
-                            status = "마감";
-                        } else if (
-                            aria === "수시" ||
-                            text === "수시" ||
-                            text === "수"
-                        ) {
-                            status = "수시";
-                        }
+                    if (aria === "시작" || text === "시작") {
+                        status = "시작";
+                    } else if (aria === "마감" || text === "마감") {
+                        status = "마감";
+                    } else if (
+                        aria === "수시" ||
+                        text === "수시" ||
+                        text === "수"
+                    ) {
+                        status = "수시";
                     }
+                }
 
-                    const url =
-                        href.startsWith("http")
-                            ? href
-                            : `${location.origin}${href}`;
+                const url = href.startsWith("http")
+                    ? href
+                    : location.origin + href;
 
-                    if (!result[date]) {
-                        result[date] = [];
-                    }
+                if (!result[date]) {
+                    result[date] = [];
+                }
 
-                    if (!result[date].some(x => x.url === url)) {
-                        result[date].push({
-                            status: status,
-                            company: company,
-                            url: url,
-                            jobs: []
-                        });
-                    }
-                });
+                if (!result[date].some(x => x.url === url)) {
+                    result[date].push({
+                        status: status,
+                        company: company,
+                        url: url,
+                        jobs: []
+                    });
+                }
             });
+        });
 
-            return result;
-        }
+        return result;
+    }
     """)
 
 
 def make_html(data):
-    calendar = data["calendar"]
-    updated_at = data["updated_at"]
+    calendar_json = json.dumps(
+        data["calendar"],
+        ensure_ascii=False
+    )
 
-    calendar_json = str(calendar)
-    calendar_json = calendar_json.replace("'", '"')
+    updated_at = html.escape(data["updated_at"])
 
-    dates = sorted(calendar.keys())
-
-    if dates:
-        first_date = datetime.strptime(
-            dates[0],
-            "%Y-%m-%d"
-        )
-    else:
-        first_date = datetime.now()
-
-    year = first_date.year
-    month = first_date.month
-
-    html_content = f"""<!DOCTYPE html>
+    return f"""<!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>자소설닷컴 채용 달력</title>
 
 <style>
@@ -274,15 +231,16 @@ body {{
 
 .container {{
     max-width: 1400px;
-    margin: 0 auto;
-    padding: 30px 20px 60px;
+    margin: auto;
+    padding: 25px 20px 60px;
 }}
 
 .header {{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
+    gap: 15px;
 }}
 
 .title {{
@@ -295,11 +253,51 @@ body {{
     font-size: 13px;
 }}
 
+.month-nav {{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 18px;
+}}
+
+.month-title {{
+    min-width: 180px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 800;
+}}
+
+.nav-btn {{
+    border: 0;
+    background: #4285f4;
+    color: white;
+    border-radius: 8px;
+    padding: 9px 15px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}}
+
+.nav-btn:hover {{
+    background: #3367d6;
+}}
+
+.today-btn {{
+    border: 1px solid #4285f4;
+    background: white;
+    color: #4285f4;
+    border-radius: 8px;
+    padding: 8px 13px;
+    font-weight: 700;
+    cursor: pointer;
+}}
+
 .calendar {{
     background: white;
     border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
     overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
 }}
 
 .weekdays {{
@@ -310,10 +308,17 @@ body {{
 }}
 
 .weekday {{
-    padding: 14px 10px;
+    padding: 13px;
     text-align: center;
     font-weight: 700;
-    color: #555;
+}}
+
+.sunday {{
+    color: #e53935;
+}}
+
+.saturday {{
+    color: #1976d2;
 }}
 
 .days {{
@@ -322,12 +327,12 @@ body {{
 }}
 
 .day {{
-    min-height: 125px;
-    padding: 10px;
+    min-height: 135px;
+    padding: 9px;
     border-right: 1px solid #eee;
     border-bottom: 1px solid #eee;
     cursor: pointer;
-    transition: background 0.15s;
+    transition: background .15s;
 }}
 
 .day:hover {{
@@ -339,31 +344,26 @@ body {{
     box-shadow: inset 0 0 0 2px #4285f4;
 }}
 
+.day.today {{
+    background: #fff8e1;
+}}
+
 .day-number {{
     font-size: 14px;
-    font-weight: 700;
+    font-weight: 800;
     margin-bottom: 8px;
 }}
 
-.sunday {{
-    color: #e53935;
-}}
-
-.saturday {{
-    color: #1976d2;
-}}
-
-.counts {{
+.badges {{
     display: flex;
     flex-direction: column;
     gap: 4px;
 }}
 
 .badge {{
-    display: inline-block;
     width: fit-content;
-    padding: 3px 7px;
     border-radius: 5px;
+    padding: 3px 7px;
     font-size: 11px;
     font-weight: 700;
 }}
@@ -383,10 +383,6 @@ body {{
     color: #f57f17;
 }}
 
-.empty {{
-    color: #aaa;
-}}
-
 .detail {{
     margin-top: 25px;
     background: white;
@@ -398,7 +394,7 @@ body {{
 .detail-title {{
     font-size: 21px;
     font-weight: 800;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }}
 
 .recruit {{
@@ -434,8 +430,8 @@ body {{
 .job {{
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 6px 0;
+    gap: 10px;
+    padding: 7px 0;
     border-bottom: 1px solid #f1f1f1;
     font-size: 14px;
 }}
@@ -445,13 +441,16 @@ body {{
 }}
 
 .job-type {{
+    min-width: 70px;
     color: #666;
-    min-width: 65px;
+    font-size: 12px;
 }}
 
 .applicants {{
-    color: #777;
     margin-left: auto;
+    color: #777;
+    white-space: nowrap;
+    font-size: 12px;
 }}
 
 .link {{
@@ -469,12 +468,12 @@ body {{
 
 .no-data {{
     color: #999;
-    padding: 20px 0;
+    padding: 15px 0;
 }}
 
 @media (max-width: 700px) {{
     .container {{
-        padding: 15px 10px 40px;
+        padding: 15px 8px 40px;
     }}
 
     .header {{
@@ -482,16 +481,20 @@ body {{
     }}
 
     .updated {{
-        margin-top: 8px;
+        margin-top: 7px;
     }}
 
     .title {{
-        font-size: 22px;
+        font-size: 21px;
+    }}
+
+    .month-title {{
+        font-size: 20px;
     }}
 
     .day {{
-        min-height: 70px;
-        padding: 6px;
+        min-height: 75px;
+        padding: 5px;
     }}
 
     .badge {{
@@ -500,11 +503,15 @@ body {{
     }}
 
     .detail {{
-        padding: 16px;
+        padding: 15px;
     }}
 
-    .recruit-header {{
-        align-items: flex-start;
+    .job {{
+        flex-wrap: wrap;
+    }}
+
+    .applicants {{
+        margin-left: 0;
     }}
 }}
 </style>
@@ -515,13 +522,20 @@ body {{
 <div class="container">
 
     <div class="header">
-        <div class="title">
-            📅 {year}년 {month}월 채용 달력
-        </div>
-
+        <div class="title">📅 자소설닷컴 채용 달력</div>
         <div class="updated">
-            마지막 업데이트: {html.escape(updated_at)}
+            마지막 업데이트: {updated_at}
         </div>
+    </div>
+
+    <div class="month-nav">
+        <button class="nav-btn" onclick="changeMonth(-1)">‹ 이전</button>
+
+        <div class="month-title" id="monthTitle"></div>
+
+        <button class="nav-btn" onclick="changeMonth(1)">다음 ›</button>
+
+        <button class="today-btn" onclick="goToday()">오늘</button>
     </div>
 
     <div class="calendar">
@@ -543,12 +557,12 @@ body {{
     <div class="detail">
 
         <div class="detail-title" id="detailTitle">
-            날짜를 선택해주세요
+            오늘 날짜를 선택했습니다
         </div>
 
         <div id="details">
             <div class="no-data">
-                달력에서 날짜를 클릭하면 해당 날짜의 채용공고가 표시됩니다.
+                날짜를 선택하면 해당 날짜의 채용공고가 표시됩니다.
             </div>
         </div>
 
@@ -559,131 +573,182 @@ body {{
 <script>
 const recruitmentData = {calendar_json};
 
-const calendarElement =
-    document.getElementById("calendar");
+const calendarElement = document.getElementById("calendar");
+const detailsElement = document.getElementById("details");
+const detailTitle = document.getElementById("detailTitle");
+const monthTitle = document.getElementById("monthTitle");
 
-const detailsElement =
-    document.getElementById("details");
+const today = new Date();
 
-const detailTitle =
-    document.getElementById("detailTitle");
+let currentYear = today.getFullYear();
+let currentMonth = today.getMonth() + 1;
 
-const year = {year};
-const month = {month};
+let selectedDate = formatDate(
+    today.getFullYear(),
+    today.getMonth() + 1,
+    today.getDate()
+);
 
-const firstDay =
-    new Date(year, month - 1, 1).getDay();
 
-const lastDay =
-    new Date(year, month, 0).getDate();
-
-for (let i = 0; i < firstDay; i++) {{
-    const empty = document.createElement("div");
-    empty.className = "day empty";
-    calendarElement.appendChild(empty);
+function formatDate(year, month, day) {{
+    return (
+        year +
+        "-" +
+        String(month).padStart(2, "0") +
+        "-" +
+        String(day).padStart(2, "0")
+    );
 }}
 
-for (let day = 1; day <= lastDay; day++) {{
 
-    const date =
-        `${{year}}-${{String(month).padStart(2, "0")}}-${{String(day).padStart(2, "0")}}`;
+function changeMonth(amount) {{
+    currentMonth += amount;
 
-    const cell =
-        document.createElement("div");
-
-    cell.className = "day";
-
-    const dateObject =
-        new Date(year, month - 1, day);
-
-    const week =
-        dateObject.getDay();
-
-    if (week === 0) {{
-        cell.classList.add("sunday");
+    if (currentMonth < 1) {{
+        currentMonth = 12;
+        currentYear--;
     }}
 
-    if (week === 6) {{
-        cell.classList.add("saturday");
+    if (currentMonth > 12) {{
+        currentMonth = 1;
+        currentYear++;
     }}
 
-    let htmlText =
-        `<div class="day-number">${{day}}</div>`;
-
-    const items =
-        recruitmentData[date] || [];
-
-    const startCount =
-        items.filter(x => x.status === "시작").length;
-
-    const endCount =
-        items.filter(x => x.status === "마감").length;
-
-    const ongoingCount =
-        items.filter(x => x.status === "수시").length;
-
-    htmlText += `<div class="counts">`;
-
-    if (startCount > 0) {{
-        htmlText +=
-            `<span class="badge start">🟢 시작 ${{startCount}}</span>`;
-    }}
-
-    if (endCount > 0) {{
-        htmlText +=
-            `<span class="badge end">🔴 마감 ${{endCount}}</span>`;
-    }}
-
-    if (ongoingCount > 0) {{
-        htmlText +=
-            `<span class="badge ongoing">🟡 수시 ${{ongoingCount}}</span>`;
-    }}
-
-    htmlText += `</div>`;
-
-    cell.innerHTML = htmlText;
-
-    cell.addEventListener("click", () => {{
-        showDetails(date);
-    }});
-
-    calendarElement.appendChild(cell);
+    renderCalendar();
 }}
+
+
+function goToday() {{
+    currentYear = today.getFullYear();
+    currentMonth = today.getMonth() + 1;
+    selectedDate = formatDate(
+        today.getFullYear(),
+        today.getMonth() + 1,
+        today.getDate()
+    );
+
+    renderCalendar();
+    showDetails(selectedDate);
+}}
+
+
+function renderCalendar() {{
+    calendarElement.innerHTML = "";
+
+    monthTitle.innerText =
+        currentYear + "년 " + currentMonth + "월";
+
+    const firstDay =
+        new Date(currentYear, currentMonth - 1, 1).getDay();
+
+    const lastDay =
+        new Date(currentYear, currentMonth, 0).getDate();
+
+    for (let i = 0; i < firstDay; i++) {{
+        const empty = document.createElement("div");
+        empty.className = "day";
+        empty.style.cursor = "default";
+        calendarElement.appendChild(empty);
+    }}
+
+    for (let day = 1; day <= lastDay; day++) {{
+
+        const date = formatDate(
+            currentYear,
+            currentMonth,
+            day
+        );
+
+        const cell = document.createElement("div");
+        cell.className = "day";
+
+        const dateObject =
+            new Date(currentYear, currentMonth - 1, day);
+
+        const week = dateObject.getDay();
+
+        if (week === 0) {{
+            cell.classList.add("sunday");
+        }}
+
+        if (week === 6) {{
+            cell.classList.add("saturday");
+        }}
+
+        if (date === selectedDate) {{
+            cell.classList.add("selected");
+        }}
+
+        if (date === formatDate(
+            today.getFullYear(),
+            today.getMonth() + 1,
+            today.getDate()
+        )) {{
+            cell.classList.add("today");
+        }}
+
+        const items = recruitmentData[date] || [];
+
+        const startCount =
+            items.filter(x => x.status === "시작").length;
+
+        const endCount =
+            items.filter(x => x.status === "마감").length;
+
+        const ongoingCount =
+            items.filter(x => x.status === "수시").length;
+
+        let content =
+            '<div class="day-number">' + day + "</div>";
+
+        content += '<div class="badges">';
+
+        if (startCount) {{
+            content +=
+                '<span class="badge start">🟢 시작 ' +
+                startCount +
+                "</span>";
+        }}
+
+        if (endCount) {{
+            content +=
+                '<span class="badge end">🔴 마감 ' +
+                endCount +
+                "</span>";
+        }}
+
+        if (ongoingCount) {{
+            content +=
+                '<span class="badge ongoing">🟡 수시 ' +
+                ongoingCount +
+                "</span>";
+        }}
+
+        content += "</div>";
+
+        cell.innerHTML = content;
+
+        cell.addEventListener("click", function() {{
+            selectedDate = date;
+            showDetails(date);
+            renderCalendar();
+        }});
+
+        calendarElement.appendChild(cell);
+    }}
+}}
+
 
 function showDetails(date) {{
-
-    document
-        .querySelectorAll(".day")
-        .forEach(x => x.classList.remove("selected"));
-
-    const dateObjects =
-        document.querySelectorAll(".day");
-
-    const targetDay =
-        parseInt(date.substring(8, 10), 10);
-
-    for (const cell of dateObjects) {{
-        const number =
-            cell.querySelector(".day-number");
-
-        if (
-            number &&
-            parseInt(number.innerText, 10) === targetDay
-        ) {{
-            cell.classList.add("selected");
-            break;
-        }}
-    }}
-
     detailTitle.innerText =
-        `${{date}} 채용공고`;
+        date + " 채용공고";
 
     const items =
         recruitmentData[date] || [];
 
-    if (items.length === 0) {{
+    if (!items.length) {{
         detailsElement.innerHTML =
-            `<div class="no-data">해당 날짜의 채용공고가 없습니다.</div>`;
+            '<div class="no-data">해당 날짜의 채용공고가 없습니다.</div>';
         return;
     }}
 
@@ -701,73 +766,70 @@ function showDetails(date) {{
 
         let jobsHtml = "";
 
-        if (item.jobs && item.jobs.length > 0) {{
+        if (item.jobs && item.jobs.length) {{
 
             item.jobs.forEach(job => {{
 
                 const applicant =
                     job.applicants === null ||
                     job.applicants === undefined
-                        ? "작성자 수 확인 안 됨"
-                        : `${{job.applicants}}명 작성`;
+                        ? ""
+                        : job.applicants + "명 작성";
 
-                jobsHtml += `
-                    <div class="job">
-                        <span class="job-type">
-                            ${{job.employment_type || "-"}}
-                        </span>
-
-                        <span>
-                            ${{escapeHtml(job.job)}}
-                        </span>
-
-                        <span class="applicants">
-                            ${{applicant}}
-                        </span>
-                    </div>
-                `;
+                jobsHtml +=
+                    '<div class="job">' +
+                        '<span class="job-type">' +
+                            escapeHtml(
+                                job.employment_type || "-"
+                            ) +
+                        "</span>" +
+                        "<span>" +
+                            escapeHtml(job.job) +
+                        "</span>" +
+                        '<span class="applicants">' +
+                            escapeHtml(applicant) +
+                        "</span>" +
+                    "</div>";
             }});
 
         }} else {{
-
             jobsHtml =
-                `<div class="no-data">모집 직무 정보 없음</div>`;
+                '<div class="no-data">모집 직무 정보 없음</div>';
         }}
 
-        output += `
-            <div class="recruit">
+        output +=
+            '<div class="recruit">' +
 
-                <div class="recruit-header">
+                '<div class="recruit-header">' +
 
-                    <div class="company">
-                        ${{escapeHtml(item.company)}}
-                    </div>
+                    '<div class="company">' +
+                        escapeHtml(item.company) +
+                    "</div>" +
 
-                    <div class="status ${{statusClass}}">
-                        ${{item.status || "확인"}}
-                    </div>
+                    '<div class="status ' +
+                        statusClass +
+                    '">' +
+                        escapeHtml(item.status || "확인") +
+                    "</div>" +
 
-                </div>
+                "</div>" +
 
-                <div class="jobs">
-                    ${{jobsHtml}}
-                </div>
+                '<div class="jobs">' +
+                    jobsHtml +
+                "</div>" +
 
-                <a
-                    class="link"
-                    href="${{item.url}}"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    공고 보기 →
-                </a>
+                '<a class="link" href="' +
+                    escapeAttribute(item.url) +
+                    '" target="_blank" rel="noopener">' +
+                    "공고 보기 →" +
+                "</a>" +
 
-            </div>
-        `;
+            "</div>";
     }});
 
     detailsElement.innerHTML = output;
 }}
+
 
 function escapeHtml(value) {{
     return String(value)
@@ -777,20 +839,26 @@ function escapeHtml(value) {{
         .replaceAll('"', "&quot;")
         .replaceAll("'", "&#039;");
 }}
+
+
+function escapeAttribute(value) {{
+    return escapeHtml(value);
+}}
+
+
+renderCalendar();
+showDetails(selectedDate);
 </script>
 
 </body>
 </html>
 """
 
-    return html_content
-
 
 def main():
     print("자소설닷컴 채용공고 수집 시작")
 
     with sync_playwright() as p:
-
         browser = p.chromium.launch(headless=True)
 
         page = browser.new_page(
@@ -814,9 +882,8 @@ def main():
 
         count = 0
 
-        for date, items in calendar_data.items():
-
-            for item in items:
+        for date in sorted(calendar_data):
+            for item in calendar_data[date]:
 
                 count += 1
 
@@ -835,13 +902,13 @@ def main():
                     f"    직무 {len(item['jobs'])}개"
                 )
 
-        data = {
+        data = {{
             "updated_at": datetime.now().strftime(
                 "%Y-%m-%d %H:%M:%S"
             ),
             "recruit_count": total,
             "calendar": calendar_data
-        }
+        }}
 
         print("HTML 생성 중...")
 
