@@ -1,12 +1,27 @@
 {
-    "updated_at": "2026-09-01 03:20:43",
+    "updated_at": "2026-09-01 12:48:47",
     "total": 18,
     "counts": {
-        "alio": 0,
-        "saramin": 18,
+        "alio": 1,
+        "saramin": 17,
         "jobkorea": 0
     },
     "jobs": [
+        {
+            "site": "alio",
+            "site_name": "알리오",
+            "company": "한국의료기기안전정보원",
+            "title": "2026년 제3차 한국의료기기안전정보원 직원(기간제 근로자) 채용공고",
+            "type": "공공기관 채용",
+            "location": "서울",
+            "career": "정보 없음",
+            "education": "정보 없음",
+            "employment": "비정규직",
+            "deadline": "26.09.16",
+            "reg_date": "2026.09.01",
+            "status": "진행중",
+            "link": "https://job.alio.go.kr/recruitview.do?idx=304387"
+        },
         {
             "site": "saramin",
             "site_name": "사람인",
@@ -48,7 +63,7 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "~09.10(목)",
-            "reg_date": "1시간 전 등록",
+            "reg_date": "2시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54908294"
         },
@@ -108,7 +123,7 @@
             "education": "고졸↑",
             "employment": "정보 없음",
             "deadline": "~09.16(수)",
-            "reg_date": "2시간 전 등록",
+            "reg_date": "3시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54907324"
         },
@@ -123,7 +138,7 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "~10.01(목)",
-            "reg_date": "2시간 전 등록",
+            "reg_date": "3시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54907088"
         },
@@ -153,7 +168,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~09.30(수)",
-            "reg_date": "20시간 전 등록",
+            "reg_date": "21시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54899854"
         },
@@ -168,7 +183,7 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "~09.20(일)",
-            "reg_date": "20시간 전 등록",
+            "reg_date": "21시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54899610"
         },
@@ -198,7 +213,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~09.14(월)",
-            "reg_date": "21시간 전 등록",
+            "reg_date": "22시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54898491"
         },
@@ -213,7 +228,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~09.30(수)",
-            "reg_date": "21시간 전 등록",
+            "reg_date": "22시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54898447"
         },
@@ -228,7 +243,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~10.30(금)",
-            "reg_date": "21시간 전 등록",
+            "reg_date": "22시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54898388"
         },
@@ -261,21 +276,6 @@
             "reg_date": "23시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54897114"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "엘티씨(주)",
-            "title": "엘티씨(주) 경영관리팀(총무,전산,보안) 채용",
-            "type": "정보보안, 전산총무, 인사",
-            "location": "경기 화성시 만세구",
-            "career": "신입 · 경력 · 정규직",
-            "education": "대학교(4년)↑",
-            "employment": "정보 없음",
-            "deadline": "~09.30(수)",
-            "reg_date": "23시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54896886"
         }
     ]
 }
