@@ -17,7 +17,6 @@ DETAIL_DELAY = 300
 CALENDAR_WAIT_TIMEOUT = 30000
 
 
-
 def collect_detail(page, url):
     """
     상세 채용공고 페이지에서
@@ -265,14 +264,11 @@ def collect_detail(page, url):
 
                     if (companyInfoHeading) {
 
-                        // 기업 정보 h3의 가장 가까운
-                        // 정보 박스 영역을 찾는다.
                         let container =
                             companyInfoHeading.parentElement;
 
                         if (container) {
 
-                            // "기업 형태" 텍스트를 가진 요소 찾기
                             const allElements =
                                 [
                                     ...container.querySelectorAll(
@@ -290,11 +286,6 @@ def collect_detail(page, url):
 
                             if (typeLabel) {
 
-                                // label의 부모:
-                                // <div>
-                                //   <div>기업 형태</div>
-                                //   <div>대기업</div>
-                                // </div>
                                 const parent =
                                     typeLabel.parentElement;
 
@@ -348,32 +339,30 @@ def collect_detail(page, url):
                 """
             )
 
-            // 결과 반환
-            return result;
+            # 결과 반환
+            return result
 
-        } catch (PlaywrightTimeoutError as e) {
+        except PlaywrightTimeoutError as e:
 
-            last_error = e;
+            last_error = e
 
             print(
                 f"      상세 페이지 대기시간 초과 "
                 f"({attempt}/{MAX_RETRIES})"
-            );
+            )
 
-        } catch (Exception as e) {
+        except Exception as e:
 
-            last_error = e;
+            last_error = e
 
             print(
                 f"      상세 페이지 오류 "
                 f"({attempt}/{MAX_RETRIES}): {e}"
-            );
-
-        }
+            )
 
         if attempt < MAX_RETRIES:
 
-            wait_seconds = attempt * 2;
+            wait_seconds = attempt * 2
 
             print(
                 f"      {wait_seconds}초 후 재시도..."
@@ -397,7 +386,6 @@ def collect_detail(page, url):
     }
 
 
-
 # ================================================================
 # 채용 달력 수집
 # ================================================================
@@ -412,10 +400,7 @@ def collect_calendar(page):
         timeout=30000
     )
 
-    # ------------------------------------------------------------
     # 기본 공고가 나타날 때까지 기다림
-    # ------------------------------------------------------------
-
     page.wait_for_selector(
         '[data-testid="employment-item"]',
         state="attached",
@@ -424,13 +409,7 @@ def collect_calendar(page):
 
     print("공고 DOM 발견")
 
-    # ------------------------------------------------------------
-    # 공고 개수가 일정 시간 동안 안정될 때까지 기다림
-    #
-    # 페이지가 처음에는 100개였다가
-    # JS/API 로딩 후 200개가 되는 경우를 대비
-    # ------------------------------------------------------------
-
+    # 공고 개수가 안정될 때까지 기다림
     start_time = time.time()
 
     previous_count = -1
@@ -457,7 +436,7 @@ def collect_calendar(page):
 
         previous_count = current_count
 
-        # 3회 연속 같은 개수면 안정화됐다고 판단
+        # 3회 연속 같은 개수면 안정화
         if stable_count >= 3:
 
             print(
@@ -481,16 +460,10 @@ def collect_calendar(page):
 
         page.wait_for_timeout(1000)
 
-    # ------------------------------------------------------------
-    # 마지막으로 한 번 더 렌더링 대기
-    # ------------------------------------------------------------
-
+    # 마지막 렌더링 대기
     page.wait_for_timeout(1000)
 
-    # ------------------------------------------------------------
     # DOM에서 공고 수집
-    # ------------------------------------------------------------
-
     result = page.evaluate(
         """
         () => {
@@ -596,7 +569,9 @@ def collect_calendar(page):
                         ) {
 
                             status = "수시";
+
                         }
+
                     }
 
                     const url =
@@ -627,7 +602,11 @@ def collect_calendar(page):
                                 url,
 
                             jobs:
-                                []
+                                [],
+
+                            company_type:
+                                ""
+
                         });
 
                     }
@@ -637,14 +616,12 @@ def collect_calendar(page):
             });
 
             return result;
+
         }
         """
     )
 
-    # ------------------------------------------------------------
     # 수집 결과 검증
-    # ------------------------------------------------------------
-
     total = sum(
         len(items)
         for items in result.values()
@@ -664,7 +641,6 @@ def collect_calendar(page):
     return result
 
 
-
 # ================================================================
 # HTML 생성
 # ================================================================
@@ -676,7 +652,9 @@ def make_html(data):
         ensure_ascii=False
     )
 
-    updated_at = html.escape(data["updated_at"])
+    updated_at = html.escape(
+        data["updated_at"]
+    )
 
     return f"""<!DOCTYPE html>
 <html lang="ko">
@@ -693,10 +671,6 @@ def make_html(data):
 <title>채용달력 | 꽁고</title>
 
 <style>
-
-/* =========================================================
-   기본
-========================================================= */
 
 * {{
     box-sizing: border-box;
@@ -882,34 +856,57 @@ button {{
 
     white-space: nowrap;
 }}
+
+
+/* =========================================================
+   회사
+========================================================= */
+
 .company {{
+
     display: flex;
+
     align-items: center;
+
     gap: 8px;
+
+    min-width: 0;
 }}
 
 .company a {{
+
     color: #111827;
+
     text-decoration: none;
+
     cursor: pointer;
 }}
 
 .company a:hover {{
+
     text-decoration: underline;
 }}
 
 .company-type {{
+
     display: inline-flex;
+
     align-items: center;
+
     padding: 3px 8px;
+
     border-radius: 4px;
+
     background: #f3f4f6;
+
     color: #4b5563;
+
     font-size: 12px;
+
     font-weight: 500;
+
     white-space: nowrap;
 }}
-
 
 
 /* =========================================================
@@ -964,6 +961,7 @@ button {{
 }}
 
 .nav-btn:hover {{
+
     background: #4338ca;
 }}
 
@@ -1246,23 +1244,6 @@ button {{
     font-size: 12px;
 }}
 
-.link {{
-
-    display: inline-block;
-
-    margin-top: 12px;
-
-    color: #4f46e5;
-
-    font-size: 13px;
-
-    font-weight: 800;
-}}
-
-.link:hover {{
-    text-decoration: underline;
-}}
-
 .no-data {{
 
     color: #999;
@@ -1369,7 +1350,9 @@ button {{
 
         margin-left: 0;
     }}
+
 }}
+
 
 </style>
 
@@ -1380,7 +1363,7 @@ button {{
 
 
 <!-- =========================================================
-     꽁고 상단 메뉴
+     상단 메뉴
 ========================================================= -->
 
 <header class="topbar">
@@ -1394,7 +1377,6 @@ button {{
             꽁고<span>·</span>
         </a>
 
-
         <nav class="main-nav">
 
             <a
@@ -1403,7 +1385,6 @@ button {{
             >
                 📅 채용달력
             </a>
-
 
             <a
                 href="index2.html"
@@ -1424,7 +1405,6 @@ button {{
 ========================================================= -->
 
 <div class="container">
-
 
     <div class="header">
 
@@ -1450,12 +1430,10 @@ button {{
             ‹ 이전
         </button>
 
-
         <div
             class="month-title"
             id="monthTitle"
         ></div>
-
 
         <button
             class="nav-btn"
@@ -1463,7 +1441,6 @@ button {{
         >
             다음 ›
         </button>
-
 
         <button
             class="today-btn"
@@ -1478,7 +1455,6 @@ button {{
     <!-- 달력 -->
 
     <div class="calendar">
-
 
         <div class="weekdays">
 
@@ -1512,7 +1488,6 @@ button {{
 
         </div>
 
-
         <div
             class="days"
             id="calendar"
@@ -1532,7 +1507,6 @@ button {{
             오늘 날짜를 선택했습니다
         </div>
 
-
         <div id="details">
 
             <div class="no-data">
@@ -1543,7 +1517,6 @@ button {{
         </div>
 
     </div>
-
 
 </div>
 
@@ -1612,24 +1585,19 @@ function changeMonth(amount) {{
 
     currentMonth += amount;
 
-
     if (currentMonth < 1) {{
 
         currentMonth = 12;
-
         currentYear--;
 
     }}
 
-
     if (currentMonth > 12) {{
 
         currentMonth = 1;
-
         currentYear++;
 
     }}
-
 
     renderCalendar();
 
@@ -1648,14 +1616,12 @@ function goToday() {{
     currentMonth =
         today.getMonth() + 1;
 
-
     selectedDate =
         formatDate(
             today.getFullYear(),
             today.getMonth() + 1,
             today.getDate()
         );
-
 
     renderCalendar();
 
@@ -1672,13 +1638,11 @@ function renderCalendar() {{
 
     calendarElement.innerHTML = "";
 
-
     monthTitle.innerText =
         currentYear +
         "년 " +
         currentMonth +
         "월";
-
 
     const firstDay =
         new Date(
@@ -1686,7 +1650,6 @@ function renderCalendar() {{
             currentMonth - 1,
             1
         ).getDay();
-
 
     const lastDay =
         new Date(
@@ -1735,13 +1698,11 @@ function renderCalendar() {{
                 day
             );
 
-
         const cell =
             document.createElement("div");
 
         cell.className =
             "day";
-
 
         const dateObject =
             new Date(
@@ -1750,25 +1711,20 @@ function renderCalendar() {{
                 day
             );
 
-
         const week =
             dateObject.getDay();
-
 
         if (week === 0) {{
             cell.classList.add("sunday");
         }}
 
-
         if (week === 6) {{
             cell.classList.add("saturday");
         }}
 
-
         if (date === selectedDate) {{
             cell.classList.add("selected");
         }}
-
 
         if (
             date ===
@@ -1783,38 +1739,31 @@ function renderCalendar() {{
 
         }}
 
-
         const items =
             recruitmentData[date] || [];
-
 
         const startCount =
             items.filter(
                 x => x.status === "시작"
             ).length;
 
-
         const endCount =
             items.filter(
                 x => x.status === "마감"
             ).length;
-
 
         const ongoingCount =
             items.filter(
                 x => x.status === "수시"
             ).length;
 
-
         let content =
             '<div class="day-number">' +
             day +
             "</div>";
 
-
         content +=
             '<div class="badges">';
-
 
         if (startCount) {{
 
@@ -1826,7 +1775,6 @@ function renderCalendar() {{
 
         }}
 
-
         if (endCount) {{
 
             content +=
@@ -1836,7 +1784,6 @@ function renderCalendar() {{
                 "</span>";
 
         }}
-
 
         if (ongoingCount) {{
 
@@ -1848,14 +1795,11 @@ function renderCalendar() {{
 
         }}
 
-
         content +=
             "</div>";
 
-
         cell.innerHTML =
             content;
-
 
         cell.addEventListener(
             "click",
@@ -1870,7 +1814,6 @@ function renderCalendar() {{
 
             }}
         );
-
 
         calendarElement.appendChild(
             cell
@@ -1891,10 +1834,8 @@ function showDetails(date) {{
         date +
         " 채용공고";
 
-
     const items =
         recruitmentData[date] || [];
-
 
     if (!items.length) {{
 
@@ -1907,7 +1848,6 @@ function showDetails(date) {{
 
     }}
 
-
     let output = "";
 
 
@@ -1915,7 +1855,6 @@ function showDetails(date) {{
 
         let statusClass =
             "ongoing";
-
 
         if (item.status === "시작") {{
 
@@ -1948,7 +1887,6 @@ function showDetails(date) {{
                         ? ""
                         : job.applicants +
                           "명 작성";
-
 
                 jobsHtml +=
 
@@ -1999,14 +1937,28 @@ function showDetails(date) {{
 
                 '<div class="recruit-header">' +
 
-                '<div class="company">' +
-                    '<a href="' + escapeAttribute(item.url) + '" target="_blank" rel="noopener">' +
-                        escapeHtml(item.company) +
-                    '</a>' +
-                    '<span class="company-type">' +
-                        escapeHtml(item.get("company_type", "정보 없음")) +
-                    '</span>' +
-                '</div>' +
+                    '<div class="company">' +
+
+                        '<a href="' +
+                            escapeAttribute(item.url) +
+                            '" target="_blank" rel="noopener">' +
+
+                            escapeHtml(
+                                item.company
+                            ) +
+
+                        "</a>" +
+
+                        '<span class="company-type">' +
+
+                            escapeHtml(
+                                item.company_type ||
+                                "정보 없음"
+                            ) +
+
+                        "</span>" +
+
+                    "</div>" +
 
                     '<div class="status ' +
                         statusClass +
@@ -2026,13 +1978,6 @@ function showDetails(date) {{
                     jobsHtml +
 
                 "</div>" +
-
-
-                    '" target="_blank" rel="noopener">' +
-
-                    "공고 보기 →" +
-
-                "</a>" +
 
             "</div>";
 
@@ -2170,9 +2115,6 @@ def main():
 
         # --------------------------------------------------------
         # 공고가 하나도 없으면 위험
-        #
-        # 기존 index.html을 빈 데이터로 덮어쓰지 않도록
-        # 즉시 실패시킨다.
         # --------------------------------------------------------
 
         if total == 0:
@@ -2227,24 +2169,25 @@ def main():
                 )
 
                 detail_result = collect_detail(
-                detail_page,
-                item["url"]
+                    detail_page,
+                    item["url"]
                 )
 
                 jobs = detail_result.get(
                     "jobs",
                     []
                 )
-                
+
                 item["jobs"] = jobs
-                
-                item["company_type"] = detail_result.get(
-                    "company_type",
-                    ""
+
+                item["company_type"] = (
+                    detail_result.get(
+                        "company_type",
+                        ""
+                    )
                 )
 
                 if jobs:
-
 
                     success_count += 1
 
@@ -2275,7 +2218,7 @@ def main():
                     )
 
                 # 서버에 너무 빠르게 요청하지 않도록
-                page.wait_for_timeout(
+                detail_page.wait_for_timeout(
                     DETAIL_DELAY
                 )
 
@@ -2347,6 +2290,7 @@ def main():
 
             "calendar":
                 calendar_data
+
         }
 
         # --------------------------------------------------------
@@ -2414,4 +2358,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
