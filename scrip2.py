@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from urllib.parse import urljoin
 import re
 import json
@@ -24,6 +24,17 @@ HEADERS = {
     "Accept-Language": "ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7",
     "Referer": "https://job.alio.go.kr/",
 }
+
+
+# ============================================================================
+# 한국시간(KST)
+# ============================================================================
+
+KST = timezone(timedelta(hours=9))
+
+
+def now_kst():
+    return datetime.now(KST)
 
 
 # ============================================================================
@@ -93,7 +104,7 @@ def normalize_alio_date(date_text):
 
 def fetch_alio_jobs(days_back=2, area_code="R8018"):
 
-    today = datetime.now()
+    today = now_kst()
     start_date = today - timedelta(days=days_back)
 
     params = {
@@ -117,27 +128,84 @@ def fetch_alio_jobs(days_back=2, area_code="R8018"):
     session = requests.Session()
     session.headers.update(HEADERS)
 
-    try:
+    # 최대 3회 재시도
+    for attempt in range(1, 4):
 
-        response = session.get(
-            ALIO_BASE_URL,
-            params=params,
-            timeout=20
-        )
+        try:
 
-        print(f"🌐 HTTP 상태: {response.status_code}")
+            print(
+                f"🔄 알리오 요청 시도 "
+                f"{attempt}/3"
+            )
 
-        response.raise_for_status()
+            response = session.get(
+                ALIO_BASE_URL,
+                params=params,
+                timeout=(15, 60)
+            )
 
-        response.encoding = "utf-8"
+            print(
+                f"🌐 HTTP 상태: "
+                f"{response.status_code}"
+            )
 
-        return response.text
+            response.raise_for_status()
 
-    except requests.RequestException as e:
+            response.encoding = "utf-8"
 
-        print(f"❌ 알리오 요청 실패: {e}")
+            print("✅ 알리오 응답 성공")
 
-        return None
+            return response.text
+
+        except requests.exceptions.Timeout as e:
+
+            print(
+                f"⏰ 알리오 요청 시간 초과 "
+                f"({attempt}/3)"
+            )
+
+            print(f"   {e}")
+
+            if attempt < 3:
+                print("   잠시 후 다시 시도합니다...")
+
+        except requests.exceptions.ConnectionError as e:
+
+            print(
+                f"🌐 알리오 연결 오류 "
+                f"({attempt}/3)"
+            )
+
+            print(f"   {e}")
+
+            if attempt < 3:
+                print("   잠시 후 다시 시도합니다...")
+
+        except requests.RequestException as e:
+
+            print(
+                f"❌ 알리오 요청 실패 "
+                f"({attempt}/3)"
+            )
+
+            print(f"   {e}")
+
+            if attempt < 3:
+                print("   잠시 후 다시 시도합니다...")
+
+        except Exception as e:
+
+            print(
+                f"❌ 알리오 예상치 못한 오류: {e}"
+            )
+
+            break
+
+    print()
+    print("⚠️ 알리오 크롤링 실패")
+    print("   사람인/잡코리아 크롤링은 계속 진행합니다.")
+
+    return None
 
 
 def parse_alio_jobs(
@@ -153,7 +221,7 @@ def parse_alio_jobs(
         "html.parser"
     )
 
-    today = datetime.now().strftime("%Y.%m.%d")
+    today = now_kst().strftime("%Y.%m.%d")
 
     tables = soup.find_all("table")
 
@@ -169,7 +237,9 @@ def parse_alio_jobs(
         "상태",
     ]
 
-    print(f"📋 알리오 테이블 개수: {len(tables)}")
+    print(
+        f"📋 알리오 테이블 개수: {len(tables)}"
+    )
 
     for table in tables:
 
@@ -185,13 +255,17 @@ def parse_alio_jobs(
 
             target_table = table
 
-            print("✅ 알리오 채용공고 테이블 발견")
+            print(
+                "✅ 알리오 채용공고 테이블 발견"
+            )
 
             break
 
     if target_table is None:
 
-        print("⚠️ 알리오 채용공고 테이블을 찾지 못했습니다.")
+        print(
+            "⚠️ 알리오 채용공고 테이블을 찾지 못했습니다."
+        )
 
         return []
 
@@ -214,7 +288,9 @@ def parse_alio_jobs(
 
     except ValueError as e:
 
-        print(f"❌ 알리오 컬럼 확인 실패: {e}")
+        print(
+            f"❌ 알리오 컬럼 확인 실패: {e}"
+        )
 
         return []
 
@@ -279,6 +355,7 @@ def parse_alio_jobs(
                 )
 
                 if any_link:
+
                     job_link = any_link.get(
                         "href",
                         ""
@@ -637,6 +714,7 @@ def parse_saramin_jobs(
                     )
 
                     if elem:
+
                         work_place = elem.get_text(
                             strip=True
                         )
@@ -649,6 +727,7 @@ def parse_saramin_jobs(
                     )
 
                     if elem:
+
                         career = elem.get_text(
                             strip=True
                         )
@@ -661,6 +740,7 @@ def parse_saramin_jobs(
                     )
 
                     if elem:
+
                         education = elem.get_text(
                             strip=True
                         )
@@ -819,7 +899,7 @@ def is_jobkorea_registered_today(
             date_match.group(2)
         )
 
-        today = datetime.now()
+        today = now_kst()
 
         return (
             month == today.month
@@ -1084,7 +1164,7 @@ def save_jobs_json(
 
     data = {
 
-        "updated_at": datetime.now().strftime(
+        "updated_at": now_kst().strftime(
             "%Y-%m-%d %H:%M:%S"
         ),
 
@@ -1118,7 +1198,7 @@ def save_jobs_json(
         )
 
     print(
-        f"\n💾 jobs.json 저장 완료"
+        "\n💾 jobs.json 저장 완료"
     )
 
     print(
@@ -1127,6 +1207,11 @@ def save_jobs_json(
 
     print(
         f"📊 총 공고: {len(all_jobs)}개"
+    )
+
+    print(
+        f"🇰🇷 한국시간: "
+        f"{now_kst().strftime('%Y-%m-%d %H:%M:%S')}"
     )
 
 
@@ -1143,8 +1228,8 @@ def main():
     )
 
     print(
-        f"⏰ 실행시간: "
-        f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
+        f"⏰ 한국시간: "
+        f"{now_kst().strftime('%Y-%m-%d %H:%M:%S')}"
     )
 
     print("=" * 100)
@@ -1246,6 +1331,11 @@ def main():
 
     print(
         f"   총 {total}개"
+    )
+
+    print(
+        f"   🇰🇷 한국시간: "
+        f"{now_kst().strftime('%Y-%m-%d %H:%M:%S')}"
     )
 
     print("=" * 100)
