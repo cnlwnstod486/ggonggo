@@ -2,8 +2,9 @@ name: Daily Recruitment Update
 
 on:
   schedule:
-    - cron: "0 0 * * *"
-    - cron: "0 8 * * *"
+    # 테스트: 한국시간 9월 1일 오전 11:40
+    - cron: "40 2 1 9 *"
+
   workflow_dispatch:
 
 permissions:
