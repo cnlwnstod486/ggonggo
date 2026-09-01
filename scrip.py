@@ -1,10 +1,21 @@
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
 from datetime import datetime, timezone, timedelta
 import json
 import html
+import time
 
 BASE_URL = "https://jasoseol.com"
 OUTPUT_FILE = "index.html"
+
+# 재시도 횟수
+MAX_RETRIES = 3
+
+# 상세 페이지 사이 대기시간(ms)
+DETAIL_DELAY = 300
+
+# 달력 데이터가 안정될 때까지 확인하는 최대 시간(ms)
+CALENDAR_WAIT_TIMEOUT = 30000
+
 
 
 # ================================================================
@@ -12,128 +23,257 @@ OUTPUT_FILE = "index.html"
 # ================================================================
 
 def collect_detail(page, url):
-    try:
-        page.goto(
-            url,
-            wait_until="domcontentloaded",
-            timeout=30000
-        )
+    """
+    상세 채용공고 페이지에서 모집 직무 정보를 수집한다.
 
-        page.wait_for_timeout(500)
+    - 최대 3회 재시도
+    - domcontentloaded 이후 모집 직무 section이 실제로 나타날 때까지 대기
+    - 실패 시 마지막 에러를 로그에 남김
+    """
 
-        return page.evaluate("""
-        () => {
-            const section = [...document.querySelectorAll("section")]
-                .find(s => {
-                    const h2 = s.querySelector("h2");
-                    return h2 && h2.innerText.trim() === "모집 직무";
-                });
+    last_error = None
 
-            if (!section) return [];
+    for attempt in range(1, MAX_RETRIES + 1):
 
-            const result = [];
+        try:
+            print(
+                f"      상세 페이지 접속 "
+                f"({attempt}/{MAX_RETRIES})"
+            )
 
-            const types = [
-                "신입",
-                "경력",
-                "인턴",
-                "신입/경력",
-                "경력무관",
-                "계약직",
-                "정규직"
-            ];
+            page.goto(
+                url,
+                wait_until="domcontentloaded",
+                timeout=30000
+            )
 
-            section.querySelectorAll("li").forEach(item => {
-
-                const elements = [...item.querySelectorAll("span, div")]
-                    .map(el => el.innerText.trim())
-                    .filter(Boolean);
-
-                let employmentType = "";
-                let applicants = null;
-                let job = "";
-
-                for (const text of elements) {
-
-                    if (types.includes(text)) {
-                        employmentType = text;
-                    }
-
-                    const match =
-                        text.match(/^([\\d,]+)\\s*명\\s*작성$/);
-
-                    if (match) {
-                        applicants = parseInt(
-                            match[1].replace(/,/g, ""),
-                            10
+            # "모집 직무" 섹션이 실제로 나타날 때까지 기다린다.
+            page.wait_for_function(
+                """
+                () => {
+                    return [...document.querySelectorAll("section h2")]
+                        .some(
+                            h2 =>
+                                h2.innerText.trim() === "모집 직무"
                         );
-                    }
                 }
+                """,
+                timeout=15000
+            )
 
-                for (const text of elements) {
+            # 페이지 내부 JS가 조금 더 안정화될 시간
+            page.wait_for_timeout(300)
 
-                    if (types.includes(text)) continue;
+            result = page.evaluate(
+                """
+                () => {
 
-                    if (
-                        /^[\\d,]+\\s*명\\s*작성$/.test(text)
-                    ) {
-                        continue;
-                    }
+                    const section = [
+                        ...document.querySelectorAll("section")
+                    ].find(s => {
 
-                    if (text === "자소서 문항 보기") {
-                        continue;
-                    }
+                        const h2 =
+                            s.querySelector("h2");
 
-                    if (
-                        text.length >= 2 &&
-                        text.length <= 150 &&
-                        !text.includes("\\n")
-                    ) {
-                        job = text;
-                        break;
-                    }
-                }
+                        return (
+                            h2 &&
+                            h2.innerText.trim() === "모집 직무"
+                        );
 
-                if (job) {
-
-                    result.push({
-                        employment_type: employmentType,
-                        job: job,
-                        applicants: applicants
                     });
 
+                    if (!section) {
+                        return [];
+                    }
+
+                    const result = [];
+
+                    const types = [
+                        "신입",
+                        "경력",
+                        "인턴",
+                        "신입/경력",
+                        "경력무관",
+                        "계약직",
+                        "정규직"
+                    ];
+
+                    section
+                        .querySelectorAll("li")
+                        .forEach(item => {
+
+                            const elements = [
+                                ...item.querySelectorAll(
+                                    "span, div"
+                                )
+                            ]
+                                .map(
+                                    el =>
+                                        el.innerText
+                                            .trim()
+                                )
+                                .filter(Boolean);
+
+                            let employmentType = "";
+                            let applicants = null;
+                            let job = "";
+
+                            // ------------------------------------------------
+                            // 고용형태 / 작성자 수
+                            // ------------------------------------------------
+
+                            for (const text of elements) {
+
+                                if (
+                                    types.includes(text)
+                                ) {
+                                    employmentType = text;
+                                }
+
+                                const match =
+                                    text.match(
+                                        /^([\\d,]+)\\s*명\\s*작성$/
+                                    );
+
+                                if (match) {
+
+                                    applicants =
+                                        parseInt(
+                                            match[1]
+                                                .replace(
+                                                    /,/g,
+                                                    ""
+                                                ),
+                                            10
+                                        );
+                                }
+                            }
+
+                            // ------------------------------------------------
+                            // 직무명
+                            // ------------------------------------------------
+
+                            for (const text of elements) {
+
+                                if (
+                                    types.includes(text)
+                                ) {
+                                    continue;
+                                }
+
+                                if (
+                                    /^[\\d,]+\\s*명\\s*작성$/
+                                        .test(text)
+                                ) {
+                                    continue;
+                                }
+
+                                if (
+                                    text ===
+                                    "자소서 문항 보기"
+                                ) {
+                                    continue;
+                                }
+
+                                if (
+                                    text.length >= 2 &&
+                                    text.length <= 150 &&
+                                    !text.includes("\\n")
+                                ) {
+                                    job = text;
+                                    break;
+                                }
+                            }
+
+                            if (job) {
+
+                                result.push({
+                                    employment_type:
+                                        employmentType,
+
+                                    job:
+                                        job,
+
+                                    applicants:
+                                        applicants
+                                });
+
+                            }
+
+                        });
+
+                    // ------------------------------------------------
+                    // 중복 제거
+                    // ------------------------------------------------
+
+                    const unique = [];
+                    const seen = new Set();
+
+                    for (const item of result) {
+
+                        const key =
+                            item.employment_type +
+                            "|" +
+                            item.job;
+
+                        if (!seen.has(key)) {
+
+                            seen.add(key);
+                            unique.push(item);
+
+                        }
+
+                    }
+
+                    return unique;
                 }
-            });
+                """
+            )
 
-            const unique = [];
-            const seen = new Set();
+            # 성공
+            return result
 
-            for (const item of result) {
+        except PlaywrightTimeoutError as e:
 
-                const key =
-                    item.employment_type +
-                    "|" +
-                    item.job;
+            last_error = e
 
-                if (!seen.has(key)) {
+            print(
+                f"      상세 페이지 대기시간 초과 "
+                f"({attempt}/{MAX_RETRIES})"
+            )
 
-                    seen.add(key);
-                    unique.push(item);
+        except Exception as e:
 
-                }
-            }
+            last_error = e
 
-            return unique;
-        }
-        """)
+            print(
+                f"      상세 페이지 오류 "
+                f"({attempt}/{MAX_RETRIES}): {e}"
+            )
 
-    except Exception as e:
+        # 재시도 전 대기
+        if attempt < MAX_RETRIES:
 
-        print(
-            f"      상세 페이지 오류: {e}"
-        )
+            wait_seconds = attempt * 2
 
-        return []
+            print(
+                f"      {wait_seconds}초 후 재시도..."
+            )
+
+            page.wait_for_timeout(
+                wait_seconds * 1000
+            )
+
+    print(
+        f"      ❌ 상세 페이지 최종 실패: {url}"
+    )
+
+    print(
+        f"      마지막 오류: {last_error}"
+    )
+
+    return []
+
 
 
 # ================================================================
@@ -142,135 +282,265 @@ def collect_detail(page, url):
 
 def collect_calendar(page):
 
+    print("채용 달력 페이지 접속...")
+
     page.goto(
         f"{BASE_URL}/recruit",
-        wait_until="networkidle",
+        wait_until="domcontentloaded",
         timeout=30000
     )
+
+    # ------------------------------------------------------------
+    # 기본 공고가 나타날 때까지 기다림
+    # ------------------------------------------------------------
 
     page.wait_for_selector(
         '[data-testid="employment-item"]',
         state="attached",
-        timeout=15000
+        timeout=30000
     )
 
-    return page.evaluate("""
-    () => {
+    print("공고 DOM 발견")
 
-        const result = {};
+    # ------------------------------------------------------------
+    # 공고 개수가 일정 시간 동안 안정될 때까지 기다림
+    #
+    # 페이지가 처음에는 100개였다가
+    # JS/API 로딩 후 200개가 되는 경우를 대비
+    # ------------------------------------------------------------
 
-        const cells = document.querySelectorAll(
-            '[data-testid="week-row"] > div[class*="CalendarCell_cell"]'
-        );
+    start_time = time.time()
 
-        cells.forEach(cell => {
+    previous_count = -1
+    stable_count = 0
 
-            const time =
-                cell.querySelector("time[datetime]");
+    while True:
 
-            if (!time) return;
+        current_count = page.locator(
+            '[data-testid="employment-item"]'
+        ).count()
 
-            const date =
-                time.getAttribute("datetime");
+        print(
+            f"  현재 달력 공고 DOM: "
+            f"{current_count}개"
+        )
 
-            cell.querySelectorAll(
-                '[data-testid="employment-item"]'
-            ).forEach(item => {
+        if current_count == previous_count:
 
-                const link =
-                    item.querySelector(
-                        'a[href*="/recruit/"]'
+            stable_count += 1
+
+        else:
+
+            stable_count = 0
+
+        previous_count = current_count
+
+        # 3회 연속 같은 개수면 안정화됐다고 판단
+        if stable_count >= 3:
+
+            print(
+                f"  공고 DOM 안정화: "
+                f"{current_count}개"
+            )
+
+            break
+
+        # 최대 30초
+        if (
+            time.time() - start_time
+            > CALENDAR_WAIT_TIMEOUT / 1000
+        ):
+
+            print(
+                "  ⚠️ 달력 로딩 대기시간 초과"
+            )
+
+            break
+
+        page.wait_for_timeout(1000)
+
+    # ------------------------------------------------------------
+    # 마지막으로 한 번 더 렌더링 대기
+    # ------------------------------------------------------------
+
+    page.wait_for_timeout(1000)
+
+    # ------------------------------------------------------------
+    # DOM에서 공고 수집
+    # ------------------------------------------------------------
+
+    result = page.evaluate(
+        """
+        () => {
+
+            const result = {};
+
+            const cells = document.querySelectorAll(
+                '[data-testid="week-row"] > div[class*="CalendarCell_cell"]'
+            );
+
+            cells.forEach(cell => {
+
+                const time =
+                    cell.querySelector(
+                        "time[datetime]"
                     );
 
-                if (!link) return;
+                if (!time) {
+                    return;
+                }
 
-                const href =
-                    link.getAttribute("href");
-
-                const companyElement =
-                    item.querySelector(
-                        ".company-name"
+                const date =
+                    time.getAttribute(
+                        "datetime"
                     );
 
-                if (!companyElement) return;
-
-                const company =
-                    companyElement.innerText.trim();
-
-                const statusElement =
-                    item.querySelector(
-                        ".EmploymentHeader_label__uIxZW"
+                const items =
+                    cell.querySelectorAll(
+                        '[data-testid="employment-item"]'
                     );
 
-                let status = "";
+                items.forEach(item => {
 
-                if (statusElement) {
-
-                    const aria =
-                        statusElement.getAttribute(
-                            "aria-label"
+                    const link =
+                        item.querySelector(
+                            'a[href*="/recruit/"]'
                         );
 
-                    const text =
-                        statusElement.innerText.trim();
-
-                    if (
-                        aria === "시작" ||
-                        text === "시작"
-                    ) {
-                        status = "시작";
-
-                    } else if (
-                        aria === "마감" ||
-                        text === "마감"
-                    ) {
-                        status = "마감";
-
-                    } else if (
-                        aria === "수시" ||
-                        text === "수시" ||
-                        text === "수"
-                    ) {
-                        status = "수시";
+                    if (!link) {
+                        return;
                     }
-                }
 
-                const url =
-                    href.startsWith("http")
-                        ? href
-                        : location.origin + href;
+                    const href =
+                        link.getAttribute(
+                            "href"
+                        );
 
-                if (!result[date]) {
-                    result[date] = [];
-                }
+                    if (!href) {
+                        return;
+                    }
 
-                if (
-                    !result[date].some(
-                        x => x.url === url
-                    )
-                ) {
+                    const companyElement =
+                        item.querySelector(
+                            ".company-name"
+                        );
 
-                    result[date].push({
+                    if (!companyElement) {
+                        return;
+                    }
 
-                        status: status,
+                    const company =
+                        companyElement
+                            .innerText
+                            .trim();
 
-                        company: company,
+                    const statusElement =
+                        item.querySelector(
+                            ".EmploymentHeader_label__uIxZW"
+                        );
 
-                        url: url,
+                    let status = "";
 
-                        jobs: []
+                    if (statusElement) {
 
-                    });
+                        const aria =
+                            statusElement.getAttribute(
+                                "aria-label"
+                            );
 
-                }
+                        const text =
+                            statusElement
+                                .innerText
+                                .trim();
+
+                        if (
+                            aria === "시작" ||
+                            text === "시작"
+                        ) {
+
+                            status = "시작";
+
+                        } else if (
+                            aria === "마감" ||
+                            text === "마감"
+                        ) {
+
+                            status = "마감";
+
+                        } else if (
+                            aria === "수시" ||
+                            text === "수시" ||
+                            text === "수"
+                        ) {
+
+                            status = "수시";
+                        }
+                    }
+
+                    const url =
+                        href.startsWith("http")
+                            ? href
+                            : location.origin + href;
+
+                    if (!result[date]) {
+                        result[date] = [];
+                    }
+
+                    // URL 기준 중복 제거
+                    if (
+                        !result[date].some(
+                            x => x.url === url
+                        )
+                    ) {
+
+                        result[date].push({
+
+                            status:
+                                status,
+
+                            company:
+                                company,
+
+                            url:
+                                url,
+
+                            jobs:
+                                []
+                        });
+
+                    }
+
+                });
 
             });
 
-        });
+            return result;
+        }
+        """
+    )
 
-        return result;
-    }
-    """)
+    # ------------------------------------------------------------
+    # 수집 결과 검증
+    # ------------------------------------------------------------
+
+    total = sum(
+        len(items)
+        for items in result.values()
+    )
+
+    print(
+        f"달력 최종 수집 공고: {total}개"
+    )
+
+    for date in sorted(result):
+
+        print(
+            f"  {date}: "
+            f"{len(result[date])}개"
+        )
+
+    return result
+
 
 
 # ================================================================
@@ -1695,99 +1965,218 @@ showDetails(selectedDate);
 
 def main():
 
-    print(
-        "자소설닷컴 채용공고 수집 시작"
-    )
+    print("=" * 60)
+    print("자소설닷컴 채용공고 수집 시작")
+    print("=" * 60)
+
+    failed_urls = []
 
     with sync_playwright() as p:
 
         browser = p.chromium.launch(
-                headless=True
-            )
+            headless=True
+        )
 
+        # --------------------------------------------------------
+        # 달력 페이지
+        # --------------------------------------------------------
 
         page = browser.new_page(
-                viewport={
-                    "width": 1440,
-                    "height": 1000
-                },
-                locale="ko-KR"
-            )
-
+            viewport={
+                "width": 1440,
+                "height": 1000
+            },
+            locale="ko-KR"
+        )
 
         # --------------------------------------------------------
         # 달력 수집
         # --------------------------------------------------------
 
-        calendar_data = collect_calendar(page)
+        try:
 
-
-        total = sum(
-                len(items)
-                for items in
-                calendar_data.values()
+            calendar_data = collect_calendar(
+                page
             )
 
+        except Exception as e:
 
+            print()
+            print(
+                "❌ 달력 수집 자체가 실패했습니다."
+            )
+
+            print(e)
+
+            browser.close()
+
+            raise
+
+        total = sum(
+            len(items)
+            for items in calendar_data.values()
+        )
+
+        print()
         print(
             f"달력 공고 {total}개 발견"
         )
 
+        # --------------------------------------------------------
+        # 공고가 하나도 없으면 위험
+        #
+        # 기존 index.html을 빈 데이터로 덮어쓰지 않도록
+        # 즉시 실패시킨다.
+        # --------------------------------------------------------
+
+        if total == 0:
+
+            print()
+            print(
+                "❌ 공고가 0개입니다."
+            )
+
+            print(
+                "페이지 로딩 실패 가능성이 있으므로 "
+                "기존 데이터를 유지합니다."
+            )
+
+            browser.close()
+
+            raise RuntimeError(
+                "채용공고 0개 수집"
+            )
 
         # --------------------------------------------------------
         # 상세 페이지
         # --------------------------------------------------------
 
         detail_page = browser.new_page(
-                viewport={
-                    "width": 1440,
-                    "height": 1000
-                },
-                locale="ko-KR"
-            )
-
+            viewport={
+                "width": 1440,
+                "height": 1000
+            },
+            locale="ko-KR"
+        )
 
         count = 0
+        success_count = 0
+        failed_count = 0
 
+        # --------------------------------------------------------
+        # 상세 페이지 순차 수집
+        # --------------------------------------------------------
 
-        for date in sorted(
-            calendar_data
-        ):
+        for date in sorted(calendar_data):
 
             for item in calendar_data[date]:
 
                 count += 1
 
-
+                print()
                 print(
                     f"[{count}/{total}] "
                     f"{item['company']} "
                     f"({item['status']})"
                 )
 
-
-                item["jobs"] = collect_detail(
-                        detail_page,
-                        item["url"]
-                    )
-
-
-                print(
-                    f"    직무 "
-                    f"{len(item['jobs'])}개"
+                jobs = collect_detail(
+                    detail_page,
+                    item["url"]
                 )
 
+                item["jobs"] = jobs
+
+                if jobs:
+
+                    success_count += 1
+
+                    print(
+                        f"    ✅ 직무 "
+                        f"{len(jobs)}개"
+                    )
+
+                else:
+
+                    failed_count += 1
+
+                    failed_urls.append(
+                        {
+                            "company":
+                                item["company"],
+
+                            "url":
+                                item["url"],
+
+                            "date":
+                                date
+                        }
+                    )
+
+                    print(
+                        "    ⚠️ 직무 정보 수집 실패"
+                    )
+
+                # 서버에 너무 빠르게 요청하지 않도록
+                page.wait_for_timeout(
+                    DETAIL_DELAY
+                )
+
+        # --------------------------------------------------------
+        # 수집 결과 검증
+        # --------------------------------------------------------
+
+        print()
+        print("=" * 60)
+        print("상세 수집 결과")
+        print("=" * 60)
+
+        print(
+            f"전체 공고: {total}개"
+        )
+
+        print(
+            f"상세 성공: {success_count}개"
+        )
+
+        print(
+            f"상세 실패: {failed_count}개"
+        )
+
+        # --------------------------------------------------------
+        # 실패 URL 출력
+        # --------------------------------------------------------
+
+        if failed_urls:
+
+            print()
+            print(
+                "실패한 공고 목록:"
+            )
+
+            for failed in failed_urls:
+
+                print(
+                    f"- {failed['company']}"
+                )
+
+                print(
+                    f"  날짜: {failed['date']}"
+                )
+
+                print(
+                    f"  URL: {failed['url']}"
+                )
 
         # --------------------------------------------------------
         # 한국시간
         # --------------------------------------------------------
 
         korea_time = datetime.now(
-                timezone(
-                    timedelta(hours=9)
-                )
+            timezone(
+                timedelta(hours=9)
             )
-
+        )
 
         data = {
 
@@ -1801,17 +2190,20 @@ def main():
 
             "calendar":
                 calendar_data
-
         }
 
+        # --------------------------------------------------------
+        # HTML 생성
+        # --------------------------------------------------------
 
+        print()
         print(
             "HTML 생성 중..."
         )
 
-
-        html_content = make_html(data)
-
+        html_content = make_html(
+            data
+        )
 
         with open(
             OUTPUT_FILE,
@@ -1823,22 +2215,33 @@ def main():
                 html_content
             )
 
+        # --------------------------------------------------------
+        # 종료
+        # --------------------------------------------------------
 
         detail_page.close()
-
         page.close()
-
         browser.close()
 
+    # ------------------------------------------------------------
+    # 최종 결과
+    # ------------------------------------------------------------
 
     print()
-
-    print("=" * 50)
-
+    print("=" * 60)
     print("수집 완료")
+    print("=" * 60)
 
     print(
         f"공고 수: {total}"
+    )
+
+    print(
+        f"상세 성공: {success_count}"
+    )
+
+    print(
+        f"상세 실패: {failed_count}"
     )
 
     print(
@@ -1849,8 +2252,9 @@ def main():
         f"결과: {OUTPUT_FILE}"
     )
 
-    print("=" * 50)
+    print("=" * 60)
 
 
 if __name__ == "__main__":
     main()
+
