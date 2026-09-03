@@ -1,5 +1,5 @@
 {
-    "updated_at": "2026-09-03 18:14:28",
+    "updated_at": "2026-09-03 21:14:25",
     "total": 22,
     "counts": {
         "alio": 2,
@@ -40,6 +40,36 @@
         {
             "site": "saramin",
             "site_name": "사람인",
+            "company": "이페이시스템(주)",
+            "title": "VAN 기술지원",
+            "type": "기술지원, 거래처관리",
+            "location": "서울 송파구",
+            "career": "경력무관 · 정규직",
+            "education": "학력무관",
+            "employment": "정보 없음",
+            "deadline": "~09.30(수)",
+            "reg_date": "3시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54934448"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "(주)코레이즈홀딩스",
+            "title": "[코레이즈] 시스템운영팀 신입 (Apple 영업지원 및 IT 하드웨어)",
+            "type": "기술지원, 유지보수, IT컨설팅 외",
+            "location": "서울 성동구",
+            "career": "경력무관 · 정규직 외",
+            "education": "학력무관",
+            "employment": "정보 없음",
+            "deadline": "~10.03(토)",
+            "reg_date": "3시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54934277"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
             "company": "(주)키스템프그룹",
             "title": "[명동역/중식제공] 삼양식품 IT 자산관리  채용",
             "type": "웹마스터, 유지보수, 정보보안 외",
@@ -48,7 +78,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "D-4",
-            "reg_date": "1시간 전 등록",
+            "reg_date": "4시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54933829"
         },
@@ -63,7 +93,7 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "~10.03(토)",
-            "reg_date": "3시간 전 등록",
+            "reg_date": "6시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54932286"
         },
@@ -78,7 +108,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~10.03(토)",
-            "reg_date": "3시간 전 등록",
+            "reg_date": "6시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54932261"
         },
@@ -93,7 +123,7 @@
             "education": "고졸↑",
             "employment": "정보 없음",
             "deadline": "~09.11(금)",
-            "reg_date": "3시간 전 등록",
+            "reg_date": "6시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54931899"
         },
@@ -108,7 +138,7 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "~09.17(목)",
-            "reg_date": "4시간 전 등록",
+            "reg_date": "7시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54931448"
         },
@@ -123,7 +153,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~10.03(토)",
-            "reg_date": "4시간 전 등록",
+            "reg_date": "7시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54931215"
         },
@@ -138,7 +168,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~09.27(일)",
-            "reg_date": "4시간 전 등록",
+            "reg_date": "7시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54931174"
         },
@@ -153,7 +183,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~10.03(토)",
-            "reg_date": "4시간 전 등록",
+            "reg_date": "7시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54931023"
         },
@@ -168,7 +198,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~09.13(일)",
-            "reg_date": "5시간 전 등록",
+            "reg_date": "8시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54930640"
         },
@@ -183,7 +213,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~10.03(토)",
-            "reg_date": "6시간 전 등록",
+            "reg_date": "9시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54929925"
         },
@@ -198,7 +228,7 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "~09.18(금)",
-            "reg_date": "7시간 전 등록",
+            "reg_date": "10시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54928879"
         },
@@ -213,7 +243,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~10.03(토)",
-            "reg_date": "7시간 전 등록",
+            "reg_date": "10시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54928632"
         },
@@ -228,7 +258,7 @@
             "education": "석사↑",
             "employment": "정보 없음",
             "deadline": "~09.27(일)",
-            "reg_date": "8시간 전 등록",
+            "reg_date": "11시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54927794"
         },
@@ -243,7 +273,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~09.14(월)",
-            "reg_date": "8시간 전 등록",
+            "reg_date": "11시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54927704"
         },
@@ -258,7 +288,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~09.24(목)",
-            "reg_date": "8시간 전 등록",
+            "reg_date": "11시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54927483&adsCategoryItem=effect_bold&"
         },
@@ -273,7 +303,7 @@
             "education": "석사↑",
             "employment": "정보 없음",
             "deadline": "~09.27(일)",
-            "reg_date": "8시간 전 등록",
+            "reg_date": "11시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54927372"
         },
@@ -288,7 +318,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~10.02(금)",
-            "reg_date": "8시간 전 등록",
+            "reg_date": "11시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54926795&adsCategoryItem=effect_bold&"
         },
@@ -303,39 +333,9 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "~10.07(수)",
-            "reg_date": "9시간 전 등록",
+            "reg_date": "12시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54926489"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "㈜선정인터내셔날",
-            "title": "[터미널명령어/파이썬] KT AI모델 품질평가 및 데이터 정제/검증",
-            "type": "데이터분석가, 데이터엔지니어, 백엔드/서버개발 외",
-            "location": "서울 서초구",
-            "career": "신입 · 경력 · 정규직 외",
-            "education": "대학(2,3년)↑",
-            "employment": "정보 없음",
-            "deadline": "D-4",
-            "reg_date": "22시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54925421"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "(주)캣츠팩토리",
-            "title": "온라인 패션 쇼핑몰 운영 및 자동화 담당",
-            "type": "스크립트, 크롤링, API 외",
-            "location": "서울 성동구",
-            "career": "신입 · 경력 · 정규직",
-            "education": "학력무관",
-            "employment": "정보 없음",
-            "deadline": "채용시",
-            "reg_date": "22시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54925317"
         }
     ]
 }
