@@ -1,9 +1,9 @@
 {
-    "updated_at": "2026-09-03 14:33:47",
-    "total": 20,
+    "updated_at": "2026-09-03 15:16:34",
+    "total": 23,
     "counts": {
         "alio": 2,
-        "saramin": 18,
+        "saramin": 21,
         "jobkorea": 0
     },
     "jobs": [
@@ -40,6 +40,51 @@
         {
             "site": "saramin",
             "site_name": "사람인",
+            "company": "에스에프인촌(주)",
+            "title": "[IT/전산/게임/소프트웨어] 분야 업무경력자 - 헤드헌터 초빙",
+            "type": "솔루션, 임베디드, 펌웨어 외",
+            "location": "서울전체 외",
+            "career": "경력무관 · 계약직",
+            "education": "대학교(4년)↑",
+            "employment": "정보 없음",
+            "deadline": "~09.17(목)",
+            "reg_date": "1시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54931448"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "엠에스피정보기술(주)",
+            "title": "편의점 전산장비 유지보수 사원 모집(장애 점포 방문처리)",
+            "type": "기술지원, 유지보수, H/W 외",
+            "location": "경기 고양시 덕양구",
+            "career": "경력무관 · 정규직",
+            "education": "학력무관",
+            "employment": "정보 없음",
+            "deadline": "~10.03(토)",
+            "reg_date": "1시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54931215"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "(주)인터엑스소프트",
+            "title": "ECAD 소프트웨어 개발 신입 채용",
+            "type": "S/W, C++, C언어 외",
+            "location": "경기 성남시 분당구",
+            "career": "신입 · 정규직",
+            "education": "학력무관",
+            "employment": "정보 없음",
+            "deadline": "~09.27(일)",
+            "reg_date": "1시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54931174"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
             "company": "(주)다이네트웍스관심기업 등록",
             "title": "멀티플렉스 전산 유지보수/기술지원 인재 채용(본사/수도권)",
             "type": "기술지원, 유지보수",
@@ -63,7 +108,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~09.13(일)",
-            "reg_date": "1시간 전 등록",
+            "reg_date": "2시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54930640"
         },
@@ -78,7 +123,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~10.03(토)",
-            "reg_date": "2시간 전 등록",
+            "reg_date": "3시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54929925"
         },
@@ -93,7 +138,7 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "~09.18(금)",
-            "reg_date": "3시간 전 등록",
+            "reg_date": "4시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54928879"
         },
@@ -108,7 +153,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~10.03(토)",
-            "reg_date": "3시간 전 등록",
+            "reg_date": "4시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54928632"
         },
@@ -123,7 +168,7 @@
             "education": "석사↑",
             "employment": "정보 없음",
             "deadline": "~09.27(일)",
-            "reg_date": "4시간 전 등록",
+            "reg_date": "5시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54927794"
         },
@@ -138,7 +183,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~09.14(월)",
-            "reg_date": "4시간 전 등록",
+            "reg_date": "5시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54927704"
         },
@@ -153,7 +198,7 @@
             "education": "석사↑",
             "employment": "정보 없음",
             "deadline": "~09.27(일)",
-            "reg_date": "4시간 전 등록",
+            "reg_date": "5시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54927372"
         },
@@ -168,7 +213,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~10.02(금)",
-            "reg_date": "5시간 전 등록",
+            "reg_date": "6시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54926795&adsCategoryItem=effect_bold&"
         },
@@ -183,9 +228,24 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "~10.07(수)",
-            "reg_date": "5시간 전 등록",
+            "reg_date": "6시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54926489"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "㈜선정인터내셔날",
+            "title": "[터미널명령어/파이썬] KT AI모델 품질평가 및 데이터 정제/검증",
+            "type": "데이터분석가, 데이터엔지니어, 백엔드/서버개발 외",
+            "location": "서울 서초구",
+            "career": "신입 · 경력 · 정규직 외",
+            "education": "대학(2,3년)↑",
+            "employment": "정보 없음",
+            "deadline": "D-4",
+            "reg_date": "19시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54925421"
         },
         {
             "site": "saramin",
@@ -198,7 +258,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "채용시",
-            "reg_date": "19시간 전 등록",
+            "reg_date": "20시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54925317"
         },
@@ -213,7 +273,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~10.02(금)",
-            "reg_date": "20시간 전 등록",
+            "reg_date": "21시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54924941"
         },
@@ -228,7 +288,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "상시채용",
-            "reg_date": "20시간 전 등록",
+            "reg_date": "21시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54924793"
         },
@@ -243,7 +303,7 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "~09.21(월)",
-            "reg_date": "21시간 전 등록",
+            "reg_date": "22시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54924106"
         },
@@ -291,21 +351,6 @@
             "reg_date": "22시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54923430&adsCategoryItem=effect_bold&"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "동광제약(주)",
-            "title": "동광제약 전산팀 신입 및 경력사원 9월 수시채용",
-            "type": "유지보수, 정보보안, ERP 외",
-            "location": "서울 중구",
-            "career": "경력무관 · 정규직",
-            "education": "대학교(4년)↑",
-            "employment": "정보 없음",
-            "deadline": "~09.16(수)",
-            "reg_date": "23시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54921929"
         }
     ]
 }
