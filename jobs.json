@@ -1,9 +1,9 @@
 {
-    "updated_at": "2026-09-04 21:15:40",
-    "total": 10,
+    "updated_at": "2026-09-05 00:16:05",
+    "total": 13,
     "counts": {
         "alio": 0,
-        "saramin": 10,
+        "saramin": 13,
         "jobkorea": 0
     },
     "jobs": [
@@ -18,7 +18,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~10.01(목)",
-            "reg_date": "2시간 전 등록",
+            "reg_date": "5시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54947241"
         },
@@ -33,9 +33,24 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~10.01(목)",
-            "reg_date": "2시간 전 등록",
+            "reg_date": "5시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54947235"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "(주)에스디파마",
+            "title": "(주)에스디파마 인사총무팀 팀원 모집",
+            "type": "유지보수, 네트워크, 총무 외",
+            "location": "경기 남양주시",
+            "career": "경력무관 · 계약직",
+            "education": "학력무관",
+            "employment": "정보 없음",
+            "deadline": "~10.04(일)",
+            "reg_date": "6시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54947082"
         },
         {
             "site": "saramin",
@@ -48,7 +63,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "채용시",
-            "reg_date": "3시간 전 등록",
+            "reg_date": "6시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54946597"
         },
@@ -63,7 +78,7 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "~09.19(토)",
-            "reg_date": "4시간 전 등록",
+            "reg_date": "7시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54946001"
         },
@@ -78,9 +93,24 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~11.03(화)",
-            "reg_date": "4시간 전 등록",
+            "reg_date": "7시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54945777"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "케이투코리아(주)",
+            "title": "[케이투코리아그룹] 9월 각 부문 신입/경력사원 채용",
+            "type": "보안컨설팅, 앱개발, 웹개발 외",
+            "location": "서울전체 외",
+            "career": "신입 · 경력 · 정규직 외",
+            "education": "대학교(4년)↑",
+            "employment": "정보 없음",
+            "deadline": "~09.25(금)",
+            "reg_date": "8시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54945173"
         },
         {
             "site": "saramin",
@@ -93,9 +123,24 @@
             "education": "고졸↑",
             "employment": "정보 없음",
             "deadline": "~09.20(일)",
-            "reg_date": "6시간 전 등록",
+            "reg_date": "9시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54943797&adsCategoryItem=effect_bold&"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "(주)안국엔지니어링",
+            "title": "각 부문별 채용",
+            "type": "유지보수, ERP, 총무 외",
+            "location": "경기전체 외",
+            "career": "신입 · 경력 · 정규직 외",
+            "education": "고졸↑",
+            "employment": "정보 없음",
+            "deadline": "~09.18(금)",
+            "reg_date": "12시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54941953&adsCategoryItem=effect_bold&"
         },
         {
             "site": "saramin",
@@ -108,7 +153,7 @@
             "education": "고졸↑",
             "employment": "정보 없음",
             "deadline": "~09.25(금)",
-            "reg_date": "9시간 전 등록",
+            "reg_date": "12시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54941892"
         },
@@ -123,7 +168,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "채용시",
-            "reg_date": "10시간 전 등록",
+            "reg_date": "13시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54941248"
         },
@@ -138,7 +183,7 @@
             "education": "고졸↑",
             "employment": "정보 없음",
             "deadline": "~10.04(일)",
-            "reg_date": "11시간 전 등록",
+            "reg_date": "14시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54940079"
         },
@@ -152,8 +197,8 @@
             "career": "경력무관 · 파견직",
             "education": "학력무관",
             "employment": "정보 없음",
-            "deadline": "D-7",
-            "reg_date": "11시간 전 등록",
+            "deadline": "D-6",
+            "reg_date": "14시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54939596"
         }
