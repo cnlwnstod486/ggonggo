@@ -1,5 +1,5 @@
 {
-    "updated_at": "2026-09-04 15:15:58",
+    "updated_at": "2026-09-04 18:14:35",
     "total": 9,
     "counts": {
         "alio": 2,
@@ -40,6 +40,51 @@
         {
             "site": "saramin",
             "site_name": "사람인",
+            "company": "동호에이치알(주)",
+            "title": "[동호HR] 여의도 현대커머셜 본사 정보보안팀 채용",
+            "type": "정보보안, 정보통신, 사무직 외",
+            "location": "서울 영등포구",
+            "career": "경력무관 · 계약직",
+            "education": "대학교(4년)↑",
+            "employment": "정보 없음",
+            "deadline": "~09.19(토)",
+            "reg_date": "1시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54946001"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "(주)케파스",
+            "title": "(긴급)대법원 미들웨어 총괄 운영사-엔지니어 모집(분당)",
+            "type": "SE(시스템엔지니어), 미들웨어, Apache 외",
+            "location": "경기 성남시 분당구",
+            "career": "신입 · 경력 · 정규직 외",
+            "education": "대학(2,3년)↑",
+            "employment": "정보 없음",
+            "deadline": "~11.03(화)",
+            "reg_date": "1시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54945777"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "(주)하이큐시스템",
+            "title": "전산(OA)장비 서비스 납품/설치 채용",
+            "type": "기술지원, 데이터엔지니어, 유지보수 외",
+            "location": "서울전체 외",
+            "career": "신입 · 경력 · 정규직",
+            "education": "고졸↑",
+            "employment": "정보 없음",
+            "deadline": "~09.20(일)",
+            "reg_date": "3시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54943797&adsCategoryItem=effect_bold&"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
             "company": "(주)트랜스코스모스코리아",
             "title": "[판교/평일] 카카오뱅크 IT헬프데스크 담당자 채용 MAmx",
             "type": "기술지원, 유지보수, 네트워크 외",
@@ -48,7 +93,7 @@
             "education": "고졸↑",
             "employment": "정보 없음",
             "deadline": "~09.25(금)",
-            "reg_date": "3시간 전 등록",
+            "reg_date": "6시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54941892"
         },
@@ -63,7 +108,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "채용시",
-            "reg_date": "4시간 전 등록",
+            "reg_date": "7시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54941248"
         },
@@ -78,7 +123,7 @@
             "education": "고졸↑",
             "employment": "정보 없음",
             "deadline": "~10.04(일)",
-            "reg_date": "5시간 전 등록",
+            "reg_date": "8시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54940079"
         },
@@ -93,54 +138,9 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "D-7",
-            "reg_date": "5시간 전 등록",
+            "reg_date": "8시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54939596"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "이페이시스템(주)",
-            "title": "VAN 기술지원",
-            "type": "기술지원, 거래처관리",
-            "location": "서울 송파구",
-            "career": "경력무관 · 정규직",
-            "education": "학력무관",
-            "employment": "정보 없음",
-            "deadline": "~09.30(수)",
-            "reg_date": "21시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54934448"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "(주)코레이즈홀딩스",
-            "title": "[코레이즈] 시스템운영팀 신입 (Apple 영업지원 및 IT 하드웨어)",
-            "type": "기술지원, 유지보수, IT컨설팅 외",
-            "location": "서울 성동구",
-            "career": "경력무관 · 정규직 외",
-            "education": "학력무관",
-            "employment": "정보 없음",
-            "deadline": "~10.03(토)",
-            "reg_date": "21시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54934277"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "(주)키스템프그룹",
-            "title": "[명동역/중식제공] 삼양식품 IT 자산관리  채용",
-            "type": "웹마스터, 유지보수, 정보보안 외",
-            "location": "서울 중구",
-            "career": "경력무관 · 파견직",
-            "education": "학력무관",
-            "employment": "정보 없음",
-            "deadline": "D-3",
-            "reg_date": "22시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54933829"
         }
     ]
 }
