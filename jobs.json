@@ -1,12 +1,27 @@
 {
-    "updated_at": "2026-09-05 12:15:16",
+    "updated_at": "2026-09-05 15:14:43",
     "total": 8,
     "counts": {
-        "alio": 0,
-        "saramin": 8,
+        "alio": 1,
+        "saramin": 7,
         "jobkorea": 0
     },
     "jobs": [
+        {
+            "site": "alio",
+            "site_name": "알리오",
+            "company": "한국전력공사",
+            "title": "2026년도 하반기 4직급 대졸수준 신입사원 채용공고",
+            "type": "공공기관 채용",
+            "location": "서울 \r\n\t\t\t\t\t\t\t\t\t\t외 15",
+            "career": "정보 없음",
+            "education": "정보 없음",
+            "employment": "정규직",
+            "deadline": "26.09.16 D-10",
+            "reg_date": "2026.09.02",
+            "status": "진행중",
+            "link": "https://job.alio.go.kr/recruitview.do?idx=304551"
+        },
         {
             "site": "saramin",
             "site_name": "사람인",
@@ -18,7 +33,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~10.01(목)",
-            "reg_date": "17시간 전 등록",
+            "reg_date": "20시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54947241"
         },
@@ -33,7 +48,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~10.01(목)",
-            "reg_date": "17시간 전 등록",
+            "reg_date": "20시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54947235"
         },
@@ -48,7 +63,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~10.04(일)",
-            "reg_date": "18시간 전 등록",
+            "reg_date": "21시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54947082"
         },
@@ -63,7 +78,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "채용시",
-            "reg_date": "18시간 전 등록",
+            "reg_date": "21시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54946597"
         },
@@ -78,7 +93,7 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "~09.19(토)",
-            "reg_date": "19시간 전 등록",
+            "reg_date": "22시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54946001"
         },
@@ -93,7 +108,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~11.03(화)",
-            "reg_date": "19시간 전 등록",
+            "reg_date": "22시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54945777"
         },
@@ -108,24 +123,9 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "~09.25(금)",
-            "reg_date": "20시간 전 등록",
+            "reg_date": "23시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54945173"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "(주)하이큐시스템",
-            "title": "전산(OA)장비 서비스 납품/설치 채용",
-            "type": "기술지원, 데이터엔지니어, 유지보수 외",
-            "location": "서울전체 외",
-            "career": "신입 · 경력 · 정규직",
-            "education": "고졸↑",
-            "employment": "정보 없음",
-            "deadline": "~09.20(일)",
-            "reg_date": "21시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54943797&adsCategoryItem=effect_bold&"
         }
     ]
 }
