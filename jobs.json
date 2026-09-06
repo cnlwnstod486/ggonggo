@@ -1,26 +1,10 @@
 {
-    "updated_at": "2026-09-07 03:14:29",
-    "total": 1,
+    "updated_at": "2026-09-07 06:16:04",
+    "total": 0,
     "counts": {
-        "alio": 1,
+        "alio": 0,
         "saramin": 0,
         "jobkorea": 0
     },
-    "jobs": [
-        {
-            "site": "alio",
-            "site_name": "알리오",
-            "company": "한국고용정보원",
-            "title": "2026년도 한국고용정보원 2차 직원 채용 공고",
-            "type": "공공기관 채용",
-            "location": "인천 \r\n\t\t\t\t\t\t\t\t\t\t외 1",
-            "career": "정보 없음",
-            "education": "정보 없음",
-            "employment": "무기계약직 \r\n\t\t\t\t\t\t\t\t\t\t외 1",
-            "deadline": "26.09.22 D-15",
-            "reg_date": "2026.09.07",
-            "status": "진행중",
-            "link": "https://job.alio.go.kr/recruitview.do?idx=304653"
-        }
-    ]
+    "jobs": []
 }
