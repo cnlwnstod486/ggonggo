@@ -1,10 +1,41 @@
 {
-    "updated_at": "2026-09-07 06:16:04",
-    "total": 0,
+    "updated_at": "2026-09-07 09:29:57",
+    "total": 2,
     "counts": {
         "alio": 0,
-        "saramin": 0,
+        "saramin": 2,
         "jobkorea": 0
     },
-    "jobs": []
+    "jobs": [
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "주식회사 지아이진",
+            "title": "컴퓨터  기술지원 유지보수및 전산기자재 납품",
+            "type": "유지보수, H/W, 납품운전원 외",
+            "location": "서울 용산구",
+            "career": "신입 · 경력 · 정규직 외",
+            "education": "고졸↑",
+            "employment": "정보 없음",
+            "deadline": "~10.11(일)",
+            "reg_date": "10시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54955030"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "(주)탑아이앤티",
+            "title": "사무직 전산지원팀 정규직 채용[신입/경력]",
+            "type": "기술지원, 유지보수, 네트워크",
+            "location": "경기 광명시",
+            "career": "경력무관 · 정규직",
+            "education": "고졸↑",
+            "employment": "정보 없음",
+            "deadline": "~10.06(화)",
+            "reg_date": "11시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54954981"
+        }
+    ]
 }
