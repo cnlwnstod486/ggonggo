@@ -1,12 +1,42 @@
 {
-    "updated_at": "2026-09-07 09:29:57",
-    "total": 2,
+    "updated_at": "2026-09-07 12:16:06",
+    "total": 4,
     "counts": {
-        "alio": 0,
-        "saramin": 2,
+        "alio": 1,
+        "saramin": 3,
         "jobkorea": 0
     },
     "jobs": [
+        {
+            "site": "alio",
+            "site_name": "알리오",
+            "company": "한국고용정보원",
+            "title": "2026년도 한국고용정보원 2차 직원 채용 공고",
+            "type": "공공기관 채용",
+            "location": "인천 \r\n\t\t\t\t\t\t\t\t\t\t외 1",
+            "career": "정보 없음",
+            "education": "정보 없음",
+            "employment": "무기계약직 \r\n\t\t\t\t\t\t\t\t\t\t외 1",
+            "deadline": "26.09.22 D-14",
+            "reg_date": "2026.09.07",
+            "status": "진행중",
+            "link": "https://job.alio.go.kr/recruitview.do?idx=304653"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "(주)유니테스트",
+            "title": "(주)유니테스트 제조팀 채용",
+            "type": "정보통신, 전기제어, 전자제어 외",
+            "location": "경기 평택시",
+            "career": "신입 · 정규직",
+            "education": "학력무관",
+            "employment": "정보 없음",
+            "deadline": "~09.30(수)",
+            "reg_date": "2시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54956696"
+        },
         {
             "site": "saramin",
             "site_name": "사람인",
@@ -18,7 +48,7 @@
             "education": "고졸↑",
             "employment": "정보 없음",
             "deadline": "~10.11(일)",
-            "reg_date": "10시간 전 등록",
+            "reg_date": "13시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54955030"
         },
@@ -33,7 +63,7 @@
             "education": "고졸↑",
             "employment": "정보 없음",
             "deadline": "~10.06(화)",
-            "reg_date": "11시간 전 등록",
+            "reg_date": "14시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54954981"
         }
