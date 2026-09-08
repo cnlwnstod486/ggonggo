@@ -394,20 +394,56 @@ def collect_calendar(page):
 
     print("채용 달력 페이지 접속...")
 
-    page.goto(
-        f"{BASE_URL}/recruit",
-        wait_until="domcontentloaded",
-        timeout=30000
-    )
+    # 페이지 접속
+page.goto(
+    calendar_url,
+    wait_until="domcontentloaded",
+    timeout=60000
+)
 
-    # 기본 공고가 나타날 때까지 기다림
+print(f"현재 URL: {page.url}")
+print(f"페이지 제목: {page.title()}")
+
+# 자소설닷컴 달력의 기본 구조가 렌더링될 때까지 대기
+try:
     page.wait_for_selector(
-        '[data-testid="employment-item"]',
+        '[data-testid="week-row"]',
         state="attached",
-        timeout=30000
+        timeout=60000
     )
 
-    print("공고 DOM 발견")
+    page.wait_for_selector(
+        '[data-testid="day-content"]',
+        state="attached",
+        timeout=60000
+    )
+
+except Exception as e:
+    print("달력 구조를 찾지 못했습니다.")
+    print(f"현재 URL: {page.url}")
+    print(f"페이지 제목: {page.title()}")
+    print(page.locator("body").inner_text(timeout=5000)[:3000])
+
+    page.screenshot(
+        path="calendar-failed.png",
+        full_page=True
+    )
+
+    with open("calendar-failed.html", "w", encoding="utf-8") as f:
+        f.write(page.content())
+
+    raise e
+
+# 공고가 실제로 있는지 확인
+employment_items = page.locator(
+    '[data-testid="employment-item"]'
+)
+
+item_count = await employment_items.count() \
+    if hasattr(employment_items, "count") \
+    else employment_items.count()
+
+print(f"발견한 채용공고 수: {item_count}")
 
     # 공고 개수가 안정될 때까지 기다림
     start_time = time.time()
