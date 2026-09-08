@@ -389,74 +389,188 @@ def collect_detail(page, url):
 # ================================================================
 # 채용 달력 수집
 # ================================================================
-
 def collect_calendar(page):
-
     print("채용 달력 페이지 접속...")
 
-    # 페이지 접속
-page.goto(
-    calendar_url,
-    wait_until="domcontentloaded",
-    timeout=60000
-)
+    calendar_url = f"{BASE_URL}/calendar"
 
-print(f"현재 URL: {page.url}")
-print(f"페이지 제목: {page.title()}")
-
-# 자소설닷컴 달력의 기본 구조가 렌더링될 때까지 대기
-try:
-    page.wait_for_selector(
-        '[data-testid="week-row"]',
-        state="attached",
+    page.goto(
+        calendar_url,
+        wait_until="domcontentloaded",
         timeout=60000
     )
 
-    page.wait_for_selector(
-        '[data-testid="day-content"]',
-        state="attached",
-        timeout=60000
-    )
-
-except Exception as e:
-    print("달력 구조를 찾지 못했습니다.")
     print(f"현재 URL: {page.url}")
     print(f"페이지 제목: {page.title()}")
-    print(page.locator("body").inner_text(timeout=5000)[:3000])
 
-    page.screenshot(
-        path="calendar-failed.png",
-        full_page=True
+    try:
+        page.wait_for_selector(
+            '[data-testid="week-row"]',
+            state="attached",
+            timeout=60000
+        )
+
+        page.wait_for_selector(
+            '[data-testid="day-content"]',
+            state="attached",
+            timeout=60000
+        )
+
+    except Exception as e:
+        print("달력 구조를 찾지 못했습니다.")
+        print(f"현재 URL: {page.url}")
+        print(f"페이지 제목: {page.title()}")
+
+        try:
+            print(
+                page.locator("body").inner_text(
+                    timeout=5000
+                )[:3000]
+            )
+        except Exception:
+            pass
+
+        page.screenshot(
+            path="calendar-failed.png",
+            full_page=True
+        )
+
+        with open(
+            "calendar-failed.html",
+            "w",
+            encoding="utf-8"
+        ) as f:
+            f.write(page.content())
+
+        raise e
+
+    # React 렌더링 대기
+    start_time = time.time()
+    previous_count = -1
+    stable_count = 0
+
+    while True:
+        current_count = page.locator(
+            '[data-testid="employment-item"]'
+        ).count()
+
+        print(
+            f"  현재 달력 공고 DOM: "
+            f"{current_count}개"
+        )
+
+        if current_count == previous_count:
+            stable_count += 1
+        else:
+            stable_count = 0
+
+        previous_count = current_count
+
+        if stable_count >= 3:
+            print(
+                f"  공고 DOM 안정화: "
+                f"{current_count}개"
+            )
+            break
+
+        if (
+            time.time() - start_time
+            > CALENDAR_WAIT_TIMEOUT / 1000
+        ):
+            print("  ⚠️ 달력 로딩 대기시간 초과")
+            break
+
+        page.wait_for_timeout(1000)
+
+    page.wait_for_timeout(1000)
+
+    # 달력 DOM에서 날짜별 공고 추출
+    result = page.evaluate(
+        """
+        () => {
+            const result = {};
+
+            const cells = document.querySelectorAll(
+                '[data-testid="week-row"] > div[class*="CalendarCell_cell"]'
+            );
+
+            cells.forEach(cell => {
+                const time = cell.querySelector(
+                    "time[datetime]"
+                );
+
+                if (!time) {
+                    return;
+                }
+
+                const date = time.getAttribute(
+                    "datetime"
+                );
+
+                const items = cell.querySelectorAll(
+                    '[data-testid="employment-item"]'
+                );
+
+                if (!result[date]) {
+                    result[date] = [];
+                }
+
+                items.forEach(item => {
+                    const companyElement =
+                        item.querySelector(
+                            ".company-name"
+                        );
+
+                    const linkElement =
+                        item.querySelector(
+                            "a[href]"
+                        );
+
+                    const company =
+                        companyElement
+                            ? (
+                                companyElement.getAttribute(
+                                    "title"
+                                )
+                                || companyElement.textContent.trim()
+                            )
+                            : "";
+
+                    let href = linkElement
+                        ? linkElement.getAttribute("href")
+                        : null;
+
+                    if (
+                        href &&
+                        href.startsWith("/")
+                    ) {
+                        href =
+                            "https://jasoseol.com" + href;
+                    }
+
+                    result[date].push({
+                        company: company,
+                        href: href
+                    });
+                });
+            });
+
+            return result;
+        }
+        """
     )
 
-    with open("calendar-failed.html", "w", encoding="utf-8") as f:
-        f.write(page.content())
-
-    raise e
-
-# 공고가 실제로 있는지 확인
-employment_items = page.locator(
-    '[data-testid="employment-item"]'
-)
-
-item_count = await employment_items.count() \
-    if hasattr(employment_items, "count") \
-    else employment_items.count()
-
-print(f"발견한 채용공고 수: {item_count}")
-
-    # 수집 결과 검증
     total = sum(
         len(items)
         for items in result.values()
     )
 
     print(
-        f"달력 최종 수집 공고: {total}개"
+        f"달력 최종 수집 공고: "
+        f"{total}개"
     )
 
     for date in sorted(result):
-
         print(
             f"  {date}: "
             f"{len(result[date])}개"
