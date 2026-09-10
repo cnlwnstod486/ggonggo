@@ -1,9 +1,9 @@
 {
-    "updated_at": "2026-09-10 18:02:18",
-    "total": 15,
+    "updated_at": "2026-09-10 21:02:45",
+    "total": 19,
     "counts": {
         "alio": 5,
-        "saramin": 10,
+        "saramin": 14,
         "jobkorea": 0
     },
     "jobs": [
@@ -85,6 +85,51 @@
         {
             "site": "saramin",
             "site_name": "사람인",
+            "company": "에이스휴먼파워(주)",
+            "title": "[현대셔틀버스/프랑스어능통자]포티투닷 음성 데이터라벨링 채용",
+            "type": "데이터분석가, 데이터엔지니어, 백엔드/서버개발 외",
+            "location": "경기 성남시 수정구 외",
+            "career": "경력무관 · 계약직 외",
+            "education": "고졸↑",
+            "employment": "정보 없음",
+            "deadline": "채용시",
+            "reg_date": "1시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55003794"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "에이스휴먼파워(주)",
+            "title": "[현대/셔틀버스/영어능통자]포티투닷 음성 데이터라벨링 담당자",
+            "type": "데이터분석가, 데이터엔지니어, 백엔드/서버개발 외",
+            "location": "경기 성남시 수정구 외",
+            "career": "경력무관 · 계약직 외",
+            "education": "고졸↑",
+            "employment": "정보 없음",
+            "deadline": "채용시",
+            "reg_date": "1시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55003787"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "삼신테크",
+            "title": "[분당서현] 한국정보통신기술협회(TTA) IT 사원 채용",
+            "type": "기술지원, 정보보안, QA/테스터 외",
+            "location": "경기 성남시 분당구",
+            "career": "경력무관 · 계약직 외",
+            "education": "대학교(4년)↑",
+            "employment": "정보 없음",
+            "deadline": "D-6",
+            "reg_date": "3시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55002862"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
             "company": "주식회사 핀텔",
             "title": "(주)핀텔 전문연구요원 채용공고 (개발/연구기획/제품기획)",
             "type": "솔루션, AI(인공지능), C# 외",
@@ -93,9 +138,24 @@
             "education": "석사↑",
             "employment": "정보 없음",
             "deadline": "~10.10(토)",
-            "reg_date": "1시간 전 등록",
+            "reg_date": "4시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55002776"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "리드커리어(주)",
+            "title": "[한국정보통신기술협회 TTA /분당] 09월 파견직 공채",
+            "type": "기술지원, 데이터분석가, 데이터엔지니어 외",
+            "location": "경기 성남시 분당구",
+            "career": "경력무관 · 계약직 외",
+            "education": "대학교(4년)↑",
+            "employment": "정보 없음",
+            "deadline": "~09.25(금)",
+            "reg_date": "5시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55001976"
         },
         {
             "site": "saramin",
@@ -108,7 +168,7 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "D-6",
-            "reg_date": "2시간 전 등록",
+            "reg_date": "5시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55001761"
         },
@@ -123,7 +183,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~09.21(월)",
-            "reg_date": "4시간 전 등록",
+            "reg_date": "7시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55000109&adsCategoryItem=effect_bold&"
         },
@@ -138,7 +198,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~09.30(수)",
-            "reg_date": "6시간 전 등록",
+            "reg_date": "9시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54998919&adsCategoryItem=effect_bold&"
         },
@@ -153,7 +213,7 @@
             "education": "고졸↑",
             "employment": "정보 없음",
             "deadline": "~09.18(금)",
-            "reg_date": "7시간 전 등록",
+            "reg_date": "10시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54997880"
         },
@@ -168,7 +228,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~09.23(수)",
-            "reg_date": "7시간 전 등록",
+            "reg_date": "10시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54997753&adsCategoryItem=effect_bold&"
         },
@@ -183,7 +243,7 @@
             "education": "고졸↑",
             "employment": "정보 없음",
             "deadline": "~10.10(토)",
-            "reg_date": "8시간 전 등록",
+            "reg_date": "11시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54997102"
         },
@@ -198,7 +258,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~09.18(금)",
-            "reg_date": "9시간 전 등록",
+            "reg_date": "12시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54996356"
         },
@@ -213,7 +273,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~09.30(수)",
-            "reg_date": "10시간 전 등록",
+            "reg_date": "13시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54996016"
         },
@@ -228,7 +288,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~09.30(수)",
-            "reg_date": "10시간 전 등록",
+            "reg_date": "13시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=54996013"
         }
