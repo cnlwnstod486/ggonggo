@@ -1,9 +1,9 @@
 {
-    "updated_at": "2026-09-12 15:04:07",
-    "total": 7,
+    "updated_at": "2026-09-12 18:04:06",
+    "total": 1,
     "counts": {
         "alio": 0,
-        "saramin": 7,
+        "saramin": 1,
         "jobkorea": 0
     },
     "jobs": [
@@ -18,99 +18,9 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~09.27(일)",
-            "reg_date": "3시간 전 등록",
+            "reg_date": "6시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55019293"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "(주)에스디파마",
-            "title": "(주)에스디파마 인사총무팀 팀원 모집",
-            "type": "유지보수, 네트워크, 총무 외",
-            "location": "경기 남양주시",
-            "career": "경력무관 · 계약직",
-            "education": "학력무관",
-            "employment": "정보 없음",
-            "deadline": "~10.11(일)",
-            "reg_date": "21시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55015104"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "(주)잡앤피플코리아",
-            "title": "[구로/연3,300/복지250만] 유명 게임 대기업 IT지원 채용",
-            "type": "기술지원, 유지보수, SE(시스템엔지니어) 외",
-            "location": "서울 구로구",
-            "career": "경력무관 · 파견직",
-            "education": "대학(2,3년)↑",
-            "employment": "정보 없음",
-            "deadline": "~09.26(토)",
-            "reg_date": "21시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55014898"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "(주)윌앤비전",
-            "title": "[공공기관/서현] 한국정보통신기술협회(TTA) 부서별 사무직",
-            "type": "기술지원, 데이터분석가, 데이터엔지니어 외",
-            "location": "경기 성남시 분당구",
-            "career": "경력무관 · 파견직",
-            "education": "대학(2,3년)↑",
-            "employment": "정보 없음",
-            "deadline": "D-4",
-            "reg_date": "22시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55014292"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "(주)비디텍",
-            "title": "(주)비디텍 기술지원부 고객응대 담당자",
-            "type": "기술지원, 상담원, 아웃바운드 외",
-            "location": "서울전체 외",
-            "career": "경력무관 · 정규직",
-            "education": "학력무관",
-            "employment": "정보 없음",
-            "deadline": "~10.11(일)",
-            "reg_date": "22시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55014226"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "(주)미래보",
-            "title": "(주) 미래보 경영지원실 전산팀 신입 및 경력사원 모집",
-            "type": "기술지원, 유지보수, 정보보안 외",
-            "location": "경기 평택시",
-            "career": "신입 · 경력 · 정규직",
-            "education": "대학(2,3년)↑",
-            "employment": "정보 없음",
-            "deadline": "~11.10(화)",
-            "reg_date": "22시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55013521"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "홍익대학교",
-            "title": "홍익대학교(서울캠퍼스) 정보전산팀 계약직원 모집",
-            "type": "웹개발, 유지보수",
-            "location": "서울 마포구",
-            "career": "경력무관 · 계약직",
-            "education": "대학교(4년)↑",
-            "employment": "정보 없음",
-            "deadline": "~09.20(일)",
-            "reg_date": "23시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55012799"
         }
     ]
 }
