@@ -1,9 +1,9 @@
 {
-    "updated_at": "2026-09-12 21:02:25",
+    "updated_at": "2026-09-13 00:02:17",
     "total": 3,
     "counts": {
-        "alio": 2,
-        "saramin": 1,
+        "alio": 1,
+        "saramin": 2,
         "jobkorea": 0
     },
     "jobs": [
@@ -23,19 +23,19 @@
             "link": "https://job.alio.go.kr/recruitview.do?idx=304839"
         },
         {
-            "site": "alio",
-            "site_name": "알리오",
-            "company": "국가생명윤리정책원",
-            "title": "제2026-3차 직원 채용 공고",
-            "type": "공공기관 채용",
-            "location": "서울",
-            "career": "정보 없음",
-            "education": "정보 없음",
-            "employment": "비정규직 \r\n\t\t\t\t\t\t\t\t\t\t외 1",
-            "deadline": "26.09.23 D-10",
-            "reg_date": "2026.09.09",
-            "status": "진행중",
-            "link": "https://job.alio.go.kr/recruitview.do?idx=304793"
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "(주)로자이크",
+            "title": "(주)로자이크(ROSAIC) IT개발·데이터 핵심 엔지니어를 찾고 있어요",
+            "type": "데이터엔지니어, 백엔드/서버개발, 프론트엔드 외",
+            "location": "서울 광진구",
+            "career": "신입 · 경력 · 정규직",
+            "education": "학력무관",
+            "employment": "정보 없음",
+            "deadline": "~10.12(월)",
+            "reg_date": "3시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55020163"
         },
         {
             "site": "saramin",
@@ -48,7 +48,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~09.27(일)",
-            "reg_date": "9시간 전 등록",
+            "reg_date": "12시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55019293"
         }
