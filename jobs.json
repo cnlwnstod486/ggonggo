@@ -1,41 +1,10 @@
 {
-    "updated_at": "2026-09-13 15:02:46",
-    "total": 2,
+    "updated_at": "2026-09-13 21:04:04",
+    "total": 0,
     "counts": {
-        "alio": 1,
-        "saramin": 1,
+        "alio": 0,
+        "saramin": 0,
         "jobkorea": 0
     },
-    "jobs": [
-        {
-            "site": "alio",
-            "site_name": "알리오",
-            "company": "한국남부발전(주)",
-            "title": "한국남부발전(주) 2026년 하반기 신입사원 및 별정직 채용공고",
-            "type": "공공기관 채용",
-            "location": "인천 \r\n\t\t\t\t\t\t\t\t\t\t외 6",
-            "career": "정보 없음",
-            "education": "정보 없음",
-            "employment": "정규직",
-            "deadline": "26.09.28 D-14",
-            "reg_date": "2026.09.11",
-            "status": "진행중",
-            "link": "https://job.alio.go.kr/recruitview.do?idx=304839"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "(주)로자이크",
-            "title": "(주)로자이크(ROSAIC) IT개발·데이터 핵심 엔지니어를 찾고 있어요",
-            "type": "데이터엔지니어, 백엔드/서버개발, 프론트엔드 외",
-            "location": "서울 광진구",
-            "career": "신입 · 경력 · 정규직",
-            "education": "학력무관",
-            "employment": "정보 없음",
-            "deadline": "~10.12(월)",
-            "reg_date": "18시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55020163"
-        }
-    ]
+    "jobs": []
 }
