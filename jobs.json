@@ -1,26 +1,56 @@
 {
-    "updated_at": "2026-09-14 09:03:05",
-    "total": 1,
+    "updated_at": "2026-09-14 12:04:02",
+    "total": 3,
     "counts": {
-        "alio": 1,
-        "saramin": 0,
+        "alio": 0,
+        "saramin": 3,
         "jobkorea": 0
     },
     "jobs": [
         {
-            "site": "alio",
-            "site_name": "알리오",
-            "company": "한국남부발전(주)",
-            "title": "한국남부발전(주) 2026년 하반기 신입사원 및 별정직 채용공고",
-            "type": "공공기관 채용",
-            "location": "인천 \r\n\t\t\t\t\t\t\t\t\t\t외 6",
-            "career": "정보 없음",
-            "education": "정보 없음",
-            "employment": "정규직",
-            "deadline": "26.09.28 D-13",
-            "reg_date": "2026.09.11",
-            "status": "진행중",
-            "link": "https://job.alio.go.kr/recruitview.do?idx=304839"
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "해비치컨트리클럽(주)",
+            "title": "[해비치컨트리클럽서울] 운영지원팀 IT총무 정규직 채용",
+            "type": "유지보수, 정보보안, ERP 외",
+            "location": "서울전체 외",
+            "career": "경력무관 · 정규직",
+            "education": "대학(2,3년)↑",
+            "employment": "정보 없음",
+            "deadline": "채용시",
+            "reg_date": "1시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55025733"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "(주)에이비씨마트코리아",
+            "title": "2026년 하반기 신입/경력 수시 채용(점포개발/슈즈 디자이너/시스템운영)",
+            "type": "SE(시스템엔지니어), SI개발, APM 외",
+            "location": "서울 중구",
+            "career": "신입 · 경력",
+            "education": "대학(2,3년)↑",
+            "employment": "정보 없음",
+            "deadline": "D-7",
+            "reg_date": "2시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55024272"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "에스넷시스템(주)",
+            "title": "[서울] AI 인프라팀 신입 엔지니어 채용 (GPU서버)",
+            "type": "기술지원, Linux, Ubuntu",
+            "location": "서울 강남구",
+            "career": "신입 · 경력 · 정규직",
+            "education": "대학(2,3년)↑",
+            "employment": "정보 없음",
+            "deadline": "~10.04(일)",
+            "reg_date": "3시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55022600"
         }
     ]
 }
