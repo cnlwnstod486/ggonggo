@@ -1,12 +1,27 @@
 {
-    "updated_at": "2026-09-15 09:03:12",
+    "updated_at": "2026-09-15 12:02:49",
     "total": 14,
     "counts": {
-        "alio": 1,
-        "saramin": 13,
+        "alio": 2,
+        "saramin": 12,
         "jobkorea": 0
     },
     "jobs": [
+        {
+            "site": "alio",
+            "site_name": "알리오",
+            "company": "한국국제교류재단",
+            "title": "한국국제교류재단 일반직 신규 채용 공고",
+            "type": "공공기관 채용",
+            "location": "서울 \r\n\t\t\t\t\t\t\t\t\t\t외 2",
+            "career": "정보 없음",
+            "education": "정보 없음",
+            "employment": "정규직",
+            "deadline": "26.09.30 D-14",
+            "reg_date": "2026.09.15",
+            "status": "진행중",
+            "link": "https://job.alio.go.kr/recruitview.do?idx=304986"
+        },
         {
             "site": "alio",
             "site_name": "알리오",
@@ -25,6 +40,51 @@
         {
             "site": "saramin",
             "site_name": "사람인",
+            "company": "이에이치알앤씨(주)",
+            "title": "[환경] 머신러닝, AI 서버 시스템 관리 석사 전문연구요원",
+            "type": "연구원, 데이터 사이언티스트",
+            "location": "인천 서해구",
+            "career": "신입 · 정규직 외",
+            "education": "석사↑",
+            "employment": "정보 없음",
+            "deadline": "채용시",
+            "reg_date": "1시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55038943"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "(주)케파스",
+            "title": "(긴급)대법원 미들웨어 총괄 운영사-엔지니어 모집(분당)",
+            "type": "SE(시스템엔지니어), 미들웨어, Apache 외",
+            "location": "경기 성남시 분당구",
+            "career": "신입 · 경력 · 정규직 외",
+            "education": "대학(2,3년)↑",
+            "employment": "정보 없음",
+            "deadline": "~10.15(목)",
+            "reg_date": "1시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55038287"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "(주)사람인에이치에스",
+            "title": "[대기업/성과급/통근버스] 현대자동차 사무보조 채용",
+            "type": "SAP, 경리, 경리사무원 외",
+            "location": "충남 아산시 외",
+            "career": "경력무관 · 파견직",
+            "education": "학력무관",
+            "employment": "정보 없음",
+            "deadline": "~09.30(수)",
+            "reg_date": "2시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55038035"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
             "company": "(주)에봄에이아이",
             "title": "의료 AI 스타트업 Forward Deployed Engineer (신입-경력 3년)",
             "type": "필드엔지니어",
@@ -33,7 +93,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "상시채용",
-            "reg_date": "9시간 전 등록",
+            "reg_date": "12시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55035455"
         },
@@ -48,7 +108,7 @@
             "education": "고졸↑",
             "employment": "정보 없음",
             "deadline": "~10.14(수)",
-            "reg_date": "16시간 전 등록",
+            "reg_date": "19시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55030779"
         },
@@ -63,9 +123,24 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~09.30(수)",
-            "reg_date": "17시간 전 등록",
+            "reg_date": "20시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55030199"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "(주)인피니트헬스케어",
+            "title": "[의료SW 상장사] 시스템엔지니어 신입/경력 채용(서울본사)",
+            "type": "기술지원, 유지보수, SE(시스템엔지니어) 외",
+            "location": "서울 구로구",
+            "career": "경력무관 · 정규직",
+            "education": "대학교(4년)↑",
+            "employment": "정보 없음",
+            "deadline": "~10.15(목)",
+            "reg_date": "21시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55029594"
         },
         {
             "site": "saramin",
@@ -78,7 +153,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~11.13(금)",
-            "reg_date": "19시간 전 등록",
+            "reg_date": "22시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55028770"
         },
@@ -93,7 +168,7 @@
             "education": "고졸↑",
             "employment": "정보 없음",
             "deadline": "~09.29(화)",
-            "reg_date": "19시간 전 등록",
+            "reg_date": "22시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55028734"
         },
@@ -108,7 +183,7 @@
             "education": "고졸↑",
             "employment": "정보 없음",
             "deadline": "~10.14(수)",
-            "reg_date": "19시간 전 등록",
+            "reg_date": "22시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55028206"
         },
@@ -123,7 +198,7 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "~10.02(금)",
-            "reg_date": "19시간 전 등록",
+            "reg_date": "22시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55027948"
         },
@@ -138,84 +213,9 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~10.14(수)",
-            "reg_date": "20시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55027784"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "(주)위플로우파트너스",
-            "title": "[주야비] PC관제원 채용/신입(스케줄근무)-㈜위플로우파트너스",
-            "type": "게임개발, 기술지원, 데이터분석가 외",
-            "location": "서울 송파구",
-            "career": "경력무관 · 계약직",
-            "education": "학력무관",
-            "employment": "정보 없음",
-            "deadline": "~11.13(금)",
-            "reg_date": "21시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55027278"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "(주)유지보수통합센터",
-            "title": "[네트워크] 구내통신 신입 엔지니어 채용",
-            "type": "네트워크, 솔루션, 정보통신 외",
-            "location": "서울 송파구",
-            "career": "경력무관 · 정규직",
-            "education": "학력무관",
-            "employment": "정보 없음",
-            "deadline": "~10.14(수)",
-            "reg_date": "21시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55027189"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "(주)오토노머스에이투지",
-            "title": "[정규직] 정밀지도개발팀 채용(평촌)",
-            "type": "알고리즘, 자율주행",
-            "location": "경기 안양시 동안구 외",
-            "career": "경력무관 · 정규직",
-            "education": "대학교(4년)↑",
-            "employment": "정보 없음",
-            "deadline": "채용시",
-            "reg_date": "21시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55027012"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "해비치컨트리클럽(주)",
-            "title": "[해비치컨트리클럽서울] 운영지원팀 IT총무 정규직 채용",
-            "type": "유지보수, 정보보안, ERP 외",
-            "location": "서울전체 외",
-            "career": "경력무관 · 정규직",
-            "education": "대학(2,3년)↑",
-            "employment": "정보 없음",
-            "deadline": "채용시",
-            "reg_date": "22시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55025733"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "(주)에이비씨마트코리아",
-            "title": "2026년 하반기 신입/경력 수시 채용(점포개발/슈즈 디자이너/시스템운영)",
-            "type": "SE(시스템엔지니어), SI개발, APM 외",
-            "location": "서울 중구",
-            "career": "신입 · 경력",
-            "education": "대학(2,3년)↑",
-            "employment": "정보 없음",
-            "deadline": "D-6",
             "reg_date": "23시간 전 등록",
             "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55024272"
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55027784"
         }
     ]
 }
