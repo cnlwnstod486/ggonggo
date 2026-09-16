@@ -1,12 +1,27 @@
 {
-    "updated_at": "2026-09-16 21:02:52",
-    "total": 16,
+    "updated_at": "2026-09-17 00:02:55",
+    "total": 20,
     "counts": {
-        "alio": 6,
-        "saramin": 10,
+        "alio": 7,
+        "saramin": 13,
         "jobkorea": 0
     },
     "jobs": [
+        {
+            "site": "alio",
+            "site_name": "알리오",
+            "company": "한국중부발전(주)",
+            "title": "2026년도 제3차 4직급 신입직원 채용공고",
+            "type": "공공기관 채용",
+            "location": "서울 \r\n\t\t\t\t\t\t\t\t\t\t외 5",
+            "career": "정보 없음",
+            "education": "정보 없음",
+            "employment": "정규직",
+            "deadline": "26.10.02 D-15",
+            "reg_date": "2026.09.17",
+            "status": "진행중",
+            "link": "https://job.alio.go.kr/recruitview.do?idx=304972"
+        },
         {
             "site": "alio",
             "site_name": "알리오",
@@ -100,6 +115,21 @@
         {
             "site": "saramin",
             "site_name": "사람인",
+            "company": "(주)유리네트웍스",
+            "title": "[인천]네트워크/보안/통합관제 엔지니어 모집",
+            "type": "유지보수, H/W, IoT",
+            "location": "인천 연수구",
+            "career": "신입 · 경력 · 정규직",
+            "education": "학력무관",
+            "employment": "정보 없음",
+            "deadline": "~10.16(금)",
+            "reg_date": "2시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55057010"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
             "company": "(주)갤럭시아에스엠",
             "title": "[효성계열] 갤럭시아에스엠 테크노짐 A/S 엔지니어 신입채용",
             "type": "기술지원, 거래처납품, A/S기사",
@@ -108,7 +138,7 @@
             "education": "고졸↑",
             "employment": "정보 없음",
             "deadline": "~10.16(금)",
-            "reg_date": "1시간 전 등록",
+            "reg_date": "4시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55056374"
         },
@@ -123,7 +153,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~10.01(목)",
-            "reg_date": "1시간 전 등록",
+            "reg_date": "4시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55056196"
         },
@@ -138,7 +168,7 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "채용시",
-            "reg_date": "2시간 전 등록",
+            "reg_date": "5시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55056142"
         },
@@ -153,7 +183,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~10.16(금)",
-            "reg_date": "4시간 전 등록",
+            "reg_date": "7시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55055208"
         },
@@ -168,7 +198,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~10.11(일)",
-            "reg_date": "5시간 전 등록",
+            "reg_date": "8시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55054100"
         },
@@ -183,9 +213,24 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "채용시",
-            "reg_date": "6시간 전 등록",
+            "reg_date": "9시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55053434"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "한양이엔지(주)",
+            "title": "부문별 수시채용 직원모집",
+            "type": "앱개발, 웹개발, 웹마스터 외",
+            "location": "경기 화성시 외",
+            "career": "신입 · 경력 · 정규직 외",
+            "education": "대학(2,3년)↑",
+            "employment": "정보 없음",
+            "deadline": "D-6",
+            "reg_date": "10시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55052505&adsCategoryItem=effect_bold&"
         },
         {
             "site": "saramin",
@@ -198,7 +243,7 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "~09.30(수)",
-            "reg_date": "9시간 전 등록",
+            "reg_date": "12시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55051806"
         },
@@ -213,9 +258,24 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~10.16(금)",
-            "reg_date": "9시간 전 등록",
+            "reg_date": "12시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55051666"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "(주)동일캔바스엔지니어링",
+            "title": "하반기 신입/경력 수시채용",
+            "type": "유지보수, 감사, 경리 외",
+            "location": "경기 평택시 외",
+            "career": "신입 · 경력 · 정규직",
+            "education": "대학(2,3년)↑",
+            "employment": "정보 없음",
+            "deadline": "~10.11(일)",
+            "reg_date": "12시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55051610&adsCategoryItem=effect_bold&"
         },
         {
             "site": "saramin",
@@ -228,7 +288,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~10.16(금)",
-            "reg_date": "10시간 전 등록",
+            "reg_date": "13시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55050617"
         },
@@ -243,7 +303,7 @@
             "education": "고졸↑",
             "employment": "정보 없음",
             "deadline": "~09.27(일)",
-            "reg_date": "11시간 전 등록",
+            "reg_date": "14시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55049192"
         }
