@@ -1,9 +1,9 @@
 {
-    "updated_at": "2026-09-17 15:02:43",
-    "total": 21,
+    "updated_at": "2026-09-17 18:02:35",
+    "total": 22,
     "counts": {
         "alio": 7,
-        "saramin": 14,
+        "saramin": 15,
         "jobkorea": 0
     },
     "jobs": [
@@ -115,6 +115,36 @@
         {
             "site": "saramin",
             "site_name": "사람인",
+            "company": "에스에프인촌(주)",
+            "title": "[IT/전산/게임/소프트웨어] 분야 업무경력자 - 헤드헌터 초빙",
+            "type": "솔루션, 임베디드, 펌웨어 외",
+            "location": "서울전체 외",
+            "career": "경력무관 · 계약직",
+            "education": "대학교(4년)↑",
+            "employment": "정보 없음",
+            "deadline": "~10.01(목)",
+            "reg_date": "1시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55066134"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "신사에그의원",
+            "title": "[신사에그의원] 인사총무팀 팀원 채용",
+            "type": "네트워크, 총무, 문서작성 외",
+            "location": "서울 서초구",
+            "career": "경력무관 · 정규직",
+            "education": "고졸↑",
+            "employment": "정보 없음",
+            "deadline": "~10.17(토)",
+            "reg_date": "3시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55064571"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
             "company": "메가존소프트(주)",
             "title": "Alibaba, NCP 빌링 채용",
             "type": "빌링, 전산회계, 계산서발행 외",
@@ -123,7 +153,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "채용시",
-            "reg_date": "1시간 전 등록",
+            "reg_date": "4시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55063556"
         },
@@ -138,7 +168,7 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "~10.17(토)",
-            "reg_date": "2시간 전 등록",
+            "reg_date": "5시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55063047"
         },
@@ -153,7 +183,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~10.17(토)",
-            "reg_date": "3시간 전 등록",
+            "reg_date": "6시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55062373"
         },
@@ -168,9 +198,24 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "D-5",
-            "reg_date": "4시간 전 등록",
+            "reg_date": "7시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55061681"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "(주)브라이센코리아",
+            "title": "모바일 카메라 화질 튜닝 엔지니어(신입)",
+            "type": "데이터엔지니어, 이미지프로세싱",
+            "location": "경기 수원시 팔달구",
+            "career": "신입 · 정규직",
+            "education": "대학(2,3년)↑",
+            "employment": "정보 없음",
+            "deadline": "~10.17(토)",
+            "reg_date": "7시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55061543"
         },
         {
             "site": "saramin",
@@ -183,7 +228,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~10.17(토)",
-            "reg_date": "4시간 전 등록",
+            "reg_date": "7시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55061530"
         },
@@ -198,7 +243,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~10.17(토)",
-            "reg_date": "4시간 전 등록",
+            "reg_date": "7시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55061511"
         },
@@ -213,7 +258,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "D-6",
-            "reg_date": "5시간 전 등록",
+            "reg_date": "8시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55060355"
         },
@@ -228,7 +273,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~10.17(토)",
-            "reg_date": "6시간 전 등록",
+            "reg_date": "9시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55059943"
         },
@@ -243,7 +288,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~10.16(금)",
-            "reg_date": "17시간 전 등록",
+            "reg_date": "20시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55057010"
         },
@@ -258,7 +303,7 @@
             "education": "고졸↑",
             "employment": "정보 없음",
             "deadline": "~10.16(금)",
-            "reg_date": "19시간 전 등록",
+            "reg_date": "22시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55056374"
         },
@@ -273,7 +318,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~10.01(목)",
-            "reg_date": "19시간 전 등록",
+            "reg_date": "22시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55056196"
         },
@@ -288,39 +333,9 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "채용시",
-            "reg_date": "20시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55056142"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "주식회사 보람정보통신 용인지점",
-            "title": "공공기관 자산관리시스템 운영지원 직원 채용ㅣ신입가능ㅣ정규직",
-            "type": "유지보수, A/S기사",
-            "location": "경기 성남시 분당구",
-            "career": "신입 · 정규직",
-            "education": "학력무관",
-            "employment": "정보 없음",
-            "deadline": "~10.16(금)",
-            "reg_date": "22시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55055208"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "은평연세병원",
-            "title": "은평연세병원 병원 총무과 사원 모집(전산 경력자 우대)",
-            "type": "유지보수, 정보보안, 총무 외",
-            "location": "서울 은평구",
-            "career": "경력무관 · 정규직",
-            "education": "대학(2,3년)↑",
-            "employment": "정보 없음",
-            "deadline": "~10.11(일)",
             "reg_date": "23시간 전 등록",
             "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55054100"
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55056142"
         }
     ]
 }
