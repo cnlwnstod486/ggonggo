@@ -1,12 +1,102 @@
 {
-    "updated_at": "2026-09-18 03:04:27",
-    "total": 11,
+    "updated_at": "2026-09-18 06:02:12",
+    "total": 17,
     "counts": {
-        "alio": 0,
+        "alio": 6,
         "saramin": 11,
         "jobkorea": 0
     },
     "jobs": [
+        {
+            "site": "alio",
+            "site_name": "알리오",
+            "company": "한국중부발전(주)",
+            "title": "2026년도 제3차 4직급 신입직원 채용공고",
+            "type": "공공기관 채용",
+            "location": "서울 \r\n\t\t\t\t\t\t\t\t\t\t외 5",
+            "career": "정보 없음",
+            "education": "정보 없음",
+            "employment": "정규직",
+            "deadline": "26.10.02 D-14",
+            "reg_date": "2026.09.17",
+            "status": "진행중",
+            "link": "https://job.alio.go.kr/recruitview.do?idx=304972"
+        },
+        {
+            "site": "alio",
+            "site_name": "알리오",
+            "company": "한국청소년정책연구원",
+            "title": "[채용공고 2026-11호] 휴직 대체인력 채용 공고",
+            "type": "공공기관 채용",
+            "location": "세종",
+            "career": "정보 없음",
+            "education": "정보 없음",
+            "employment": "비정규직",
+            "deadline": "26.10.01 D-13",
+            "reg_date": "2026.09.16",
+            "status": "진행중",
+            "link": "https://job.alio.go.kr/recruitview.do?idx=305037"
+        },
+        {
+            "site": "alio",
+            "site_name": "알리오",
+            "company": "한국문화정보원",
+            "title": "한국문화정보원 2026년 하반기 제2차 직원채용(비정규직, 비정규직(육아휴직대체), 체험형인턴) 공고",
+            "type": "공공기관 채용",
+            "location": "서울 \r\n\t\t\t\t\t\t\t\t\t\t외 1",
+            "career": "정보 없음",
+            "education": "정보 없음",
+            "employment": "비정규직 \r\n\t\t\t\t\t\t\t\t\t\t외 1",
+            "deadline": "26.10.02 D-14",
+            "reg_date": "2026.09.16",
+            "status": "진행중",
+            "link": "https://job.alio.go.kr/recruitview.do?idx=305020"
+        },
+        {
+            "site": "alio",
+            "site_name": "알리오",
+            "company": "한국공항공사",
+            "title": "2026년도 하반기 신입사원(5급갑, 6급갑 고졸수준) 공개채용",
+            "type": "공공기관 채용",
+            "location": "서울 \r\n\t\t\t\t\t\t\t\t\t\t외 12",
+            "career": "정보 없음",
+            "education": "정보 없음",
+            "employment": "정규직",
+            "deadline": "26.09.29 D-11",
+            "reg_date": "2026.09.15",
+            "status": "진행중",
+            "link": "https://job.alio.go.kr/recruitview.do?idx=305011"
+        },
+        {
+            "site": "alio",
+            "site_name": "알리오",
+            "company": "국민건강보험공단",
+            "title": "2026년도 하반기 국민건강보험공단 신규직원 채용 공고",
+            "type": "공공기관 채용",
+            "location": "서울 \r\n\t\t\t\t\t\t\t\t\t\t외 15",
+            "career": "정보 없음",
+            "education": "정보 없음",
+            "employment": "정규직",
+            "deadline": "26.09.29 D-11",
+            "reg_date": "2026.09.15",
+            "status": "진행중",
+            "link": "https://job.alio.go.kr/recruitview.do?idx=305006"
+        },
+        {
+            "site": "alio",
+            "site_name": "알리오",
+            "company": "한국국제교류재단",
+            "title": "한국국제교류재단 일반직 신규 채용 공고",
+            "type": "공공기관 채용",
+            "location": "서울 \r\n\t\t\t\t\t\t\t\t\t\t외 2",
+            "career": "정보 없음",
+            "education": "정보 없음",
+            "employment": "정규직",
+            "deadline": "26.09.30 D-12",
+            "reg_date": "2026.09.15",
+            "status": "진행중",
+            "link": "https://job.alio.go.kr/recruitview.do?idx=304986"
+        },
         {
             "site": "saramin",
             "site_name": "사람인",
@@ -18,7 +108,7 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "~10.01(목)",
-            "reg_date": "10시간 전 등록",
+            "reg_date": "12시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55066134"
         },
@@ -33,7 +123,7 @@
             "education": "고졸↑",
             "employment": "정보 없음",
             "deadline": "~10.17(토)",
-            "reg_date": "12시간 전 등록",
+            "reg_date": "15시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55064571"
         },
@@ -48,7 +138,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "채용시",
-            "reg_date": "13시간 전 등록",
+            "reg_date": "16시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55063556"
         },
@@ -63,7 +153,7 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "~10.17(토)",
-            "reg_date": "14시간 전 등록",
+            "reg_date": "17시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55063047"
         },
@@ -78,7 +168,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~10.17(토)",
-            "reg_date": "15시간 전 등록",
+            "reg_date": "18시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55062373"
         },
@@ -93,7 +183,7 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "D-4",
-            "reg_date": "16시간 전 등록",
+            "reg_date": "19시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55061681"
         },
@@ -108,7 +198,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~10.17(토)",
-            "reg_date": "16시간 전 등록",
+            "reg_date": "19시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55061543"
         },
@@ -123,7 +213,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~10.17(토)",
-            "reg_date": "16시간 전 등록",
+            "reg_date": "19시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55061530"
         },
@@ -138,7 +228,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~10.17(토)",
-            "reg_date": "16시간 전 등록",
+            "reg_date": "19시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55061511"
         },
@@ -153,7 +243,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "D-5",
-            "reg_date": "17시간 전 등록",
+            "reg_date": "20시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55060355"
         },
@@ -168,7 +258,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~10.17(토)",
-            "reg_date": "18시간 전 등록",
+            "reg_date": "21시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55059943"
         }
