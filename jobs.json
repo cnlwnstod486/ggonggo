@@ -1,12 +1,57 @@
 {
-    "updated_at": "2026-09-18 15:03:58",
-    "total": 6,
+    "updated_at": "2026-09-18 18:03:50",
+    "total": 7,
     "counts": {
         "alio": 0,
-        "saramin": 6,
+        "saramin": 7,
         "jobkorea": 0
     },
     "jobs": [
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "안국약품(주)",
+            "title": "안국약품(주) 전산팀 수시채용",
+            "type": "정보보안, 인프라",
+            "location": "경기 과천시",
+            "career": "신입 · 경력 · 정규직",
+            "education": "대학교(4년)↑",
+            "employment": "정보 없음",
+            "deadline": "~11.17(화)",
+            "reg_date": "1시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55076838"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "(주)리브스메드",
+            "title": "[연구소 전자] FPGA - HW Engineer",
+            "type": "임베디드, FPGA, MCU 외",
+            "location": "경기 성남시 분당구",
+            "career": "경력무관 · 정규직",
+            "education": "대학교(4년)↑",
+            "employment": "정보 없음",
+            "deadline": "상시채용",
+            "reg_date": "2시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55076105"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "아이비커리어(주)",
+            "title": "[안국역/대기업] 현대건설 본사 사무보조 채용",
+            "type": "SAP, 경리, 경리사무원 외",
+            "location": "서울전체 외",
+            "career": "경력무관 · 계약직 외",
+            "education": "고졸↑",
+            "employment": "정보 없음",
+            "deadline": "D-4",
+            "reg_date": "3시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55075055"
+        },
         {
             "site": "saramin",
             "site_name": "사람인",
@@ -18,7 +63,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~10.18(일)",
-            "reg_date": "3시간 전 등록",
+            "reg_date": "6시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55073055"
         },
@@ -33,7 +78,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "채용시",
-            "reg_date": "5시간 전 등록",
+            "reg_date": "8시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55071578"
         },
@@ -48,7 +93,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~10.05(월)",
-            "reg_date": "5시간 전 등록",
+            "reg_date": "8시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55071109"
         },
@@ -63,39 +108,9 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~10.18(일)",
-            "reg_date": "6시간 전 등록",
+            "reg_date": "9시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55070677"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "에스에프인촌(주)",
-            "title": "[IT/전산/게임/소프트웨어] 분야 업무경력자 - 헤드헌터 초빙",
-            "type": "솔루션, 임베디드, 펌웨어 외",
-            "location": "서울전체 외",
-            "career": "경력무관 · 계약직",
-            "education": "대학교(4년)↑",
-            "employment": "정보 없음",
-            "deadline": "~10.01(목)",
-            "reg_date": "22시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55066134"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "(주)비트컴퓨터",
-            "title": "병원EMR 유지보수 및 납품/설치 담당자 모집",
-            "type": "기술지원, 유지보수, Delphi 외",
-            "location": "서울 서초구",
-            "career": "경력무관 · 정규직",
-            "education": "대학(2,3년)↑",
-            "employment": "정보 없음",
-            "deadline": "~10.17(토)",
-            "reg_date": "22시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55066129"
         }
     ]
 }
