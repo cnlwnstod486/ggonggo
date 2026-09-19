@@ -1,12 +1,72 @@
 {
-    "updated_at": "2026-09-19 18:04:13",
-    "total": 1,
+    "updated_at": "2026-09-19 21:02:18",
+    "total": 5,
     "counts": {
-        "alio": 0,
+        "alio": 4,
         "saramin": 1,
         "jobkorea": 0
     },
     "jobs": [
+        {
+            "site": "alio",
+            "site_name": "알리오",
+            "company": "한국조폐공사",
+            "title": "2027년도 한국조폐공사 신입직원(채용형인턴) 채용공고",
+            "type": "공공기관 채용",
+            "location": "서울 \r\n\t\t\t\t\t\t\t\t\t\t외 3",
+            "career": "정보 없음",
+            "education": "정보 없음",
+            "employment": "청년인턴(채용형)",
+            "deadline": "26.10.02 D-12",
+            "reg_date": "2026.09.18",
+            "status": "진행중",
+            "link": "https://job.alio.go.kr/recruitview.do?idx=305144"
+        },
+        {
+            "site": "alio",
+            "site_name": "알리오",
+            "company": "한국중부발전(주)",
+            "title": "2026년도 제3차 4직급 신입직원 채용공고",
+            "type": "공공기관 채용",
+            "location": "서울 \r\n\t\t\t\t\t\t\t\t\t\t외 5",
+            "career": "정보 없음",
+            "education": "정보 없음",
+            "employment": "정규직",
+            "deadline": "26.10.02 D-12",
+            "reg_date": "2026.09.17",
+            "status": "진행중",
+            "link": "https://job.alio.go.kr/recruitview.do?idx=304972"
+        },
+        {
+            "site": "alio",
+            "site_name": "알리오",
+            "company": "한국청소년정책연구원",
+            "title": "[채용공고 2026-11호] 휴직 대체인력 채용 공고",
+            "type": "공공기관 채용",
+            "location": "세종",
+            "career": "정보 없음",
+            "education": "정보 없음",
+            "employment": "비정규직",
+            "deadline": "26.10.01 D-11",
+            "reg_date": "2026.09.16",
+            "status": "진행중",
+            "link": "https://job.alio.go.kr/recruitview.do?idx=305037"
+        },
+        {
+            "site": "alio",
+            "site_name": "알리오",
+            "company": "한국문화정보원",
+            "title": "한국문화정보원 2026년 하반기 제2차 직원채용(비정규직, 비정규직(육아휴직대체), 체험형인턴) 공고",
+            "type": "공공기관 채용",
+            "location": "서울 \r\n\t\t\t\t\t\t\t\t\t\t외 1",
+            "career": "정보 없음",
+            "education": "정보 없음",
+            "employment": "비정규직 \r\n\t\t\t\t\t\t\t\t\t\t외 1",
+            "deadline": "26.10.02 D-12",
+            "reg_date": "2026.09.16",
+            "status": "진행중",
+            "link": "https://job.alio.go.kr/recruitview.do?idx=305020"
+        },
         {
             "site": "saramin",
             "site_name": "사람인",
@@ -18,7 +78,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~10.18(일)",
-            "reg_date": "19시간 전 등록",
+            "reg_date": "22시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55079219"
         }
