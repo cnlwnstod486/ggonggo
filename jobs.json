@@ -1,9 +1,9 @@
 {
-    "updated_at": "2026-09-19 12:02:05",
-    "total": 9,
+    "updated_at": "2026-09-19 15:02:41",
+    "total": 7,
     "counts": {
         "alio": 4,
-        "saramin": 5,
+        "saramin": 3,
         "jobkorea": 0
     },
     "jobs": [
@@ -78,7 +78,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~10.18(일)",
-            "reg_date": "13시간 전 등록",
+            "reg_date": "16시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55079219"
         },
@@ -93,7 +93,7 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "~11.17(화)",
-            "reg_date": "19시간 전 등록",
+            "reg_date": "22시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55076838"
         },
@@ -108,39 +108,9 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "상시채용",
-            "reg_date": "20시간 전 등록",
+            "reg_date": "23시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55076105"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "아이비커리어(주)",
-            "title": "[안국역/대기업] 현대건설 본사 사무보조 채용",
-            "type": "SAP, 경리, 경리사무원 외",
-            "location": "서울전체 외",
-            "career": "경력무관 · 계약직 외",
-            "education": "고졸↑",
-            "employment": "정보 없음",
-            "deadline": "D-3",
-            "reg_date": "21시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55075055"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "(주)안국엔지니어링",
-            "title": "각 부문별 채용",
-            "type": "유지보수, ERP, 총무 외",
-            "location": "경기전체 외",
-            "career": "신입 · 경력 · 정규직 외",
-            "education": "고졸↑",
-            "employment": "정보 없음",
-            "deadline": "~10.02(금)",
-            "reg_date": "22시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55074099&adsCategoryItem=effect_bold&"
         }
     ]
 }
