@@ -1,12 +1,42 @@
 {
-    "updated_at": "2026-09-21 03:04:08",
-    "total": 1,
+    "updated_at": "2026-09-21 06:02:21",
+    "total": 3,
     "counts": {
-        "alio": 0,
+        "alio": 2,
         "saramin": 1,
         "jobkorea": 0
     },
     "jobs": [
+        {
+            "site": "alio",
+            "site_name": "알리오",
+            "company": "한국도로교통공단",
+            "title": "[원주본부] 디지털운영처 전문계약직 채용공고",
+            "type": "공공기관 채용",
+            "location": "강원",
+            "career": "정보 없음",
+            "education": "정보 없음",
+            "employment": "비정규직",
+            "deadline": "26.10.02 D-11",
+            "reg_date": "2026.09.21",
+            "status": "진행중",
+            "link": "https://job.alio.go.kr/recruitview.do?idx=304987"
+        },
+        {
+            "site": "alio",
+            "site_name": "알리오",
+            "company": "한국조폐공사",
+            "title": "2027년도 한국조폐공사 신입직원(채용형인턴) 채용공고",
+            "type": "공공기관 채용",
+            "location": "서울 \r\n\t\t\t\t\t\t\t\t\t\t외 3",
+            "career": "정보 없음",
+            "education": "정보 없음",
+            "employment": "청년인턴(채용형)",
+            "deadline": "26.10.02 D-11",
+            "reg_date": "2026.09.18",
+            "status": "진행중",
+            "link": "https://job.alio.go.kr/recruitview.do?idx=305144"
+        },
         {
             "site": "saramin",
             "site_name": "사람인",
@@ -18,7 +48,7 @@
             "education": "고졸↑",
             "employment": "정보 없음",
             "deadline": "~10.20(화)",
-            "reg_date": "6시간 전 등록",
+            "reg_date": "9시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55084342"
         }
