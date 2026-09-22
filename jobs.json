@@ -1,12 +1,72 @@
 {
-    "updated_at": "2026-09-22 21:04:28",
-    "total": 9,
+    "updated_at": "2026-09-23 00:03:19",
+    "total": 14,
     "counts": {
-        "alio": 0,
-        "saramin": 9,
+        "alio": 4,
+        "saramin": 10,
         "jobkorea": 0
     },
     "jobs": [
+        {
+            "site": "alio",
+            "site_name": "알리오",
+            "company": "한국전력공사",
+            "title": "2026년도 하반기 보훈 채용공고",
+            "type": "공공기관 채용",
+            "location": "서울 \r\n\t\t\t\t\t\t\t\t\t\t외 15",
+            "career": "정보 없음",
+            "education": "정보 없음",
+            "employment": "정규직",
+            "deadline": "26.10.06 D-13",
+            "reg_date": "2026.09.22",
+            "status": "진행중",
+            "link": "https://job.alio.go.kr/recruitview.do?idx=305239"
+        },
+        {
+            "site": "alio",
+            "site_name": "알리오",
+            "company": "경상국립대학교병원",
+            "title": "전산직 채용공고",
+            "type": "공공기관 채용",
+            "location": "경남",
+            "career": "정보 없음",
+            "education": "정보 없음",
+            "employment": "정규직",
+            "deadline": "26.09.28 D-5",
+            "reg_date": "2026.09.22",
+            "status": "진행중",
+            "link": "https://job.alio.go.kr/recruitview.do?idx=305226"
+        },
+        {
+            "site": "alio",
+            "site_name": "알리오",
+            "company": "강원대학교병원",
+            "title": "2026-43(일반직·원무직) 채용 공고",
+            "type": "공공기관 채용",
+            "location": "강원",
+            "career": "정보 없음",
+            "education": "정보 없음",
+            "employment": "정규직",
+            "deadline": "26.10.05 D-12",
+            "reg_date": "2026.09.21",
+            "status": "진행중",
+            "link": "https://job.alio.go.kr/recruitview.do?idx=305174"
+        },
+        {
+            "site": "alio",
+            "site_name": "알리오",
+            "company": "한국도로교통공단",
+            "title": "[원주본부] 디지털운영처 전문계약직 채용공고",
+            "type": "공공기관 채용",
+            "location": "강원",
+            "career": "정보 없음",
+            "education": "정보 없음",
+            "employment": "비정규직",
+            "deadline": "26.10.02 D-9",
+            "reg_date": "2026.09.21",
+            "status": "진행중",
+            "link": "https://job.alio.go.kr/recruitview.do?idx=304987"
+        },
         {
             "site": "saramin",
             "site_name": "사람인",
@@ -18,7 +78,7 @@
             "education": "고졸↑",
             "employment": "정보 없음",
             "deadline": "~10.07(수)",
-            "reg_date": "5시간 전 등록",
+            "reg_date": "8시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55103574"
         },
@@ -33,7 +93,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~10.22(목)",
-            "reg_date": "5시간 전 등록",
+            "reg_date": "8시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55103104"
         },
@@ -48,7 +108,7 @@
             "education": "석사↑",
             "employment": "정보 없음",
             "deadline": "~11.21(토)",
-            "reg_date": "6시간 전 등록",
+            "reg_date": "9시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55102224"
         },
@@ -63,7 +123,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~10.22(목)",
-            "reg_date": "6시간 전 등록",
+            "reg_date": "9시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55102017"
         },
@@ -78,7 +138,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~10.07(수)",
-            "reg_date": "6시간 전 등록",
+            "reg_date": "9시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55101974"
         },
@@ -93,7 +153,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~10.22(목)",
-            "reg_date": "7시간 전 등록",
+            "reg_date": "10시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55101771"
         },
@@ -107,8 +167,8 @@
             "career": "신입 · 계약직",
             "education": "학력무관",
             "employment": "정보 없음",
-            "deadline": "~09.30(수)",
-            "reg_date": "7시간 전 등록",
+            "deadline": "D-7",
+            "reg_date": "10시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55101356"
         },
@@ -123,7 +183,7 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "~10.21(수)",
-            "reg_date": "10시간 전 등록",
+            "reg_date": "13시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55099624"
         },
@@ -138,9 +198,24 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "~10.12(월)",
-            "reg_date": "10시간 전 등록",
+            "reg_date": "13시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55099597"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "에너지엔(주)",
+            "title": "2026 하반기 각 부문 채용",
+            "type": "보안컨설팅, 정보보안, SE(시스템엔지니어) 외",
+            "location": "전북 군산시",
+            "career": "신입 · 경력 · 정규직",
+            "education": "고졸↑",
+            "employment": "정보 없음",
+            "deadline": "~10.06(화)",
+            "reg_date": "13시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55099446&adsCategoryItem=effect_bold&"
         }
     ]
 }
