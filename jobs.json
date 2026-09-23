@@ -1,12 +1,42 @@
 {
-    "updated_at": "2026-09-23 09:04:15",
-    "total": 10,
+    "updated_at": "2026-09-23 12:03:58",
+    "total": 9,
     "counts": {
         "alio": 0,
-        "saramin": 10,
+        "saramin": 9,
         "jobkorea": 0
     },
     "jobs": [
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "(주)휴먼코아",
+            "title": "[재택근무 l 유망 스타트업] 제품 운영 지원 매니저 채용",
+            "type": "기술지원, 데이터분석가, 앱개발 외",
+            "location": "서울전체 외",
+            "career": "신입 · 경력 · 정규직 외",
+            "education": "대학교(4년)↑",
+            "employment": "정보 없음",
+            "deadline": "D-7",
+            "reg_date": "2시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55109937"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "(주)휴먼코아",
+            "title": "[재택근무 l 유망 스타트업] QA 매니저 채용",
+            "type": "게임개발, 기술지원, QA/테스터 외",
+            "location": "서울전체 외",
+            "career": "신입 · 경력 · 정규직 외",
+            "education": "대학교(4년)↑",
+            "employment": "정보 없음",
+            "deadline": "~10.08(목)",
+            "reg_date": "2시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55109800"
+        },
         {
             "site": "saramin",
             "site_name": "사람인",
@@ -18,7 +48,7 @@
             "education": "고졸↑",
             "employment": "정보 없음",
             "deadline": "~10.07(수)",
-            "reg_date": "17시간 전 등록",
+            "reg_date": "20시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55103574"
         },
@@ -33,7 +63,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~10.22(목)",
-            "reg_date": "17시간 전 등록",
+            "reg_date": "20시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55103104"
         },
@@ -48,7 +78,7 @@
             "education": "석사↑",
             "employment": "정보 없음",
             "deadline": "~11.21(토)",
-            "reg_date": "18시간 전 등록",
+            "reg_date": "21시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55102224"
         },
@@ -63,7 +93,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~10.22(목)",
-            "reg_date": "18시간 전 등록",
+            "reg_date": "21시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55102017"
         },
@@ -78,7 +108,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~10.07(수)",
-            "reg_date": "18시간 전 등록",
+            "reg_date": "21시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55101974"
         },
@@ -93,7 +123,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~10.22(목)",
-            "reg_date": "19시간 전 등록",
+            "reg_date": "22시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55101771"
         },
@@ -108,54 +138,9 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "D-7",
-            "reg_date": "19시간 전 등록",
+            "reg_date": "22시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55101356"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "(주)애거슨",
-            "title": "밸리데이션 CSV사업본부 신입",
-            "type": "QA/테스터, 어셈블리, 기술엔지니어 외",
-            "location": "경기전체 외",
-            "career": "신입 · 정규직",
-            "education": "대학교(4년)↑",
-            "employment": "정보 없음",
-            "deadline": "~10.21(수)",
-            "reg_date": "22시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55099624"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "(주)원익홀딩스",
-            "title": "2026 원익그룹 신입 공채 모집",
-            "type": "기술지원, 데이터분석가, 데이터엔지니어 외",
-            "location": "서울전체 외",
-            "career": "신입 · 정규직 외",
-            "education": "대학교(4년)↑",
-            "employment": "정보 없음",
-            "deadline": "~10.12(월)",
-            "reg_date": "22시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55099597"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "에너지엔(주)",
-            "title": "2026 하반기 각 부문 채용",
-            "type": "보안컨설팅, 정보보안, SE(시스템엔지니어) 외",
-            "location": "전북 군산시",
-            "career": "신입 · 경력 · 정규직",
-            "education": "고졸↑",
-            "employment": "정보 없음",
-            "deadline": "~10.06(화)",
-            "reg_date": "22시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55099446&adsCategoryItem=effect_bold&"
         }
     ]
 }
