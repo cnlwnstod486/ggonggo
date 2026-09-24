@@ -1,9 +1,9 @@
 {
-    "updated_at": "2026-09-24 15:02:56",
-    "total": 12,
+    "updated_at": "2026-09-24 18:02:40",
+    "total": 8,
     "counts": {
         "alio": 8,
-        "saramin": 4,
+        "saramin": 0,
         "jobkorea": 0
     },
     "jobs": [
@@ -126,66 +126,6 @@
             "reg_date": "2026.09.21",
             "status": "진행중",
             "link": "https://job.alio.go.kr/recruitview.do?idx=304987"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "안국약품(주)",
-            "title": "전산팀 수시채용",
-            "type": "백엔드/서버개발, 보안컨설팅, 유지보수 외",
-            "location": "서울전체 외",
-            "career": "신입 · 경력 · 정규직",
-            "education": "학력무관",
-            "employment": "정보 없음",
-            "deadline": "~10.23(금)",
-            "reg_date": "22시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55115205"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "(주)에이앤지테크놀로지",
-            "title": "㈜에이앤지테크놀로지 2026년 하반기 신입 및 경력 채용",
-            "type": "유지보수, 검색엔진, 딥러닝 외",
-            "location": "경기 시흥시 외",
-            "career": "신입 · 경력 · 정규직",
-            "education": "대학(2,3년)↑",
-            "employment": "정보 없음",
-            "deadline": "~10.07(수)",
-            "reg_date": "23시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55115145&adsCategoryItem=effect_bold&"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "에이스휴먼파워(주)",
-            "title": "[현대/셔틀버스/판교]포티투닷 데이터라벨링 담당자 채용",
-            "type": "데이터분석가, 데이터엔지니어, 백엔드/서버개발 외",
-            "location": "경기 성남시 수정구 외",
-            "career": "경력무관 · 계약직 외",
-            "education": "고졸↑",
-            "employment": "정보 없음",
-            "deadline": "채용시",
-            "reg_date": "23시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55114787"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "법무법인(유)세종",
-            "title": "전산실 생성형 AI·지식관리(KM) 운영 담당 채용",
-            "type": "기술지원, 유지보수, 정보보안 외",
-            "location": "서울 종로구",
-            "career": "신입 · 경력 · 정규직",
-            "education": "대학교(4년)↑",
-            "employment": "정보 없음",
-            "deadline": "~10.11(일)",
-            "reg_date": "23시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55114419"
         }
     ]
 }
