@@ -1,9 +1,9 @@
 {
-    "updated_at": "2026-09-24 21:02:40",
-    "total": 8,
+    "updated_at": "2026-09-25 00:03:40",
+    "total": 7,
     "counts": {
-        "alio": 8,
-        "saramin": 0,
+        "alio": 6,
+        "saramin": 1,
         "jobkorea": 0
     },
     "jobs": [
@@ -98,34 +98,19 @@
             "link": "https://job.alio.go.kr/recruitview.do?idx=305226"
         },
         {
-            "site": "alio",
-            "site_name": "알리오",
-            "company": "강원대학교병원",
-            "title": "2026-43(일반직·원무직) 채용 공고",
-            "type": "공공기관 채용",
-            "location": "강원",
-            "career": "정보 없음",
-            "education": "정보 없음",
-            "employment": "정규직",
-            "deadline": "26.10.05 D-10",
-            "reg_date": "2026.09.21",
-            "status": "진행중",
-            "link": "https://job.alio.go.kr/recruitview.do?idx=305174"
-        },
-        {
-            "site": "alio",
-            "site_name": "알리오",
-            "company": "한국도로교통공단",
-            "title": "[원주본부] 디지털운영처 전문계약직 채용공고",
-            "type": "공공기관 채용",
-            "location": "강원",
-            "career": "정보 없음",
-            "education": "정보 없음",
-            "employment": "비정규직",
-            "deadline": "26.10.02 D-7",
-            "reg_date": "2026.09.21",
-            "status": "진행중",
-            "link": "https://job.alio.go.kr/recruitview.do?idx=304987"
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "에이스휴먼파워(주)",
+            "title": "[신입/복지최상] 여기어때 사내 IT 헬프데스크·전산지원 담당",
+            "type": "빅데이터, 안내데스크, 총무 외",
+            "location": "서울 강남구 외",
+            "career": "경력무관 · 계약직 외",
+            "education": "고졸↑",
+            "employment": "정보 없음",
+            "deadline": "상시채용",
+            "reg_date": "3시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55120024"
         }
     ]
 }
