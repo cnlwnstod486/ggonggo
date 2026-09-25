@@ -1,8 +1,8 @@
 {
-    "updated_at": "2026-09-25 21:02:55",
-    "total": 7,
+    "updated_at": "2026-09-26 00:02:52",
+    "total": 5,
     "counts": {
-        "alio": 6,
+        "alio": 4,
         "saramin": 1,
         "jobkorea": 0
     },
@@ -68,36 +68,6 @@
             "link": "https://job.alio.go.kr/recruitview.do?idx=305231"
         },
         {
-            "site": "alio",
-            "site_name": "알리오",
-            "company": "한국전력공사",
-            "title": "2026년도 하반기 보훈 채용공고",
-            "type": "공공기관 채용",
-            "location": "서울 \r\n\t\t\t\t\t\t\t\t\t\t외 15",
-            "career": "정보 없음",
-            "education": "정보 없음",
-            "employment": "정규직",
-            "deadline": "26.10.06 D-10",
-            "reg_date": "2026.09.22",
-            "status": "진행중",
-            "link": "https://job.alio.go.kr/recruitview.do?idx=305239"
-        },
-        {
-            "site": "alio",
-            "site_name": "알리오",
-            "company": "경상국립대학교병원",
-            "title": "전산직 채용공고",
-            "type": "공공기관 채용",
-            "location": "경남",
-            "career": "정보 없음",
-            "education": "정보 없음",
-            "employment": "정규직",
-            "deadline": "26.09.28 D-2",
-            "reg_date": "2026.09.22",
-            "status": "진행중",
-            "link": "https://job.alio.go.kr/recruitview.do?idx=305226"
-        },
-        {
             "site": "saramin",
             "site_name": "사람인",
             "company": "양평의료복지사회적협동조합",
@@ -108,7 +78,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "채용시",
-            "reg_date": "1시간 전 등록",
+            "reg_date": "4시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55121254"
         }
