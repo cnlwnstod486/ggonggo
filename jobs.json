@@ -1,9 +1,9 @@
 {
-    "updated_at": "2026-09-26 15:02:46",
-    "total": 5,
+    "updated_at": "2026-09-26 18:02:30",
+    "total": 4,
     "counts": {
         "alio": 4,
-        "saramin": 1,
+        "saramin": 0,
         "jobkorea": 0
     },
     "jobs": [
@@ -66,21 +66,6 @@
             "reg_date": "2026.09.23",
             "status": "진행중",
             "link": "https://job.alio.go.kr/recruitview.do?idx=305231"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "양평의료복지사회적협동조합",
-            "title": "[양평의료복지사회적협동조합] 사회복지사 채용",
-            "type": "사업기획, 서비스기획, 사회복지사 외",
-            "location": "경기 양평군",
-            "career": "경력무관 · 정규직 외",
-            "education": "학력무관",
-            "employment": "정보 없음",
-            "deadline": "채용시",
-            "reg_date": "19시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55121254"
         }
     ]
 }
