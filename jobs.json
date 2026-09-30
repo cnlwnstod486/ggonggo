@@ -1,9 +1,9 @@
 {
-    "updated_at": "2026-09-30 21:04:13",
-    "total": 11,
+    "updated_at": "2026-10-01 00:07:13",
+    "total": 14,
     "counts": {
         "alio": 1,
-        "saramin": 10,
+        "saramin": 13,
         "jobkorea": 0
     },
     "jobs": [
@@ -25,6 +25,21 @@
         {
             "site": "saramin",
             "site_name": "사람인",
+            "company": "(주)키스템프그룹",
+            "title": "[영등포/신입가능]  금융권 중견기업  IT헬프데스크 채용",
+            "type": "유지보수, 정보보안, 네트워크 외",
+            "location": "서울 영등포구",
+            "career": "경력무관 · 파견직",
+            "education": "대학(2,3년)↑",
+            "employment": "정보 없음",
+            "deadline": "D-7",
+            "reg_date": "3시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55166002"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
             "company": "(주)더스윙",
             "title": "[SWING] 텔레마케터 영업 TM / 무제한 인센티브",
             "type": "스크립트, 영업직, 렌탈영업 외",
@@ -33,7 +48,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~10.30(금)",
-            "reg_date": "1시간 전 등록",
+            "reg_date": "4시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55165811"
         },
@@ -48,9 +63,24 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~11.29(일)",
-            "reg_date": "3시간 전 등록",
+            "reg_date": "6시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55164835"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "한신기계공업(주)",
+            "title": "각 부문별 신입/경력 채용",
+            "type": "데이터엔지니어, 백엔드/서버개발, 웹개발 외",
+            "location": "경기 안산시 외",
+            "career": "신입 · 경력 · 정규직 외",
+            "education": "고졸↑",
+            "employment": "정보 없음",
+            "deadline": "~10.31(토)",
+            "reg_date": "6시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55164697"
         },
         {
             "site": "saramin",
@@ -63,7 +93,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~10.31(토)",
-            "reg_date": "6시간 전 등록",
+            "reg_date": "9시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55162202"
         },
@@ -78,7 +108,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~10.30(금)",
-            "reg_date": "7시간 전 등록",
+            "reg_date": "10시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55161546"
         },
@@ -93,7 +123,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~10.11(일)",
-            "reg_date": "9시간 전 등록",
+            "reg_date": "12시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55159986&adsCategoryItem=effect_bold&"
         },
@@ -108,7 +138,7 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "~10.23(금)",
-            "reg_date": "10시간 전 등록",
+            "reg_date": "13시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55159362"
         },
@@ -123,7 +153,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~10.11(일)",
-            "reg_date": "10시간 전 등록",
+            "reg_date": "13시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55158874"
         },
@@ -138,9 +168,24 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "~10.13(화)",
-            "reg_date": "10시간 전 등록",
+            "reg_date": "13시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55158820"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "(주)아이샵케어",
+            "title": "토스플레이스 자회사 [iShopCARE] 대규모 채용｜영업·마케팅·인사·법무·전략·CX·물류·AS·운영 外",
+            "type": "기술지원, 데이터분석가, 데이터엔지니어 외",
+            "location": "서울 강남구 외",
+            "career": "신입 · 경력 · 정규직 외",
+            "education": "학력무관",
+            "employment": "정보 없음",
+            "deadline": "~10.31(토)",
+            "reg_date": "13시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55158659&adsCategoryItem=effect_bold&"
         },
         {
             "site": "saramin",
@@ -153,7 +198,7 @@
             "education": "석사↑",
             "employment": "정보 없음",
             "deadline": "~10.15(목)",
-            "reg_date": "11시간 전 등록",
+            "reg_date": "14시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55158422"
         },
@@ -168,7 +213,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~10.30(금)",
-            "reg_date": "13시간 전 등록",
+            "reg_date": "16시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55156960"
         }
