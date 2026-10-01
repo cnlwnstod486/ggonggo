@@ -1,5 +1,5 @@
 {
-    "updated_at": "2026-10-01 06:03:03",
+    "updated_at": "2026-10-01 09:02:41",
     "total": 14,
     "counts": {
         "alio": 1,
@@ -17,10 +17,25 @@
             "career": "정보 없음",
             "education": "정보 없음",
             "employment": "정규직",
-            "deadline": "26.10.13 D-12",
+            "deadline": "26.10.13 D-11",
             "reg_date": "2026.09.28",
             "status": "진행중",
             "link": "https://job.alio.go.kr/recruitview.do?idx=305395"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "(주)아인스시스템 선인",
+            "title": "[파이온PC] PC 조립·물류·CS 및 온라인 운영 지원 담당자",
+            "type": "PC조립",
+            "location": "서울 용산구",
+            "career": "경력무관 · 계약직",
+            "education": "고졸↑",
+            "employment": "정보 없음",
+            "deadline": "~10.30(금)",
+            "reg_date": "10시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55167396"
         },
         {
             "site": "saramin",
@@ -33,7 +48,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "D-7",
-            "reg_date": "9시간 전 등록",
+            "reg_date": "12시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55166002"
         },
@@ -48,7 +63,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~10.30(금)",
-            "reg_date": "10시간 전 등록",
+            "reg_date": "13시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55165811"
         },
@@ -63,7 +78,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~11.29(일)",
-            "reg_date": "12시간 전 등록",
+            "reg_date": "15시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55164835"
         },
@@ -78,7 +93,7 @@
             "education": "고졸↑",
             "employment": "정보 없음",
             "deadline": "~10.31(토)",
-            "reg_date": "12시간 전 등록",
+            "reg_date": "15시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55164697"
         },
@@ -93,7 +108,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~10.31(토)",
-            "reg_date": "15시간 전 등록",
+            "reg_date": "18시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55162202"
         },
@@ -108,7 +123,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~10.30(금)",
-            "reg_date": "16시간 전 등록",
+            "reg_date": "19시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55161546"
         },
@@ -123,7 +138,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~10.11(일)",
-            "reg_date": "18시간 전 등록",
+            "reg_date": "21시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55159986&adsCategoryItem=effect_bold&"
         },
@@ -138,7 +153,7 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "~10.23(금)",
-            "reg_date": "19시간 전 등록",
+            "reg_date": "22시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55159362"
         },
@@ -153,7 +168,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~10.11(일)",
-            "reg_date": "19시간 전 등록",
+            "reg_date": "22시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55158874"
         },
@@ -168,7 +183,7 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "~10.13(화)",
-            "reg_date": "19시간 전 등록",
+            "reg_date": "22시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55158820"
         },
@@ -183,7 +198,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~10.31(토)",
-            "reg_date": "19시간 전 등록",
+            "reg_date": "22시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55158659&adsCategoryItem=effect_bold&"
         },
@@ -198,24 +213,9 @@
             "education": "석사↑",
             "employment": "정보 없음",
             "deadline": "~10.15(목)",
-            "reg_date": "20시간 전 등록",
+            "reg_date": "23시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55158422"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "(주)케이원",
-            "title": "삼성자산운용  OA 유지보수 정규직 채용",
-            "type": "유지보수, H/W, S/W 외",
-            "location": "서울 서초구",
-            "career": "경력무관 · 정규직",
-            "education": "학력무관",
-            "employment": "정보 없음",
-            "deadline": "~10.30(금)",
-            "reg_date": "22시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55156960"
         }
     ]
 }
