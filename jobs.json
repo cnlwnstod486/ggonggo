@@ -1,9 +1,9 @@
 {
-    "updated_at": "2026-10-03 17:38:48",
-    "total": 6,
+    "updated_at": "2026-10-03 23:01:27",
+    "total": 3,
     "counts": {
         "alio": 3,
-        "saramin": 3,
+        "saramin": 0,
         "jobkorea": 0
     },
     "jobs": [
@@ -51,51 +51,6 @@
             "reg_date": "2026.10.01",
             "status": "진행중",
             "link": "https://job.alio.go.kr/recruitview.do?idx=305539"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "(주)엠지데이터시스템",
-            "title": "[MG새마을금고]MG데이터시스템 계약직채용",
-            "type": "SI개발, 인프라, 아키텍쳐 외",
-            "location": "서울 강서구",
-            "career": "신입 · 경력 · 계약직 외",
-            "education": "학력무관",
-            "employment": "정보 없음",
-            "deadline": "~11.02(월)",
-            "reg_date": "22시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55193498"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "(주)엠지데이터시스템",
-            "title": "[MG새마을금고]MG데이터시스템 일반직(정규직) 채용",
-            "type": "SI개발, 인프라, 아키텍쳐 외",
-            "location": "서울 강서구",
-            "career": "신입 · 경력 · 정규직 외",
-            "education": "학력무관",
-            "employment": "정보 없음",
-            "deadline": "~11.02(월)",
-            "reg_date": "22시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55193494"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "에이스휴먼파워(주)",
-            "title": "[셔틀버스/프랑스어능통자]포티투닷 음성 데이터라벨링 채용",
-            "type": "데이터분석가, 데이터엔지니어, 백엔드/서버개발 외",
-            "location": "경기 성남시 수정구 외",
-            "career": "경력무관 · 계약직 외",
-            "education": "고졸↑",
-            "employment": "정보 없음",
-            "deadline": "채용시",
-            "reg_date": "23시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55192838"
         }
     ]
 }
