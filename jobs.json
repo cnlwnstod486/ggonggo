@@ -1,56 +1,10 @@
 {
-    "updated_at": "2026-10-04 08:25:24",
-    "total": 3,
+    "updated_at": "2026-10-04 12:08:11",
+    "total": 0,
     "counts": {
-        "alio": 3,
+        "alio": 0,
         "saramin": 0,
         "jobkorea": 0
     },
-    "jobs": [
-        {
-            "site": "alio",
-            "site_name": "알리오",
-            "company": "한국의료기기안전정보원",
-            "title": "2026년 제4차 한국의료기기안전정보원 직원(정규직 및 무기직) 채용공고",
-            "type": "공공기관 채용",
-            "location": "서울",
-            "career": "정보 없음",
-            "education": "정보 없음",
-            "employment": "무기계약직 \r\n\t\t\t\t\t\t\t\t\t\t외 1",
-            "deadline": "26.10.19 D-15",
-            "reg_date": "2026.10.02",
-            "status": "진행중",
-            "link": "https://job.alio.go.kr/recruitview.do?idx=305695"
-        },
-        {
-            "site": "alio",
-            "site_name": "알리오",
-            "company": "동북아역사재단",
-            "title": "동북아역사재단 직원(행정직(일반,전산), 공무직(일반), 기간제, 청년인턴) 공개채용 공고(장애인 구분 모집 포함)",
-            "type": "공공기관 채용",
-            "location": "서울",
-            "career": "정보 없음",
-            "education": "정보 없음",
-            "employment": "무기계약직 \r\n\t\t\t\t\t\t\t\t\t\t외 3",
-            "deadline": "26.10.15 D-11",
-            "reg_date": "2026.10.01",
-            "status": "진행중",
-            "link": "https://job.alio.go.kr/recruitview.do?idx=305584"
-        },
-        {
-            "site": "alio",
-            "site_name": "알리오",
-            "company": "건강보험심사평가원",
-            "title": "2026년 하반기 건강보험심사평가원 체험형 청년인턴 채용 공고",
-            "type": "공공기관 채용",
-            "location": "서울 \r\n\t\t\t\t\t\t\t\t\t\t외 10",
-            "career": "정보 없음",
-            "education": "정보 없음",
-            "employment": "청년인턴(체험형)",
-            "deadline": "26.10.15 D-11",
-            "reg_date": "2026.10.01",
-            "status": "진행중",
-            "link": "https://job.alio.go.kr/recruitview.do?idx=305539"
-        }
-    ]
+    "jobs": []
 }
