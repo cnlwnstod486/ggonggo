@@ -1,5 +1,5 @@
 {
-    "updated_at": "2026-10-08 18:36:51",
+    "updated_at": "2026-10-09 03:04:13",
     "total": 20,
     "counts": {
         "alio": 2,
@@ -40,6 +40,21 @@
         {
             "site": "saramin",
             "site_name": "사람인",
+            "company": "고려휴먼스(주)",
+            "title": "[하루7시간반근무] 찬스모바일 알뜰폰 개통관련 사무직 채용",
+            "type": "정보통신, 사무직, 서무 외",
+            "location": "서울 중구",
+            "career": "경력무관 · 파견직",
+            "education": "학력무관",
+            "employment": "정보 없음",
+            "deadline": "채용시",
+            "reg_date": "8시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55242442"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
             "company": "소프트버켓(주)",
             "title": "[신입가능·18시퇴근] 공공입찰 분석팀 사원 모집",
             "type": "데이터분석가, 사무직, 사무보조 외",
@@ -47,8 +62,8 @@
             "career": "경력무관 · 계약직",
             "education": "학력무관",
             "employment": "정보 없음",
-            "deadline": "~10.16(금)",
-            "reg_date": "2시간 전 등록",
+            "deadline": "D-7",
+            "reg_date": "10시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55240742"
         },
@@ -63,7 +78,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~11.07(토)",
-            "reg_date": "2시간 전 등록",
+            "reg_date": "10시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55240656"
         },
@@ -78,7 +93,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~12.07(월)",
-            "reg_date": "2시간 전 등록",
+            "reg_date": "10시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55240350"
         },
@@ -93,7 +108,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~11.07(토)",
-            "reg_date": "2시간 전 등록",
+            "reg_date": "11시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55239957"
         },
@@ -108,7 +123,7 @@
             "education": "고졸↑",
             "employment": "정보 없음",
             "deadline": "채용시",
-            "reg_date": "3시간 전 등록",
+            "reg_date": "11시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55239464"
         },
@@ -123,7 +138,7 @@
             "education": "고졸↑",
             "employment": "정보 없음",
             "deadline": "~10.30(금)",
-            "reg_date": "3시간 전 등록",
+            "reg_date": "11시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55239395"
         },
@@ -138,7 +153,7 @@
             "education": "고졸↑",
             "employment": "정보 없음",
             "deadline": "~10.20(화)",
-            "reg_date": "4시간 전 등록",
+            "reg_date": "12시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55238578"
         },
@@ -152,8 +167,8 @@
             "career": "신입 · 경력 · 정규직",
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
-            "deadline": "D-7",
-            "reg_date": "7시간 전 등록",
+            "deadline": "D-6",
+            "reg_date": "15시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55236700"
         },
@@ -168,7 +183,7 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "~10.21(수)",
-            "reg_date": "7시간 전 등록",
+            "reg_date": "15시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55236352"
         },
@@ -183,7 +198,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~12.07(월)",
-            "reg_date": "7시간 전 등록",
+            "reg_date": "16시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55235752"
         },
@@ -198,7 +213,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~10.22(목)",
-            "reg_date": "7시간 전 등록",
+            "reg_date": "16시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55235710"
         },
@@ -213,7 +228,7 @@
             "education": "고졸↑",
             "employment": "정보 없음",
             "deadline": "~11.08(일)",
-            "reg_date": "7시간 전 등록",
+            "reg_date": "16시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55235629"
         },
@@ -228,7 +243,7 @@
             "education": "고졸↑",
             "employment": "정보 없음",
             "deadline": "~11.06(금)",
-            "reg_date": "8시간 전 등록",
+            "reg_date": "16시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55235237"
         },
@@ -243,7 +258,7 @@
             "education": "고졸↑",
             "employment": "정보 없음",
             "deadline": "~11.07(토)",
-            "reg_date": "8시간 전 등록",
+            "reg_date": "16시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55234957"
         },
@@ -258,7 +273,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~11.07(토)",
-            "reg_date": "9시간 전 등록",
+            "reg_date": "18시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55233725"
         },
@@ -273,7 +288,7 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "~11.30(월)",
-            "reg_date": "9시간 전 등록",
+            "reg_date": "18시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55233685"
         },
@@ -288,24 +303,9 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~11.07(토)",
-            "reg_date": "9시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55233607"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "(주)엑사큐브테크놀러지",
-            "title": "통합IT센터 IT 오퍼레이터 채용",
-            "type": "보안관제",
-            "location": "경기 김포시",
-            "career": "신입 · 경력 · 정규직",
-            "education": "고졸↑",
-            "employment": "정보 없음",
-            "deadline": "~11.06(금)",
             "reg_date": "18시간 전 등록",
             "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55232382"
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55233607"
         }
     ]
 }
