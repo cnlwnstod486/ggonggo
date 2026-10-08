@@ -1,26 +1,26 @@
 {
-    "updated_at": "2026-10-08 03:04:53",
-    "total": 18,
+    "updated_at": "2026-10-08 09:32:57",
+    "total": 13,
     "counts": {
-        "alio": 1,
-        "saramin": 17,
+        "alio": 0,
+        "saramin": 13,
         "jobkorea": 0
     },
     "jobs": [
         {
-            "site": "alio",
-            "site_name": "알리오",
-            "company": "충남대학교병원",
-            "title": "[대전] 2026년 하반기 충남대학교병원 정규직(행정직, 보건직, 전산직, 간호조무직, 원무직) 공개채용 공고",
-            "type": "공공기관 채용",
-            "location": "대전",
-            "career": "정보 없음",
-            "education": "정보 없음",
-            "employment": "정규직",
-            "deadline": "26.10.21 D-13",
-            "reg_date": "2026.10.07",
-            "status": "진행중",
-            "link": "https://job.alio.go.kr/recruitview.do?idx=305813"
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "(주)엑사큐브테크놀러지",
+            "title": "통합IT센터 IT 오퍼레이터 채용",
+            "type": "보안관제",
+            "location": "경기 김포시",
+            "career": "신입 · 경력 · 정규직",
+            "education": "고졸↑",
+            "employment": "정보 없음",
+            "deadline": "~11.06(금)",
+            "reg_date": "9시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55232382"
         },
         {
             "site": "saramin",
@@ -33,7 +33,7 @@
             "education": "고졸↑",
             "employment": "정보 없음",
             "deadline": "~10.31(토)",
-            "reg_date": "8시간 전 등록",
+            "reg_date": "15시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55228259"
         },
@@ -48,7 +48,7 @@
             "education": "고졸↑",
             "employment": "정보 없음",
             "deadline": "~11.06(금)",
-            "reg_date": "9시간 전 등록",
+            "reg_date": "16시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55227735"
         },
@@ -63,7 +63,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "채용시",
-            "reg_date": "10시간 전 등록",
+            "reg_date": "16시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55227256"
         },
@@ -78,7 +78,7 @@
             "education": "고졸↑",
             "employment": "정보 없음",
             "deadline": "~10.22(목)",
-            "reg_date": "10시간 전 등록",
+            "reg_date": "16시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55227184"
         },
@@ -93,7 +93,7 @@
             "education": "박사",
             "employment": "정보 없음",
             "deadline": "~11.30(월)",
-            "reg_date": "10시간 전 등록",
+            "reg_date": "16시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55227094&adsCategoryItem=effect_bold&"
         },
@@ -108,7 +108,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~11.08(일)",
-            "reg_date": "12시간 전 등록",
+            "reg_date": "18시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55225195"
         },
@@ -123,7 +123,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~11.06(금)",
-            "reg_date": "15시간 전 등록",
+            "reg_date": "21시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55223065"
         },
@@ -138,7 +138,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "D-6",
-            "reg_date": "15시간 전 등록",
+            "reg_date": "22시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55222310&adsCategoryItem=effect_bold&"
         },
@@ -153,7 +153,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~11.08(일)",
-            "reg_date": "16시간 전 등록",
+            "reg_date": "22시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55222166&adsCategoryItem=effect_bold&"
         },
@@ -168,7 +168,7 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "~11.30(월)",
-            "reg_date": "16시간 전 등록",
+            "reg_date": "23시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55221465"
         },
@@ -183,7 +183,7 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "~11.05(목)",
-            "reg_date": "16시간 전 등록",
+            "reg_date": "23시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55221257"
         },
@@ -198,84 +198,9 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~11.06(금)",
-            "reg_date": "17시간 전 등록",
+            "reg_date": "23시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55220723"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "(주)견우푸드",
-            "title": "(주)견우푸드 신입/경력 정규직 채용",
-            "type": "네트워크, API, ERP 외",
-            "location": "경기전체 외",
-            "career": "신입 · 경력 · 정규직 외",
-            "education": "학력무관",
-            "employment": "정보 없음",
-            "deadline": "~11.05(목)",
-            "reg_date": "17시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55220282&adsCategoryItem=effect_bold&"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "(주)유원",
-            "title": "2026년 각 부문별 신입/경력 정규직 채용",
-            "type": "모델링, 더존, 계산서발행 외",
-            "location": "경기전체 외",
-            "career": "신입 · 경력 · 정규직 외",
-            "education": "학력무관",
-            "employment": "정보 없음",
-            "deadline": "~12.05(토)",
-            "reg_date": "17시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55219938&adsCategoryItem=effect_bold&"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "농협은행(주)",
-            "title": "농협은행(주) 정보보안부 일반계약직 직원 채용공고",
-            "type": "정보보안",
-            "location": "경기 의왕시",
-            "career": "경력무관 · 계약직",
-            "education": "학력무관",
-            "employment": "정보 없음",
-            "deadline": "D-3",
-            "reg_date": "18시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55219661"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "한국언론진흥재단",
-            "title": "2026년 2차 정규직 신입사원 채용 공고 (IT)",
-            "type": "기술지원, 백엔드/서버개발, 네트워크 외",
-            "location": "서울 중구",
-            "career": "신입 · 정규직",
-            "education": "학력무관",
-            "employment": "정보 없음",
-            "deadline": "~10.20(화)",
-            "reg_date": "18시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55219318"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "(주)세움테크",
-            "title": "컴퓨터 및 전산장비 A/S, 유지보수 정직원 채용",
-            "type": "유지보수, 정비기사, A/S기사",
-            "location": "경기 안산시 단원구",
-            "career": "경력무관 · 정규직",
-            "education": "고졸↑",
-            "employment": "정보 없음",
-            "deadline": "채용시",
-            "reg_date": "19시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55219200"
         }
     ]
 }
