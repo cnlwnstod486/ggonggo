@@ -1,12 +1,72 @@
 {
-    "updated_at": "2026-10-12 06:08:55",
-    "total": 1,
+    "updated_at": "2026-10-12 11:54:59",
+    "total": 5,
     "counts": {
         "alio": 0,
-        "saramin": 1,
+        "saramin": 5,
         "jobkorea": 0
     },
     "jobs": [
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "(주)마이크로인피니티",
+            "title": "㈜마이크로인피니티 수원사업장 정규 모집",
+            "type": "보안컨설팅, 앱개발, 웹개발 외",
+            "location": "경기전체 외",
+            "career": "경력무관 · 정규직",
+            "education": "고졸↑",
+            "employment": "정보 없음",
+            "deadline": "~12.10(목)",
+            "reg_date": "1시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55256110&adsCategoryItem=effect_bold&"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "(주)엠제이인스텍",
+            "title": "NH농협은행 전산시스템 운영업무",
+            "type": "기술지원, 보안관제",
+            "location": "경기 의왕시",
+            "career": "경력무관 · 정규직",
+            "education": "학력무관",
+            "employment": "정보 없음",
+            "deadline": "~11.11(수)",
+            "reg_date": "1시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55255619"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "(주)디모아",
+            "title": "Microsoft 365 엔지니어 모집",
+            "type": "기술지원, 보안컨설팅, IT컨설팅 외",
+            "location": "서울 용산구",
+            "career": "경력무관 · 정규직",
+            "education": "대학(2,3년)↑",
+            "employment": "정보 없음",
+            "deadline": "상시채용",
+            "reg_date": "3시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55252927"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "이도에코원(주)",
+            "title": "서부내륙고속도로 시스템( ITS ) 신입 직원 채용",
+            "type": "유지보수, 전산/기술직, 통신공사 외",
+            "location": "경기 평택시",
+            "career": "신입 · 계약직",
+            "education": "대학(2,3년)↑",
+            "employment": "정보 없음",
+            "deadline": "~12.11(금)",
+            "reg_date": "3시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55252305"
+        },
         {
             "site": "saramin",
             "site_name": "사람인",
@@ -18,7 +78,7 @@
             "education": "고졸↑",
             "employment": "정보 없음",
             "deadline": "~11.10(화)",
-            "reg_date": "10시간 전 등록",
+            "reg_date": "16시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55251783"
         }
