@@ -1,9 +1,9 @@
 {
-    "updated_at": "2026-10-15 16:47:40",
-    "total": 13,
+    "updated_at": "2026-10-15 22:45:43",
+    "total": 16,
     "counts": {
         "alio": 2,
-        "saramin": 11,
+        "saramin": 14,
         "jobkorea": 0
     },
     "jobs": [
@@ -40,6 +40,81 @@
         {
             "site": "saramin",
             "site_name": "사람인",
+            "company": "에스에스앤씨(주)",
+            "title": "[신입/경력] 보안솔루션 필드 엔지니어 모집",
+            "type": "기술지원, 유지보수, 정보보안 외",
+            "location": "경기 광명시 외",
+            "career": "신입 · 경력 · 정규직",
+            "education": "대학(2,3년)↑",
+            "employment": "정보 없음",
+            "deadline": "~11.14(토)",
+            "reg_date": "4시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55302510"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "리드커리어(주)",
+            "title": "[한국정보통신기술협회 TTA /분당] 10월 파견직 공채",
+            "type": "데이터분석가, 데이터엔지니어, 백엔드/서버개발 외",
+            "location": "경기 성남시 분당구",
+            "career": "경력무관 · 계약직 외",
+            "education": "학력무관",
+            "employment": "정보 없음",
+            "deadline": "D-7",
+            "reg_date": "5시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55302122"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "유엔잡(주)",
+            "title": "[ 한국정보통신기술협회 ] 소프트웨어 시험 인증 연구원(분당)",
+            "type": "백엔드/서버개발, 앱개발, 웹개발 외",
+            "location": "경기 성남시 분당구",
+            "career": "경력무관 · 계약직 외",
+            "education": "대학교(4년)↑",
+            "employment": "정보 없음",
+            "deadline": "~10.23(금)",
+            "reg_date": "5시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55301849"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "(주)에스테이트",
+            "title": "[일경험]이랜드재단/온율/세움 사무행정 및 마케팅 인턴 모집",
+            "type": "백엔드/서버개발, 앱개발, 웹개발 외",
+            "location": "서울 강남구 외",
+            "career": "경력무관 · 교육생",
+            "education": "학력무관",
+            "employment": "정보 없음",
+            "deadline": "~11.13(금)",
+            "reg_date": "5시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55301831"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "(주)키스템프그룹",
+            "title": "[AIA생명보험/신입ㅇ/연4200만內협의] 방카슈랑스팀 admin 채용",
+            "type": "SAP, 경리, 세무사 외",
+            "location": "서울 중구",
+            "career": "경력무관 · 파견직",
+            "education": "대학교(4년)↑",
+            "employment": "정보 없음",
+            "deadline": "내일마감",
+            "reg_date": "6시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55301300"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
             "company": "(주)필네트워크",
             "title": "판교 카카오 엔터테인먼트 에서(helpdesk)일할  직원모집 합니다",
             "type": "유지보수, 정보보안, 네트워크 외",
@@ -48,7 +123,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~11.14(토)",
-            "reg_date": "1시간 전 등록",
+            "reg_date": "7시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55300594"
         },
@@ -63,7 +138,7 @@
             "education": "고졸↑",
             "employment": "정보 없음",
             "deadline": "내일마감",
-            "reg_date": "2시간 전 등록",
+            "reg_date": "8시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55299923"
         },
@@ -78,7 +153,7 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "~11.01(일)",
-            "reg_date": "2시간 전 등록",
+            "reg_date": "8시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55299891"
         },
@@ -93,7 +168,7 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "~11.14(토)",
-            "reg_date": "3시간 전 등록",
+            "reg_date": "9시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55299135"
         },
@@ -108,7 +183,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~11.14(토)",
-            "reg_date": "4시간 전 등록",
+            "reg_date": "10시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55298448"
         },
@@ -123,7 +198,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~11.14(토)",
-            "reg_date": "5시간 전 등록",
+            "reg_date": "11시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55298012"
         },
@@ -138,7 +213,7 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "~10.29(목)",
-            "reg_date": "6시간 전 등록",
+            "reg_date": "12시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55297117"
         },
@@ -153,7 +228,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~11.14(토)",
-            "reg_date": "7시간 전 등록",
+            "reg_date": "13시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55295731"
         },
@@ -168,39 +243,9 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~10.30(금)",
-            "reg_date": "7시간 전 등록",
+            "reg_date": "13시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55295356"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "㈜그린텍아이엔씨",
-            "title": "상·하수도 AI 솔루션 개발 신입/경력직 채용",
-            "type": "솔루션, AI(인공지능), R&D",
-            "location": "경기 안양시 동안구",
-            "career": "신입 · 경력 · 정규직",
-            "education": "대학교(4년)↑",
-            "employment": "정보 없음",
-            "deadline": "~11.13(금)",
-            "reg_date": "23시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55289952"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "(주)믹스앤매치",
-            "title": "(주)믹스앤매치 화장품 제조업체 전산업무 담당자 채용",
-            "type": "네트워크, 방화벽, 정보통신 외",
-            "location": "인천 부평구",
-            "career": "경력무관 · 정규직",
-            "education": "대학교(4년)↑",
-            "employment": "정보 없음",
-            "deadline": "D-5",
-            "reg_date": "23시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55289832"
         }
     ]
 }
