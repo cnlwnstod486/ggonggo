@@ -1,56 +1,10 @@
 {
-    "updated_at": "2026-10-17 16:15:29",
-    "total": 3,
+    "updated_at": "2026-10-17 21:31:59",
+    "total": 0,
     "counts": {
         "alio": 0,
-        "saramin": 3,
+        "saramin": 0,
         "jobkorea": 0
     },
-    "jobs": [
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "(주)나우동인건축사사무소",
-            "title": "[나우동인건축사사무소 사내 전산 및 PC 관리 담당자(신입/경력)",
-            "type": "기술지원, 유지보수, 정보보안 외",
-            "location": "서울 서초구",
-            "career": "경력무관 · 정규직",
-            "education": "학력무관",
-            "employment": "정보 없음",
-            "deadline": "채용시",
-            "reg_date": "21시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55315140"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "(주)아이샵케어",
-            "title": "토스 단말기 영업 계약직 (인센티브 제공)",
-            "type": "기술지원, 데이터분석가, 데이터엔지니어 외",
-            "location": "서울 강남구 외",
-            "career": "신입 · 경력 · 계약직",
-            "education": "학력무관",
-            "employment": "정보 없음",
-            "deadline": "~10.31(토)",
-            "reg_date": "23시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55313989"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "(주)아이엔에프아이엑스",
-            "title": "온라인 쇼핑몰 시스템 및 IT관리 담당자 채용",
-            "type": "기술지원, 솔루션",
-            "location": "서울 마포구",
-            "career": "신입 · 정규직",
-            "education": "학력무관",
-            "employment": "정보 없음",
-            "deadline": "~11.15(일)",
-            "reg_date": "23시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55313602"
-        }
-    ]
+    "jobs": []
 }
