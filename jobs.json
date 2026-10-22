@@ -1,9 +1,9 @@
 {
-    "updated_at": "2026-10-22 17:01:56",
-    "total": 12,
+    "updated_at": "2026-10-22 23:09:51",
+    "total": 13,
     "counts": {
         "alio": 2,
-        "saramin": 10,
+        "saramin": 11,
         "jobkorea": 0
     },
     "jobs": [
@@ -40,6 +40,51 @@
         {
             "site": "saramin",
             "site_name": "사람인",
+            "company": "(주)스데반정보",
+            "title": "웹 개발자(AI) 신입 및 경력 채용",
+            "type": "웹개발, 퍼블리셔, .NET 외",
+            "location": "서울 종로구",
+            "career": "경력무관 · 정규직",
+            "education": "대학교(4년)↑",
+            "employment": "정보 없음",
+            "deadline": "상시채용",
+            "reg_date": "5시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55368098"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "(의)은혜와감사의료재단",
+            "title": "화성중앙종합병원 총무과 (전산 담당) 모집 공고",
+            "type": "유지보수, 네트워크, 정보통신",
+            "location": "경기 화성시",
+            "career": "경력무관 · 정규직",
+            "education": "학력무관",
+            "employment": "정보 없음",
+            "deadline": "~11.21(토)",
+            "reg_date": "5시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55367944"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "토스씨엑스(주)",
+            "title": "[토스씨엑스] IT Admin 적극 채용",
+            "type": "네트워크, 방화벽, 인프라 외",
+            "location": "서울 구로구",
+            "career": "경력무관 · 계약직",
+            "education": "학력무관",
+            "employment": "정보 없음",
+            "deadline": "~11.21(토)",
+            "reg_date": "6시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55367209"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
             "company": "(주)무창상사",
             "title": "(주)무창상사 전산팀 팀원 채용합니다",
             "type": "웹개발, 웹마스터, 유지보수 외",
@@ -48,7 +93,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~11.21(토)",
-            "reg_date": "1시간 전 등록",
+            "reg_date": "7시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55366581"
         },
@@ -63,7 +108,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~11.21(토)",
-            "reg_date": "1시간 전 등록",
+            "reg_date": "8시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55366316"
         },
@@ -78,7 +123,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~11.21(토)",
-            "reg_date": "2시간 전 등록",
+            "reg_date": "8시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55365625"
         },
@@ -93,7 +138,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~11.13(금)",
-            "reg_date": "2시간 전 등록",
+            "reg_date": "9시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55365496"
         },
@@ -108,7 +153,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~12.21(월)",
-            "reg_date": "6시간 전 등록",
+            "reg_date": "12시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55363457"
         },
@@ -123,7 +168,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~11.21(토)",
-            "reg_date": "6시간 전 등록",
+            "reg_date": "12시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55362896"
         },
@@ -138,7 +183,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~11.21(토)",
-            "reg_date": "7시간 전 등록",
+            "reg_date": "13시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55362476"
         },
@@ -153,39 +198,9 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "~11.20(금)",
-            "reg_date": "7시간 전 등록",
+            "reg_date": "13시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55362192"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "(주)빅솔",
-            "title": "[빅솔] IT담당 계약직 채용",
-            "type": "기술지원, 유지보수, 정보보안 외",
-            "location": "경기 군포시",
-            "career": "경력무관 · 계약직",
-            "education": "대학(2,3년)↑",
-            "employment": "정보 없음",
-            "deadline": "~11.20(금)",
-            "reg_date": "23시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55356695"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "보보스링크(주)",
-            "title": "[외국계대기업] 본사 IT팀 업무 및  기술지원 단기사원 채용",
-            "type": "기술지원, 유지보수, SE(시스템엔지니어) 외",
-            "location": "서울 강남구",
-            "career": "경력무관 · 계약직 외",
-            "education": "학력무관",
-            "employment": "정보 없음",
-            "deadline": "~11.05(목)",
-            "reg_date": "23시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55356657"
         }
     ]
 }
