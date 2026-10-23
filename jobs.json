@@ -1,5 +1,5 @@
 {
-    "updated_at": "2026-10-23 17:09:45",
+    "updated_at": "2026-10-23 23:00:37",
     "total": 15,
     "counts": {
         "alio": 1,
@@ -25,6 +25,21 @@
         {
             "site": "saramin",
             "site_name": "사람인",
+            "company": "(주)준코",
+            "title": "[준코] IT부서 직원 채용 공고 (경력무관)",
+            "type": "기술지원, SE(시스템엔지니어), 인프라 외",
+            "location": "경기 하남시",
+            "career": "경력무관 · 정규직",
+            "education": "학력무관",
+            "employment": "정보 없음",
+            "deadline": "~11.22(일)",
+            "reg_date": "6시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55378599"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
             "company": "지안솔루션(주)",
             "title": "IT 솔루션SAP 분야 신입/경력직 직원채용",
             "type": "SI개발, 솔루션, SAP 외",
@@ -33,7 +48,7 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "D-6",
-            "reg_date": "1시간 전 등록",
+            "reg_date": "7시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55377778"
         },
@@ -48,7 +63,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "채용시",
-            "reg_date": "1시간 전 등록",
+            "reg_date": "7시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55377690"
         },
@@ -63,7 +78,7 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "~11.22(일)",
-            "reg_date": "1시간 전 등록",
+            "reg_date": "7시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55377503"
         },
@@ -78,9 +93,24 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "~11.22(일)",
-            "reg_date": "1시간 전 등록",
+            "reg_date": "7시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55377292"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "(주)쥬비스다이어트",
+            "title": "재무팀 매출/회계 담당 계약직 채용",
+            "type": "SAP, 전산회계, 관리회계 외",
+            "location": "서울 강남구 외",
+            "career": "신입 · 경력 · 계약직",
+            "education": "대학(2,3년)↑",
+            "employment": "정보 없음",
+            "deadline": "~11.21(토)",
+            "reg_date": "7시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55377226"
         },
         {
             "site": "saramin",
@@ -93,7 +123,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "D-5",
-            "reg_date": "3시간 전 등록",
+            "reg_date": "9시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55375883"
         },
@@ -108,7 +138,7 @@
             "education": "고졸↑",
             "employment": "정보 없음",
             "deadline": "~12.22(화)",
-            "reg_date": "3시간 전 등록",
+            "reg_date": "9시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55375856"
         },
@@ -123,7 +153,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~11.22(일)",
-            "reg_date": "3시간 전 등록",
+            "reg_date": "9시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55375796"
         },
@@ -138,7 +168,7 @@
             "education": "고졸↑",
             "employment": "정보 없음",
             "deadline": "상시채용",
-            "reg_date": "4시간 전 등록",
+            "reg_date": "10시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55375456"
         },
@@ -153,7 +183,7 @@
             "education": "고졸↑",
             "employment": "정보 없음",
             "deadline": "~11.22(일)",
-            "reg_date": "5시간 전 등록",
+            "reg_date": "11시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55374502"
         },
@@ -168,7 +198,7 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "채용시",
-            "reg_date": "6시간 전 등록",
+            "reg_date": "12시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55374283"
         },
@@ -183,7 +213,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~11.22(일)",
-            "reg_date": "6시간 전 등록",
+            "reg_date": "12시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55374044"
         },
@@ -198,39 +228,9 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~11.22(일)",
-            "reg_date": "7시간 전 등록",
+            "reg_date": "13시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55373184"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "(주)스데반정보",
-            "title": "웹 개발자(AI) 신입 및 경력 채용",
-            "type": "웹개발, 퍼블리셔, .NET 외",
-            "location": "서울 종로구",
-            "career": "경력무관 · 정규직",
-            "education": "대학교(4년)↑",
-            "employment": "정보 없음",
-            "deadline": "상시채용",
-            "reg_date": "23시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55368098"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "(의)은혜와감사의료재단",
-            "title": "화성중앙종합병원 총무과 (전산 담당) 모집 공고",
-            "type": "유지보수, 네트워크, 정보통신",
-            "location": "경기 화성시",
-            "career": "경력무관 · 정규직",
-            "education": "학력무관",
-            "employment": "정보 없음",
-            "deadline": "~11.21(토)",
-            "reg_date": "23시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55367944"
         }
     ]
 }
