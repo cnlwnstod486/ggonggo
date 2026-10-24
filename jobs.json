@@ -1,9 +1,9 @@
 {
-    "updated_at": "2026-10-24 11:13:01",
-    "total": 1,
+    "updated_at": "2026-10-24 16:40:53",
+    "total": 2,
     "counts": {
         "alio": 1,
-        "saramin": 0,
+        "saramin": 1,
         "jobkorea": 0
     },
     "jobs": [
@@ -21,6 +21,21 @@
             "reg_date": "2026.10.22",
             "status": "진행중",
             "link": "https://job.alio.go.kr/recruitview.do?idx=306244"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "(주)준코",
+            "title": "[준코] IT부서 직원 채용 공고 (경력무관)",
+            "type": "기술지원, SE(시스템엔지니어), 인프라 외",
+            "location": "경기 하남시",
+            "career": "경력무관 · 정규직",
+            "education": "학력무관",
+            "employment": "정보 없음",
+            "deadline": "~11.22(일)",
+            "reg_date": "23시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55378599"
         }
     ]
 }
