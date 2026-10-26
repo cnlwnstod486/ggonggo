@@ -1,10 +1,41 @@
 {
-    "updated_at": "2026-10-26 07:57:12",
-    "total": 0,
+    "updated_at": "2026-10-26 11:01:13",
+    "total": 2,
     "counts": {
         "alio": 0,
-        "saramin": 0,
+        "saramin": 2,
         "jobkorea": 0
     },
-    "jobs": []
+    "jobs": [
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "(주)애니캐스팅소프트웨어",
+            "title": "[국내 1위 주조해석 SW기업] 주조해석 SW 솔버 개발자 채용",
+            "type": "유지보수, S/W, C++ 외",
+            "location": "서울 강서구",
+            "career": "경력무관 · 정규직",
+            "education": "대학교(4년)↑",
+            "employment": "정보 없음",
+            "deadline": "~11.25(수)",
+            "reg_date": "1시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55387594"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "에스넷시스템(주)",
+            "title": "[서울] AI 인프라팀 신입 엔지니어 채용 (GPU서버)",
+            "type": "기술지원, Linux, Ubuntu",
+            "location": "서울 강남구",
+            "career": "신입 · 경력 · 정규직",
+            "education": "대학(2,3년)↑",
+            "employment": "정보 없음",
+            "deadline": "~11.15(일)",
+            "reg_date": "2시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55386858"
+        }
+    ]
 }
