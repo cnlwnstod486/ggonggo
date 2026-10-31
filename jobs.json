@@ -1,10 +1,56 @@
 {
-    "updated_at": "2026-10-31 11:58:54",
-    "total": 0,
+    "updated_at": "2026-10-31 18:07:48",
+    "total": 3,
     "counts": {
-        "alio": 0,
-        "saramin": 0,
+        "alio": 2,
+        "saramin": 1,
         "jobkorea": 0
     },
-    "jobs": []
+    "jobs": [
+        {
+            "site": "alio",
+            "site_name": "알리오",
+            "company": "한국보훈복지의료공단",
+            "title": "[중앙보훈병원]2026년 하반기 정규직 및 2027년 정신건강임상심리수련생 채용공고",
+            "type": "공공기관 채용",
+            "location": "서울 \r\n\t\t\t\t\t\t\t\t\t\t외 1",
+            "career": "정보 없음",
+            "education": "정보 없음",
+            "employment": "비정규직 \r\n\t\t\t\t\t\t\t\t\t\t외 1",
+            "deadline": "26.11.13 D-12",
+            "reg_date": "2026.10.30",
+            "status": "진행중",
+            "link": "https://job.alio.go.kr/recruitview.do?idx=306556"
+        },
+        {
+            "site": "alio",
+            "site_name": "알리오",
+            "company": "독립기념관",
+            "title": "2026년 독립기념관 하반기 직원 채용공고",
+            "type": "공공기관 채용",
+            "location": "충남",
+            "career": "정보 없음",
+            "education": "정보 없음",
+            "employment": "정규직",
+            "deadline": "26.11.12 D-11",
+            "reg_date": "2026.10.28",
+            "status": "진행중",
+            "link": "https://job.alio.go.kr/recruitview.do?idx=306408"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "(주)퓨처젠커머스",
+            "title": "[용인에버랜드] 전산실 상주근무자 채용(POS, 타블릿, 게이트)",
+            "type": "유지보수",
+            "location": "경기 용인시 처인구",
+            "career": "경력무관 · 정규직",
+            "education": "고졸↑",
+            "employment": "정보 없음",
+            "deadline": "채용시",
+            "reg_date": "2시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55446715"
+        }
+    ]
 }
