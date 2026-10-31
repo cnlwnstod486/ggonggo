@@ -1,8 +1,8 @@
 {
-    "updated_at": "2026-10-31 18:07:48",
-    "total": 3,
+    "updated_at": "2026-11-01 01:24:57",
+    "total": 2,
     "counts": {
-        "alio": 2,
+        "alio": 1,
         "saramin": 1,
         "jobkorea": 0
     },
@@ -23,21 +23,6 @@
             "link": "https://job.alio.go.kr/recruitview.do?idx=306556"
         },
         {
-            "site": "alio",
-            "site_name": "알리오",
-            "company": "독립기념관",
-            "title": "2026년 독립기념관 하반기 직원 채용공고",
-            "type": "공공기관 채용",
-            "location": "충남",
-            "career": "정보 없음",
-            "education": "정보 없음",
-            "employment": "정규직",
-            "deadline": "26.11.12 D-11",
-            "reg_date": "2026.10.28",
-            "status": "진행중",
-            "link": "https://job.alio.go.kr/recruitview.do?idx=306408"
-        },
-        {
             "site": "saramin",
             "site_name": "사람인",
             "company": "(주)퓨처젠커머스",
@@ -48,7 +33,7 @@
             "education": "고졸↑",
             "employment": "정보 없음",
             "deadline": "채용시",
-            "reg_date": "2시간 전 등록",
+            "reg_date": "10시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55446715"
         }
