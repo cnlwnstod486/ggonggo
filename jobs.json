@@ -1,9 +1,9 @@
 {
-    "updated_at": "2026-11-02 02:19:33",
-    "total": 2,
+    "updated_at": "2026-11-02 06:25:49",
+    "total": 3,
     "counts": {
         "alio": 2,
-        "saramin": 0,
+        "saramin": 1,
         "jobkorea": 0
     },
     "jobs": [
@@ -36,6 +36,21 @@
             "reg_date": "2026.10.30",
             "status": "진행중",
             "link": "https://job.alio.go.kr/recruitview.do?idx=306556"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "(주)관악",
+            "title": "[동탄역골프장]리베라cc 업무지원팀 사무직 채용",
+            "type": "기술지원, 총무, 안전관리자",
+            "location": "경기 화성시",
+            "career": "경력무관 · 정규직",
+            "education": "대학교(4년)↑",
+            "employment": "정보 없음",
+            "deadline": "~12.01(화)",
+            "reg_date": "20시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55448065"
         }
     ]
 }
