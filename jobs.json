@@ -1,9 +1,9 @@
 {
-    "updated_at": "2026-11-02 06:25:49",
-    "total": 3,
+    "updated_at": "2026-11-02 11:58:46",
+    "total": 8,
     "counts": {
         "alio": 2,
-        "saramin": 1,
+        "saramin": 6,
         "jobkorea": 0
     },
     "jobs": [
@@ -17,7 +17,7 @@
             "career": "정보 없음",
             "education": "정보 없음",
             "employment": "비정규직",
-            "deadline": "26.11.16 D-14",
+            "deadline": "26.11.16 D-13",
             "reg_date": "2026.11.02",
             "status": "진행중",
             "link": "https://job.alio.go.kr/recruitview.do?idx=306406"
@@ -32,7 +32,7 @@
             "career": "정보 없음",
             "education": "정보 없음",
             "employment": "비정규직 \r\n\t\t\t\t\t\t\t\t\t\t외 1",
-            "deadline": "26.11.13 D-11",
+            "deadline": "26.11.13 D-10",
             "reg_date": "2026.10.30",
             "status": "진행중",
             "link": "https://job.alio.go.kr/recruitview.do?idx=306556"
@@ -40,17 +40,92 @@
         {
             "site": "saramin",
             "site_name": "사람인",
-            "company": "(주)관악",
-            "title": "[동탄역골프장]리베라cc 업무지원팀 사무직 채용",
-            "type": "기술지원, 총무, 안전관리자",
-            "location": "경기 화성시",
-            "career": "경력무관 · 정규직",
-            "education": "대학교(4년)↑",
+            "company": "(주)디지털대성",
+            "title": "(주)디지털대성 IT운영실(IT인프라 및 보안운영) 신입/경력 채용",
+            "type": "유지보수, SE(시스템엔지니어), 네트워크 외",
+            "location": "서울 서초구",
+            "career": "신입 · 경력 · 정규직",
+            "education": "대학(2,3년)↑",
+            "employment": "정보 없음",
+            "deadline": "~11.15(일)",
+            "reg_date": "1시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55451691"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "(주)한국기능공사",
+            "title": "한국기능공사 본부별 신입/경력 채용",
+            "type": "유지보수, SE(시스템엔지니어), 네트워크 외",
+            "location": "충북 음성군 외",
+            "career": "신입 · 경력 · 정규직",
+            "education": "고졸↑",
             "employment": "정보 없음",
             "deadline": "~12.01(화)",
-            "reg_date": "20시간 전 등록",
+            "reg_date": "2시간 전 등록",
             "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55448065"
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55451063&adsCategoryItem=effect_bold&"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "(주)엠브레이스",
+            "title": "[강소기업 엠브레이스] 시스템 엔지니어 신입/경력 채용",
+            "type": "Linux, HTTP",
+            "location": "서울 영등포구",
+            "career": "신입 · 경력 · 정규직",
+            "education": "대학(2,3년)↑",
+            "employment": "정보 없음",
+            "deadline": "~11.30(월)",
+            "reg_date": "2시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55451008"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "(주)무솔",
+            "title": "[신입/경력] 보안 솔루션 네트워크 인프라 엔지니어 채용",
+            "type": "기술지원, 보안컨설팅, 유지보수 외",
+            "location": "서울 금천구",
+            "career": "경력무관 · 정규직",
+            "education": "학력무관",
+            "employment": "정보 없음",
+            "deadline": "~12.02(수)",
+            "reg_date": "2시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55450659"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "(주)우신켐텍",
+            "title": "[우신켐텍]  총무/전산 인재 채용",
+            "type": "백엔드/서버개발, 네트워크, 방화벽 외",
+            "location": "서울 중구",
+            "career": "신입 · 경력 · 정규직 외",
+            "education": "대학(2,3년)↑",
+            "employment": "정보 없음",
+            "deadline": "~01.01(금)",
+            "reg_date": "2시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55450221"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "(주)골프프렌드",
+            "title": "[골프프렌드]  영업물류 신입/경력직 - 데이터관리",
+            "type": "기술지원, 데이터분석가, 데이터엔지니어 외",
+            "location": "서울 서초구",
+            "career": "경력무관 · 정규직 외",
+            "education": "고졸↑",
+            "employment": "정보 없음",
+            "deadline": "~11.15(일)",
+            "reg_date": "3시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55449669"
         }
     ]
 }
