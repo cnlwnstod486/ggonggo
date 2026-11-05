@@ -1,9 +1,9 @@
 {
-    "updated_at": "2026-11-05 18:59:23",
-    "total": 13,
+    "updated_at": "2026-11-06 04:09:47",
+    "total": 12,
     "counts": {
-        "alio": 4,
-        "saramin": 9,
+        "alio": 2,
+        "saramin": 10,
         "jobkorea": 0
     },
     "jobs": [
@@ -38,36 +38,6 @@
             "link": "https://job.alio.go.kr/recruitview.do?idx=306535"
         },
         {
-            "site": "alio",
-            "site_name": "알리오",
-            "company": "한국관광공사",
-            "title": "2026년 한국관광공사 개방형직위(정보보안파트장) 공개 모집",
-            "type": "공공기관 채용",
-            "location": "강원",
-            "career": "정보 없음",
-            "education": "정보 없음",
-            "employment": "비정규직 \r\n\t\t\t\t\t\t\t\t\t\t외 1",
-            "deadline": "26.11.16 D-10",
-            "reg_date": "2026.11.02",
-            "status": "진행중",
-            "link": "https://job.alio.go.kr/recruitview.do?idx=306588"
-        },
-        {
-            "site": "alio",
-            "site_name": "알리오",
-            "company": "한국사회보장정보원",
-            "title": "한국사회보장정보원 2026년도 제4차 직원 채용공고",
-            "type": "공공기관 채용",
-            "location": "서울",
-            "career": "정보 없음",
-            "education": "정보 없음",
-            "employment": "비정규직",
-            "deadline": "26.11.16 D-10",
-            "reg_date": "2026.11.02",
-            "status": "진행중",
-            "link": "https://job.alio.go.kr/recruitview.do?idx=306406"
-        },
-        {
             "site": "saramin",
             "site_name": "사람인",
             "company": "(주)엠엑스온",
@@ -78,7 +48,7 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "~12.04(금)",
-            "reg_date": "1시간 전 등록",
+            "reg_date": "10시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55496522"
         },
@@ -93,7 +63,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~11.15(일)",
-            "reg_date": "1시간 전 등록",
+            "reg_date": "10시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55496427"
         },
@@ -108,9 +78,24 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "채용시",
-            "reg_date": "1시간 전 등록",
+            "reg_date": "11시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55496181"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "(주)애니캐스팅소프트웨어",
+            "title": "주조해석 SW 솔버 개발자 신입 채용",
+            "type": "유지보수, S/W, AI(인공지능) 외",
+            "location": "서울 강서구",
+            "career": "신입 · 정규직",
+            "education": "대학교(4년)↑",
+            "employment": "정보 없음",
+            "deadline": "~12.05(토)",
+            "reg_date": "11시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55495561"
         },
         {
             "site": "saramin",
@@ -123,7 +108,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~01.04(월)",
-            "reg_date": "3시간 전 등록",
+            "reg_date": "12시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55495080"
         },
@@ -138,7 +123,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~11.25(수)",
-            "reg_date": "3시간 전 등록",
+            "reg_date": "12시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55494807&adsCategoryItem=effect_bold&"
         },
@@ -153,7 +138,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~12.05(토)",
-            "reg_date": "4시간 전 등록",
+            "reg_date": "13시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55494356"
         },
@@ -168,7 +153,7 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "~12.05(토)",
-            "reg_date": "7시간 전 등록",
+            "reg_date": "16시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55492172"
         },
@@ -183,7 +168,7 @@
             "education": "고졸↑",
             "employment": "정보 없음",
             "deadline": "~11.22(일)",
-            "reg_date": "7시간 전 등록",
+            "reg_date": "17시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55492024&adsCategoryItem=effect_bold&"
         },
@@ -198,7 +183,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "상시채용",
-            "reg_date": "8시간 전 등록",
+            "reg_date": "17시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55491591"
         }
