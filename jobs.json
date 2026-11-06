@@ -1,9 +1,9 @@
 {
-    "updated_at": "2026-11-06 19:00:50",
+    "updated_at": "2026-11-07 03:36:51",
     "total": 13,
     "counts": {
-        "alio": 2,
-        "saramin": 11,
+        "alio": 1,
+        "saramin": 12,
         "jobkorea": 0
     },
     "jobs": [
@@ -23,19 +23,19 @@
             "link": "https://job.alio.go.kr/recruitview.do?idx=306704"
         },
         {
-            "site": "alio",
-            "site_name": "알리오",
-            "company": "국립생태원",
-            "title": "2026년 제2차 국립생태원 기간제근로자(육아휴직 대체) 채용 공고",
-            "type": "공공기관 채용",
-            "location": "충남",
-            "career": "정보 없음",
-            "education": "정보 없음",
-            "employment": "비정규직",
-            "deadline": "26.11.17 D-10",
-            "reg_date": "2026.11.03",
-            "status": "진행중",
-            "link": "https://job.alio.go.kr/recruitview.do?idx=306535"
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "에이스휴먼파워(주)",
+            "title": "[셔틀버스/프랑스어능통자]포티투닷 음성 데이터라벨링 채용",
+            "type": "데이터분석가, 데이터엔지니어, 백엔드/서버개발 외",
+            "location": "경기 성남시 수정구 외",
+            "career": "경력무관 · 계약직 외",
+            "education": "고졸↑",
+            "employment": "정보 없음",
+            "deadline": "~11.21(토)",
+            "reg_date": "9시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55508521"
         },
         {
             "site": "saramin",
@@ -48,7 +48,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~12.06(일)",
-            "reg_date": "2시간 전 등록",
+            "reg_date": "10시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55507375"
         },
@@ -63,9 +63,9 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~12.06(일)",
-            "reg_date": "2시간 전 등록",
+            "reg_date": "11시간 전 등록",
             "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55506833"
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55506833&adsCategoryItem=effect_bold&"
         },
         {
             "site": "saramin",
@@ -78,9 +78,24 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "~12.04(금)",
-            "reg_date": "2시간 전 등록",
+            "reg_date": "11시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55506822"
+        },
+        {
+            "site": "saramin",
+            "site_name": "사람인",
+            "company": "깨끗한나라(주)",
+            "title": "[깨끗한나라] 2026년 11월 수시채용",
+            "type": "SAP, 영업관리, 영업지원 외",
+            "location": "서울 용산구",
+            "career": "신입 · 경력 · 정규직",
+            "education": "고졸↑",
+            "employment": "정보 없음",
+            "deadline": "~11.15(일)",
+            "reg_date": "11시간 전 등록",
+            "status": "",
+            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55506394"
         },
         {
             "site": "saramin",
@@ -93,7 +108,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "채용시",
-            "reg_date": "4시간 전 등록",
+            "reg_date": "12시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55505701"
         },
@@ -108,7 +123,7 @@
             "education": "고졸↑",
             "employment": "정보 없음",
             "deadline": "~11.21(토)",
-            "reg_date": "4시간 전 등록",
+            "reg_date": "12시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55505523"
         },
@@ -123,7 +138,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "~12.06(일)",
-            "reg_date": "5시간 전 등록",
+            "reg_date": "13시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55504966"
         },
@@ -138,7 +153,7 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "상시채용",
-            "reg_date": "5시간 전 등록",
+            "reg_date": "14시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55504681"
         },
@@ -153,7 +168,7 @@
             "education": "대학(2,3년)↑",
             "employment": "정보 없음",
             "deadline": "채용시",
-            "reg_date": "7시간 전 등록",
+            "reg_date": "16시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55503126"
         },
@@ -168,7 +183,7 @@
             "education": "대학교(4년)↑",
             "employment": "정보 없음",
             "deadline": "~12.06(일)",
-            "reg_date": "9시간 전 등록",
+            "reg_date": "17시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55501682"
         },
@@ -183,24 +198,9 @@
             "education": "학력무관",
             "employment": "정보 없음",
             "deadline": "~12.06(일)",
-            "reg_date": "10시간 전 등록",
+            "reg_date": "18시간 전 등록",
             "status": "",
             "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55500850"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "우리신용정보(주)",
-            "title": "2027년 상반기 신입 및 경력직 공개채용",
-            "type": "정보보안, Java, 부동산투자 외",
-            "location": "서울 종로구",
-            "career": "신입 · 경력 · 정규직",
-            "education": "학력무관",
-            "employment": "정보 없음",
-            "deadline": "~11.15(일)",
-            "reg_date": "23시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55497288"
         }
     ]
 }
