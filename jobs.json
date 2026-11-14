@@ -1,9 +1,9 @@
 {
-    "updated_at": "2026-11-14 12:47:42",
-    "total": 6,
+    "updated_at": "2026-11-14 21:37:08",
+    "total": 2,
     "counts": {
         "alio": 2,
-        "saramin": 4,
+        "saramin": 0,
         "jobkorea": 0
     },
     "jobs": [
@@ -36,66 +36,6 @@
             "reg_date": "2026.11.12",
             "status": "진행중",
             "link": "https://job.alio.go.kr/recruitview.do?idx=306965"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "수병원",
-            "title": "수병원 전산팀 모집",
-            "type": "유지보수, 정보보안, 전산총무 외",
-            "location": "경기 수원시 팔달구",
-            "career": "경력무관 · 정규직",
-            "education": "학력무관",
-            "employment": "정보 없음",
-            "deadline": "채용시",
-            "reg_date": "19시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55569548"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "(주)블루에이치알",
-            "title": "[통신비지원/정규직/전화면저] KTCS 서울중앙 유선CS 채용",
-            "type": "네트워크, 사무직, 문서작성 외",
-            "location": "서울 중구 외",
-            "career": "경력무관 · 정규직",
-            "education": "고졸↑",
-            "employment": "정보 없음",
-            "deadline": "상시채용",
-            "reg_date": "19시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55569419"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "바자울정보기술(주)",
-            "title": "국립암센터에서 근무할 신입/경력 개발자",
-            "type": "앱개발, 유지보수, S/W 외",
-            "location": "경기 고양시 일산동구",
-            "career": "신입 · 경력 · 정규직",
-            "education": "대학교(4년)↑",
-            "employment": "정보 없음",
-            "deadline": "~01.12(화)",
-            "reg_date": "21시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55567831"
-        },
-        {
-            "site": "saramin",
-            "site_name": "사람인",
-            "company": "대상정보기술(주)",
-            "title": "[대상정보기술] 각 부문별 신입·경력 채용",
-            "type": "데이터분석가, 데이터엔지니어, 백엔드/서버개발 외",
-            "location": "서울 광진구",
-            "career": "신입 · 경력 · 정규직",
-            "education": "학력무관",
-            "employment": "정보 없음",
-            "deadline": "~11.30(월)",
-            "reg_date": "21시간 전 등록",
-            "status": "",
-            "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=55567519&adsCategoryItem=effect_bold&"
         }
     ]
 }
