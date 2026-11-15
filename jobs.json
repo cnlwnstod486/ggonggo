@@ -1,5 +1,5 @@
 {
-    "updated_at": "2026-11-15 19:02:16",
+    "updated_at": "2026-11-16 03:04:55",
     "total": 2,
     "counts": {
         "alio": 2,
@@ -7,6 +7,21 @@
         "jobkorea": 0
     },
     "jobs": [
+        {
+            "site": "alio",
+            "site_name": "알리오",
+            "company": "한국공정거래조정원",
+            "title": "한국공정거래조정원 2026년 제5차 기간제 근로자 채용 공고",
+            "type": "공공기관 채용",
+            "location": "서울",
+            "career": "정보 없음",
+            "education": "정보 없음",
+            "employment": "비정규직",
+            "deadline": "26.12.01 D-15",
+            "reg_date": "2026.11.16",
+            "status": "진행중",
+            "link": "https://job.alio.go.kr/recruitview.do?idx=306979"
+        },
         {
             "site": "alio",
             "site_name": "알리오",
@@ -21,21 +36,6 @@
             "reg_date": "2026.11.13",
             "status": "진행중",
             "link": "https://job.alio.go.kr/recruitview.do?idx=307027"
-        },
-        {
-            "site": "alio",
-            "site_name": "알리오",
-            "company": "(재)한국보건의료정보원",
-            "title": "2026년 제6차 직원채용 공고",
-            "type": "공공기관 채용",
-            "location": "서울 \r\n\t\t\t\t\t\t\t\t\t\t외 1",
-            "career": "정보 없음",
-            "education": "정보 없음",
-            "employment": "비정규직",
-            "deadline": "26.11.26 D-10",
-            "reg_date": "2026.11.12",
-            "status": "진행중",
-            "link": "https://job.alio.go.kr/recruitview.do?idx=306965"
         }
     ]
 }
